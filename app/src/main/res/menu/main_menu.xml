@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/home"
+            />
+        <item
+            android:id="@+id/nav_Search"
+            android:title="Search"
+            android:icon="@drawable/ic_baseline_search_24"
+            />
+        <item
+            android:id="@+id/nav_Top"
+            android:title="Top"
+            android:icon="@drawable/ic_baseline_filter_list_24"
+            />
+        <item
+            android:id="@+id/nav_Vote"
+            android:title="Vote"
+            android:icon="@drawable/ic_baseline_how_to_vote_24"
+            />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="User">
+
+            <menu>
+                <item
+                    android:id="@+id/nav_edit"
+                    android:title="Edit"
+                    android:icon="@drawable/user"
+                    />
+                <item
+                    android:id="@+id/nav_favs"
+                    android:title="Favorites"
+                    android:icon="@drawable/favs"
+                    />
+                <item
+                    android:id="@+id/nav_out"
+                    android:title="Out"
+                    android:icon="@drawable/logout"
+                    />
+
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="Comminicate">
+        <menu>
+            <item
+                android:id="@+id/nav_Share"
+                android:title="Share"
+                android:icon="@drawable/logout"
+                />
+        </menu>
+    </item>
+
+</menu>
