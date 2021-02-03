@@ -19,6 +19,7 @@ import com.example.filmonerim.model.AllCategories;
 import com.example.filmonerim.model.Banners;
 import com.example.filmonerim.model.CategoryItem;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -40,17 +41,23 @@ import java.util.TimerTask;
     RecyclerView mainRecycler;
     List<AllCategories> allCategoriesList;
 
-
+    // SlideMenu Elements
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_main);
         //Set Full Screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_main);
+        // SlideMenu items
+        drawerLayout=findViewById(R.id.drawer_Lay);
+        navigationView=findViewById(R.id.nav_view);
+        toolbar=findViewById(R.id.toolbar);
 
         indicatoTab=findViewById(R.id.tab_indicator);
         categoryTab=findViewById(R.id.tabLay);
