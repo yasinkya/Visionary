@@ -1,6 +1,7 @@
- package com.example.filmonerim;
-
+package com.example.filmonerim;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,8 +10,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toolbar;
 
 import com.example.filmonerim.Adapter.BannerPageAdapter;
@@ -27,8 +30,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
- public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity
+{
     BannerPageAdapter bannerPageAdapter;
     TabLayout indicatoTab,categoryTab;
     ViewPager bannerviewPager;
@@ -44,20 +47,25 @@ import java.util.TimerTask;
     // SlideMenu Elements
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Set Full Screen
+
+        // -------- Set Full Screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        // SlideMenu items
+        // ------------------------ SlideMenu items-----------------------------
         drawerLayout=findViewById(R.id.drawer_Lay);
         navigationView=findViewById(R.id.nav_view);
-        toolbar=findViewById(R.id.toolbar);
+
+        // ---------------- Navigation Drawer Menu ---------------------
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         indicatoTab=findViewById(R.id.tab_indicator);
         categoryTab=findViewById(R.id.tabLay);
@@ -88,11 +96,10 @@ import java.util.TimerTask;
         TRMbannerlist.add(new Banners(1,"la familia","https://64.media.tumblr.com/1699ae7de166f4968d7b06870e3b68fd/61f85c26e254a608-ba/s1280x1920/499df68329025e5079cd9202f588c3592881fec6.jpg",""));
         TRMbannerlist.add(new Banners(1,"1987","https://64.media.tumblr.com/8dc4b2c2e514a299198552eaeca7ef62/tumblr_pt5be9pGtx1tuobsoo1_1280.jpg","https://www5.zippyshare.com/d/7P0zSOBz/1601616/Run.2020.TRALT.II.mp4"));
 
-
-
         setBannerPageAdapter(seriesBannerslist);  //ON START SET
 
-// KİND CATEGORY - SERIES - MOVIES - TR -TR  (SET BANNERS)
+        
+        //-------------- KİND CATEGORY - SERIES - MOVIES - TR -TR  (SET BANNERS)
         categoryTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -124,7 +131,7 @@ import java.util.TimerTask;
 
         });
 
-// ADD FILMS TO LIST FOR A CATEGORY
+        // ------------------   ADD FILMS TO LIST FOR A CATEGORY
         List<CategoryItem> homeCatItemList = new ArrayList<>();
         homeCatItemList.add(new CategoryItem(1,"Chernobyl","https://64.media.tumblr.com/ec7ab4470919ada6a1b4bbdb55a5dbc1/tumblr_pswgoaTGiO1tuobsoo1_1280.jpg","https://ssdcdn6.xyz/hls/booksofblood-2020-ntg-altyazimp4-3ud9E0zU8PA.mp4"));
         homeCatItemList.add(new CategoryItem(2,"Gattaca","https://64.media.tumblr.com/07a939107981389d5213072b21069bbb/tumblr_pxeuw6FJ3M1tuobsoo1_1280.jpg","https://www749.o0-2.com/token=hDpxW0e2cuiIs9DP3vSULQ/1606501683/88.244.0.0/142/8/70/b29ebd95f6d9d8674c46f679ea4ad708-480p.mp4"));
@@ -138,7 +145,7 @@ import java.util.TimerTask;
         homeCatItemList2.add(new CategoryItem(1,"Love And Monsters","https://www.setfilmizle.vip/wp-content/uploads/2020/11/love-and-monsters-izle.jpg","https://www892.o0-2.com/token=zTHVFpC1hci9NI9fHuFI-g/1607016114/46.154.0.0/134/0/cc/7214ea598a85a66236976105315f3cc0-1080p.mp4"));
         homeCatItemList2.add(new CategoryItem(1,"Voces","https://www.setfilmizle.vip/wp-content/uploads/2020/11/voces-izle.jpg","https://www985.o0-2.com/token=GGAYgt88gF_3rYnHLcYe_w/1607016196/46.154.0.0/145/e/60/bdb14c3b2038436f05f8bdb6340cc60e-1080p.mp4"));
 
-// CREATE AND SET CATEGORY
+        //-------------- CREATE AND SET CATEGORY
         allCategoriesList = new ArrayList<>();
         allCategoriesList.add(new AllCategories(1,"Horror",homeCatItemList));
         allCategoriesList.add(new AllCategories(2,"Comedi",homeCatItemList2));
@@ -148,7 +155,8 @@ import java.util.TimerTask;
 
         setMainRecycler(allCategoriesList);
 
-    }// ON CREATE
+    }
+
 
 //BANNERS PAGE
     private void setBannerPageAdapter(List<Banners> bannersL){
@@ -163,6 +171,7 @@ import java.util.TimerTask;
         indicatoTab.setupWithViewPager(bannerviewPager);
     }
 
+
 //CATEGORY PAGE
     private void setMainRecycler(List<AllCategories> allCategoriesList){
         mainRecycler=findViewById(R.id.main_recycle);
@@ -172,12 +181,14 @@ import java.util.TimerTask;
         mainRecycler.setAdapter(mainRecycleAdapter);
     }
 
+
 // WHEN CHANGE THE KİND categories refresh
     private void setScrDef(){
         nestedScrollView.fullScroll(View.FOCUS_UP);
         nestedScrollView.scrollTo(0,0);
         appBarLayout.setExpanded(true);
      }
+
 
 // BANNER PAGE OUTO SLİDE NEXT
     class AutoSlider extends TimerTask{
@@ -195,4 +206,17 @@ import java.util.TimerTask;
     }
 
 
-}
+// When Back Pressed close slide menu if its open
+     @Override
+     public void onBackPressed() {
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else
+            super.onBackPressed();
+     }
+
+
+
+ }
