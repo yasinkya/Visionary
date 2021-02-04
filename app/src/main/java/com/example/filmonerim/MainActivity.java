@@ -1,4 +1,14 @@
 package com.example.filmonerim;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -7,14 +17,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.Toolbar;
 
 import com.example.filmonerim.Adapter.BannerPageAdapter;
 import com.example.filmonerim.Adapter.MainRecyclerAdapter;
@@ -30,8 +32,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     BannerPageAdapter bannerPageAdapter;
     TabLayout indicatoTab,categoryTab;
     ViewPager bannerviewPager;
@@ -44,10 +45,11 @@ public class MainActivity extends AppCompatActivity
     RecyclerView mainRecycler;
     List<AllCategories> allCategoriesList;
 
+
     // SlideMenu Elements
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
+    //Toolbar toolbar; -->> giving error
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,20 +60,32 @@ public class MainActivity extends AppCompatActivity
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
         // ------------------------ SlideMenu items-----------------------------
         drawerLayout=findViewById(R.id.drawer_Lay);
         navigationView=findViewById(R.id.nav_view);
 
+        //toolbar=(Toolbar)findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
         // ---------------- Navigation Drawer Menu ---------------------
+        navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        // click items
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);   // Default selected item
+
+        //Hide items
+        Menu menu = navigationView.getMenu();
+        menu.findItem(R.id.nav_out).setVisible(false);
 
         indicatoTab=findViewById(R.id.tab_indicator);
         categoryTab=findViewById(R.id.tabLay);
         nestedScrollView=findViewById(R.id.nested_scr);
         appBarLayout=findViewById(R.id.appbar);
-
 
         // SERIES - MOVIES .. ADD TO LISTS
         seriesBannerslist =new ArrayList<>();
@@ -188,6 +202,45 @@ public class MainActivity extends AppCompatActivity
         nestedScrollView.scrollTo(0,0);
         appBarLayout.setExpanded(true);
      }
+
+
+//  Navigation bar items
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.nav_home:
+                    break;
+            case R.id.nav_favs:
+                Intent intent= new Intent(MainActivity.this,FavoritesActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_Search:
+                Toast.makeText(this,"Search",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_Top:
+                Toast.makeText(this,"Top",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_Vote:
+                Toast.makeText(this,"Vote",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_edit:
+                Toast.makeText(this,"Edit",Toast.LENGTH_SHORT).show();
+                Intent login = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(login);
+                break;
+            case R.id.nav_out:
+                Toast.makeText(this,"Out",Toast.LENGTH_SHORT).show();
+                finish();
+                System.exit(0);
+                break;
+            case R.id.nav_Share:
+                Toast.makeText(this,"Share",Toast.LENGTH_SHORT).show();
+                break;
+                    
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
 
 // BANNER PAGE OUTO SLİDE NEXT
