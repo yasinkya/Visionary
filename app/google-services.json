@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "798634460404",
+    "project_id": "movsg-844e5",
+    "storage_bucket": "movsg-844e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798634460404:android:472deaf99e56f233894aa1",
+        "android_client_info": {
+          "package_name": "com.example.filmonerim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798634460404-daj4806em6e6kn24deg9jjnvht20iao0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGPwISV6hEj1rDXYUPjazxAmcExa6z98A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798634460404-daj4806em6e6kn24deg9jjnvht20iao0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
