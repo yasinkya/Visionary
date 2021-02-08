@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "798634460404",
-    "project_id": "movsg-844e5",
-    "storage_bucket": "movsg-844e5.appspot.com"
+    "project_number": "209271101577",
+    "project_id": "movsg-7f9be",
+    "storage_bucket": "movsg-7f9be.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:798634460404:android:472deaf99e56f233894aa1",
+        "mobilesdk_app_id": "1:209271101577:android:8feb624d4e48096e2dce58",
         "android_client_info": {
           "package_name": "com.example.filmonerim"
         }
       },
       "oauth_client": [
         {
-          "client_id": "798634460404-daj4806em6e6kn24deg9jjnvht20iao0.apps.googleusercontent.com",
+          "client_id": "209271101577-6r0kt3215l48q14avol4r838fpv3k6ga.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBGPwISV6hEj1rDXYUPjazxAmcExa6z98A"
+          "current_key": "AIzaSyDq9bpTQUZiHg7eDrTGU-GG7iMAtMhNJEc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "798634460404-daj4806em6e6kn24deg9jjnvht20iao0.apps.googleusercontent.com",
+              "client_id": "209271101577-6r0kt3215l48q14avol4r838fpv3k6ga.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

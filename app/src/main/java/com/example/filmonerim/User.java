@@ -1,11 +1,16 @@
 package com.example.filmonerim;
 
 public class User {
-    String UserName;
-    String Password;
+    public String UserName;
+    public String Password;
 
-    User(String userName,String password){
+    public User() {
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+
+    }
+    public User(String userName,String password){
         this.UserName=userName;
         this.Password=password;
     }
+
 }

@@ -33,6 +33,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     BannerPageAdapter bannerPageAdapter;
     TabLayout indicatoTab,categoryTab;
     ViewPager bannerviewPager;
@@ -46,10 +47,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     List<AllCategories> allCategoriesList;
 
 
+    // USER KEY FOR FAVORITES
+    public String userKey;
+
     // SlideMenu Elements
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    //Toolbar toolbar; -->> giving error
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +63,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //-----------------------------Get user Key from login page and put for add to fb db
+        Intent intent =getIntent();
+        this.userKey=intent.getStringExtra("key");
 
         // ------------------------ SlideMenu items-----------------------------
         drawerLayout=findViewById(R.id.drawer_Lay);
         navigationView=findViewById(R.id.nav_view);
-
-        //toolbar=(Toolbar)findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         // ---------------- Navigation Drawer Menu ---------------------
         navigationView.bringToFront();
@@ -172,44 +175,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-//BANNERS PAGE
-    private void setBannerPageAdapter(List<Banners> bannersL){
-
-        slide =new Timer();
-        slide.scheduleAtFixedRate(new AutoSlider(),6000,8000);
-        indicatoTab.setupWithViewPager(bannerviewPager,true);
-
-        bannerviewPager = findViewById(R.id.bannerPage);
-        bannerPageAdapter=new BannerPageAdapter(this, bannersL);
-        bannerviewPager.setAdapter(bannerPageAdapter);
-        indicatoTab.setupWithViewPager(bannerviewPager);
-    }
-
-
-//CATEGORY PAGE
-    private void setMainRecycler(List<AllCategories> allCategoriesList){
-        mainRecycler=findViewById(R.id.main_recycle);
-        RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
-        mainRecycler.setLayoutManager(layoutManager);
-        mainRecycleAdapter = new MainRecyclerAdapter(this,allCategoriesList);
-        mainRecycler.setAdapter(mainRecycleAdapter);
-    }
-
-
-// WHEN CHANGE THE KİND categories refresh
-    private void setScrDef(){
-        nestedScrollView.fullScroll(View.FOCUS_UP);
-        nestedScrollView.scrollTo(0,0);
-        appBarLayout.setExpanded(true);
-     }
-
-
 //  Navigation bar items
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.nav_home:
-                    break;
+                break;
             case R.id.nav_favs:
                 Intent intent= new Intent(MainActivity.this,FavoritesActivity.class);
                 startActivity(intent);
@@ -225,8 +196,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_edit:
                 Toast.makeText(this,"Edit",Toast.LENGTH_SHORT).show();
-                Intent login = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(login);
+
                 break;
             case R.id.nav_out:
                 Toast.makeText(this,"Out",Toast.LENGTH_SHORT).show();
@@ -236,12 +206,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_Share:
                 Toast.makeText(this,"Share",Toast.LENGTH_SHORT).show();
                 break;
-                    
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
+
+//BANNERS PAGE
+    private void setBannerPageAdapter(List<Banners> bannersL){
+
+        slide =new Timer();
+        slide.scheduleAtFixedRate(new AutoSlider(),6000,8000);
+        indicatoTab.setupWithViewPager(bannerviewPager,true);
+
+        bannerviewPager = findViewById(R.id.bannerPage);
+        bannerPageAdapter=new BannerPageAdapter(this, bannersL);
+        bannerviewPager.setAdapter(bannerPageAdapter);
+        indicatoTab.setupWithViewPager(bannerviewPager);
+    }
+
+//CATEGORY PAGE
+    private void setMainRecycler(List<AllCategories> allCategoriesList){
+        mainRecycler=findViewById(R.id.main_recycle);
+        RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
+        mainRecycler.setLayoutManager(layoutManager);
+        mainRecycleAdapter = new MainRecyclerAdapter(this,allCategoriesList);
+        mainRecycler.setAdapter(mainRecycleAdapter);
+    }
+
+// WHEN CHANGE THE KİND categories refresh
+    private void setScrDef(){
+        nestedScrollView.fullScroll(View.FOCUS_UP);
+        nestedScrollView.scrollTo(0,0);
+        appBarLayout.setExpanded(true);
+     }
 
 // BANNER PAGE OUTO SLİDE NEXT
     class AutoSlider extends TimerTask{
@@ -272,4 +271,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
- }
+}

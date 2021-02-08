@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backlog"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    >
 
 
     <ImageView
@@ -17,70 +18,77 @@
         android:layout_marginTop="100dp"
         app:srcCompat="@drawable/mov" />
 
-    <EditText
-        android:id="@+id/userName"
+    <RelativeLayout
+        android:id="@+id/check"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="150dp"
-        android:drawableLeft="@drawable/person"
-        android:ems="10"
-        android:hint="UserName"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="22sp" />
+        android:layout_alignParentBottom="false"
+        android:visibility="visible">
 
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="150dp"
-        android:ems="10"
-        android:hint="Password"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="22sp"
-        android:inputType="textPassword"
-        android:drawableLeft="@drawable/pass"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/log"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/pass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        app:cardBackgroundColor="#EF3232"
-        app:cardCornerRadius="50dp"
-        app:cardElevation="200dp"
-        tools:ignore="InvalidId">
-
-        <RelativeLayout
-            android:id="@+id/btnLog"
+        <EditText
+            android:id="@+id/userName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true">
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="150dp"
+            android:drawableLeft="@drawable/person"
+            android:ems="10"
+            android:hint="UserName"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="22sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/baloo"
-                android:textColor="@color/white"
-                android:text="Log In"
-                android:textSize="21dp"
-                android:layout_marginTop="10dp"/>
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="150dp"
+            android:drawableLeft="@drawable/pass"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="22sp" />
 
-        </RelativeLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/log"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/pass"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            app:cardBackgroundColor="#EF3232"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="200dp"
+            tools:ignore="InvalidId">
 
-    </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:id="@+id/btnLog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/baloo"
+                    android:text="Log In"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
 
 </RelativeLayout>

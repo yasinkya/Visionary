@@ -25,10 +25,13 @@ public class BannerPageAdapter extends PagerAdapter {
 
     public Context context;
     public List<Banners> bannerList;
+
     public BannerPageAdapter(Context context, List<Banners> bannerList) {
         this.context = context;
         this.bannerList = bannerList;
     }
+
+
 
     @Override
     public int getCount() {
