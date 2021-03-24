@@ -65,7 +65,8 @@ public class BannerPageAdapter extends PagerAdapter {
                 //Toast.makeText(context,bannerList.get(position).getMovieName(),Toast.LENGTH_LONG).show();
 
                 // movieDetails classına film özelliklerini gönder
-                Intent i =new Intent(context, MovieDetails.class);
+
+                Intent i =new Intent(context,MovieDetails.class);
                 i.putExtra("movieId",bannerList.get(position).getMovieId());
                 i.putExtra("movieName",bannerList.get(position).getMovieName());
                 i.putExtra("movieImageUrl",bannerList.get(position).getMovieImgUrl());

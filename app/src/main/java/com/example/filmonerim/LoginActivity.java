@@ -32,24 +32,26 @@ import com.google.firebase.database.ValueEventListener;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
-
             // -------- Set Full Screen
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
 
             //Check before log
             check = (RelativeLayout)findViewById(R.id.check);
             check.setVisibility(View.GONE);
             isAnyLog();
 
+
             // in activity fetch username,pass, button login
             EditText userName=(EditText)findViewById(R.id.userName),
                      pass=(EditText)findViewById(R.id.pass);
             RelativeLayout login = (RelativeLayout)findViewById(R.id.btnLog);
 
+
             //Login Button click event
             login.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View v) {
 
@@ -101,7 +103,8 @@ import com.google.firebase.database.ValueEventListener;
 
         }
 
-// When Back Pressed close slide menu if its open
+
+// When Back Pressed dont close first
         int pressed=0;
         @Override
         public void onBackPressed() {
@@ -140,11 +143,9 @@ import com.google.firebase.database.ValueEventListener;
                             }
                             else
                                 sayac++;
-
                         }
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -153,7 +154,8 @@ import com.google.firebase.database.ValueEventListener;
 
         }
 
-        //
+
+// Change Login Status
         private void changeIntent(String key){
             dbRef.child("Users").child(key).child("LOGIN").setValue("true");
             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
@@ -161,8 +163,11 @@ import com.google.firebase.database.ValueEventListener;
             finishAffinity();
             startActivity(intent);
         }
-
     }
+
+
+
+
 
     //  User user= new User(uName,psw);
     // ADD NEW VALUS -->  dbRef.child("Users").child("002").setValue(user); ---  add

@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     BannerPageAdapter bannerPageAdapter;
@@ -58,10 +59,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // -------- Set Full Screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
 
         //-----------------------------Get user Key from login page and put for add to fb db
         Intent intent =getIntent();
@@ -84,6 +86,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Hide items
         Menu menu = navigationView.getMenu();
         menu.findItem(R.id.nav_out).setVisible(false);
+
+
+
 
         indicatoTab=findViewById(R.id.tab_indicator);
         categoryTab=findViewById(R.id.tabLay);
@@ -213,6 +218,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+
+// When Back Pressed close slide menu if its open
+    @Override
+    public void onBackPressed() {
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else
+            super.onBackPressed();
+    }
+
+
+
+
 //BANNERS PAGE
     private void setBannerPageAdapter(List<Banners> bannersL){
 
@@ -258,16 +278,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-// When Back Pressed close slide menu if its open
-     @Override
-     public void onBackPressed() {
 
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else
-            super.onBackPressed();
-     }
 
 
 

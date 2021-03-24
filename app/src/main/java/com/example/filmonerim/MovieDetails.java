@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +22,8 @@ public class MovieDetails extends AppCompatActivity {
     TextView movieName;
     Button playBtn,favBtn;
 
-    String mNm,mImg,mId,mFU,uKey;
+    String mNm,mImg,mId,mFU;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class MovieDetails extends AppCompatActivity {
 
         // aktarma
         Glide.with(this).load(mImg).into(movieImage);
-        movieName.setText(uKey);
+        movieName.setText(mNm);
 
         //  oynatma butonuna bastığında
         playBtn.setOnClickListener(new View.OnClickListener(){
@@ -60,14 +62,17 @@ public class MovieDetails extends AppCompatActivity {
 
         });
 
+
+
         //favorilere Ekle
         favBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
                 Favorites fav= new Favorites(mFU,mImg,mNm);
-                dbRef.child("Users").child(uKey).child("Favorites").child("2342").setValue("fav");
+                dbRef.child("Users").child("001").child("Favorites").child(String.valueOf((int)(Math.random()*100000))).setValue(fav);
             }
         });
+
 
     }
 }
