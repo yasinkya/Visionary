@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FilmOnerim">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,9 +26,7 @@
             android:screenOrientation="landscape" />
         <activity android:name=".MovieDetails" />
 
-        <activity android:name=".MainActivity">
 
-        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
