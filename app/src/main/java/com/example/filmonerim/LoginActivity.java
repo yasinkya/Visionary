@@ -1,25 +1,33 @@
     package com.example.filmonerim;
 
+    import android.app.Notification;
     import android.content.Intent;
-    import android.os.Bundle;
-    import android.view.View;
-    import android.view.WindowManager;
-    import android.widget.EditText;
-    import android.widget.RelativeLayout;
-    import android.widget.Toast;
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-    import androidx.annotation.NonNull;
-    import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+    import androidx.core.app.NotificationCompat;
+    import androidx.core.app.NotificationManagerCompat;
 
     import com.google.firebase.database.DataSnapshot;
-    import com.google.firebase.database.DatabaseError;
-    import com.google.firebase.database.DatabaseReference;
-    import com.google.firebase.database.FirebaseDatabase;
-    import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+    import static com.example.filmonerim.App.CHANNEL_1_ID;
 
     public class LoginActivity extends AppCompatActivity {
 
     boolean isLogin;
+
+    NotificationManagerCompat notificationManager;
+
     //Firebase reference definition
     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
     FirebaseDatabase database= FirebaseDatabase.getInstance();
@@ -30,11 +38,12 @@
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
+
             // -------- Set Full Screen
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
+            notificationManager = NotificationManagerCompat.from(this);
 
             //Check before log
             check = (RelativeLayout)findViewById(R.id.check);
@@ -74,6 +83,18 @@
                                     if(check.UserName.equals(uName)){
                                         if(check.Password.equals(psw)){
                                             Toast.makeText(LoginActivity.this,"Login Succesful",Toast.LENGTH_SHORT).show();
+
+                                            Notification notification= new NotificationCompat.Builder(LoginActivity.this,CHANNEL_1_ID)
+                                                    .setContentTitle("WELCOME")
+                                                    .setContentText("We glad to see u ")
+                                                    .setSmallIcon(R.drawable.mov)
+                                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                                    .build();
+
+                                            notificationManager.notify(1,notification);
+
+
                                             changeIntent(ds.getKey());
                                             isLogin = true;
                                             break;
