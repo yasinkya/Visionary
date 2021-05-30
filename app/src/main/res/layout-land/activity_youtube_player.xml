@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:screenOrientation="landscape"
-    tools:context=".YoutubePlayer">
+    tools:context=".Screens.YoutubePlayer">
 
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView

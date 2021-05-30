@@ -1,4 +1,4 @@
-package com.example.filmonerim;
+package com.example.filmonerim.model;
 
 public class User {
     public String UserName;

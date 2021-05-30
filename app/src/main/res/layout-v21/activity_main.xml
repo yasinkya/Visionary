@@ -9,7 +9,7 @@
     android:id="@+id/drawer_Lay"
     android:fitsSystemWindows="true"
     app:layout_anchorGravity="fill"
-    tools:context=".MainActivity"
+    tools:context=".Screens.MainActivity"
     tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#000000"
-                    tools:context=".MainActivity">
+                    tools:context=".Screens.MainActivity">
 
 
                     <RelativeLayout

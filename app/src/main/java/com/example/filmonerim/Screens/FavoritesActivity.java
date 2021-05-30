@@ -1,4 +1,4 @@
-package com.example.filmonerim;
+package com.example.filmonerim.Screens;
 
 import android.app.Notification;
 import android.os.Bundle;
@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import static com.example.filmonerim.App.CHANNEL_1_ID;
+import com.example.filmonerim.R;
+
+import static com.example.filmonerim.NotificationChannel.App.CHANNEL_1_ID;
 
 public class FavoritesActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-    package com.example.filmonerim;
+    package com.example.filmonerim.Screens;
 
     import android.app.Notification;
 import android.content.Intent;
@@ -14,13 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.google.firebase.database.DataSnapshot;
+    import com.example.filmonerim.R;
+    import com.example.filmonerim.model.User;
+    import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import static com.example.filmonerim.App.CHANNEL_1_ID;
+import static com.example.filmonerim.NotificationChannel.App.CHANNEL_1_ID;
 
     public class LoginActivity extends AppCompatActivity {
 
@@ -83,9 +85,6 @@ import static com.example.filmonerim.App.CHANNEL_1_ID;
                                     if(check.UserName.equals(uName)){
                                         if(check.Password.equals(psw)){
                                             Toast.makeText(LoginActivity.this,"Login Succesful",Toast.LENGTH_SHORT).show();
-
-
-
 
                                             changeIntent(ds.getKey(),uName);
                                             isLogin = true;
@@ -152,7 +151,7 @@ import static com.example.filmonerim.App.CHANNEL_1_ID;
 // Ekran Değiştir ve Giriş yapılan kullanıcının giriş bilgisini db'de değiştir
         private void changeIntent(String key,String userName){
             dbRef.child("Users").child(key).child("LOGIN").setValue("true");
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("key",key);
             finishAffinity();
 

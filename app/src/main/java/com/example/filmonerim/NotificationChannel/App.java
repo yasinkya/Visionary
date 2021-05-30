@@ -1,4 +1,4 @@
-package com.example.filmonerim;
+package com.example.filmonerim.NotificationChannel;
 
 import android.app.Application;
 import android.app.NotificationChannel;

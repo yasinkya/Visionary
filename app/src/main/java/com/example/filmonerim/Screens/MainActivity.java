@@ -1,4 +1,4 @@
-package com.example.filmonerim;
+package com.example.filmonerim.Screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,12 +20,18 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.filmonerim.Adapter.BannerPageAdapter;
 import com.example.filmonerim.Adapter.MainRecyclerAdapter;
+import com.example.filmonerim.R;
 import com.example.filmonerim.model.AllCategories;
 import com.example.filmonerim.model.Banners;
 import com.example.filmonerim.model.CategoryItem;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +40,10 @@ import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    //FirebaseDatabase
+    DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+    FirebaseDatabase dataBase =FirebaseDatabase.getInstance();
 
     BannerPageAdapter bannerPageAdapter;
     TabLayout indicatoTab,categoryTab;
@@ -48,8 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     List<AllCategories> allCategoriesList;
 
 
-    // USER KEY FOR FAVORITES
-    public String userKey;
 
     // SlideMenu Elements
     DrawerLayout drawerLayout;
@@ -63,11 +71,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
-
-        //-----------------------------Get user Key from login page and put for add to fb db
-        Intent intent =getIntent();
-        this.userKey=intent.getStringExtra("key");
 
         // ------------------------ SlideMenu items-----------------------------
         drawerLayout=findViewById(R.id.drawer_Lay);
@@ -97,8 +100,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 // Tabbarda Gösterilecek olan içeriklerin kategorizesi
 
+        String name,image,video;
+        Banners banner= new Banners(null,null,null,null);
+
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds:snapshot.child("Films").getChildren()){
+                    banner.setMovieId(1);
+                    banner.setMovieName(ds.child("Name").getValue().toString());
+                    banner.setMovieImgUrl(ds.child("ImageUrl").getValue().toString());
+                    banner.setMovieFileUrl(ds.child("VideoId").getValue().toString());
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         seriesBannerslist =new ArrayList<>();
-        seriesBannerslist.add(new Banners(1,"Tenet","https://www.mobilfilm.org/uploads/posts/2020-11/1606248647_tenet-mobil-indir.jpeg","OBawdbFF7M8"));
+        seriesBannerslist.add(banner);
+        //seriesBannerslist.add(new Banners(1,"Tenet","https://www.mobilfilm.org/uploads/posts/2020-11/1606248647_tenet-mobil-indir.jpeg","OBawdbFF7M8"));
         seriesBannerslist.add(new Banners(1,"Captive","https://www.mobilfilm.org/uploads/posts/2021-05/1622061927_captive-katherines-lullaby-mobil-indir.jpg","https://www58.zippyshare.com/d/PgwI9Ccn/37434/Captive.2020.TRALT.3gp"));
         seriesBannerslist.add(new Banners(1,"Unicorn Store","https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTmaiDaPhUwZKar0vusxEdM8ePDCl1f1TCoOH2JOljpCCim9OO1","https://doc-0c-24-docs.googleusercontent.com/docs/securesc/9jsgo988bi685jqimcm92fjtl4b76aje/od8c18oqq146lsp7hjd89hjjdn9tc9kh/1622387025000/04412419014754997686/12004855264844732216/1nkAHD4dR5k9j8GUy09Curgs9CC76P9y0?e=download&authuser=0&nonce=u0cvnskm7vm3m&user=12004855264844732216&hash=bpfgan0npniibgvkiv82d7o229k6sg49"));
 
@@ -190,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 break;
             case R.id.nav_favs:
-                Intent intent= new Intent(MainActivity.this,FavoritesActivity.class);
+                Intent intent= new Intent(MainActivity.this, FavoritesActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_Search:
