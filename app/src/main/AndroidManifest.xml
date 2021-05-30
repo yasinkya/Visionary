@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FilmOnerim">
 
-        <activity android:name=".YoutubePlayer">
+        <activity
+            android:name=".YoutubePlayer"
+            android:screenOrientation="landscape"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

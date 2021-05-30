@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:screenOrientation="landscape"
     tools:context=".YoutubePlayer">
 
@@ -13,6 +13,8 @@
         android:id="@+id/ytbPlayer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:screenOrientation="landscape"
         app:autoPlay="true"
         app:showFullScreenButton="false"
         app:showYouTubeButton="false"
