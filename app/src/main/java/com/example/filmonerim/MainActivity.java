@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         seriesBannerslist =new ArrayList<>();
         seriesBannerslist.add(new Banners(1,"Tenet","https://www.setfilmizle.vip/wp-content/uploads/2020/11/tenet-izle.jpg","https://www134.o0-1.com/token=2X1TGlxkpQWFUp6aoFQXvw/1607092063/88.236.0.0/139/7/57/e525e237e1548f3b1bdb305aa0d27577-1080p.mp4"));
-        seriesBannerslist.add(new Banners(1,"The New Mutants","https://www.setfilmizle.vip/wp-content/uploads/2020/11/the-new-mutants-izle.jpg","https://www913.o0-2.com/token=dz1DHEnkMaZ6TfRU7y-8wQ/1607014632/46.154.0.0/145/9/16/55669cba42d2c4fecddaf765510fc169-720p.mp4"));
+        seriesBannerslist.add(new Banners(1,"Captive","https://www.mobilfilm.org/uploads/posts/2021-05/1622061927_captive-katherines-lullaby-mobil-indir.jpg","https://www58.zippyshare.com/d/PgwI9Ccn/37434/Captive.2020.TRALT.3gp"));
         seriesBannerslist.add(new Banners(1,"Greenland","https://www.setfilmizle.vip/wp-content/uploads/2020/11/greenland-son-siginak-izle.jpg","https://www16.o0-1.com/token=DcbdcXB0ZN_ElnOsZ2HDFQ/1607014940/46.154.0.0/138/2/01/98154bc58c995442171a30c1bbb28012-1080p.mp4"));
 
         moviesBannerlist =new ArrayList<>();

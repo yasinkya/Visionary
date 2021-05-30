@@ -188,14 +188,4 @@ import static com.example.filmonerim.App.CHANNEL_1_ID;
             else
                 super.onBackPressed();
         }
-
-
     }
-
-
-
-
-
-    //  User user= new User(uName,psw);
-    // ADD NEW VALUS -->  dbRef.child("Users").child("002").setValue(user); ---  add
-    //Toast.makeText(LoginActivity.this,ds.getKey(),Toast.LENGTH_SHORT).show();  --key
