@@ -24,9 +24,21 @@ public class YoutubePlayer extends AppCompatActivity {
         getLifecycle().addObserver(player);
 
         player.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+
+            @Override
+            public void onVideoId(YouTubePlayer youTubePlayer, String videoId) {
+                //https://www.youtube.com/watch?v=1mRXuSPdddc
+                if(!videoId.equals("1mRXuSPdddc"))
+                    onReady(youTubePlayer);
+                else
+                    youTubePlayer.play();
+            }
+
+
             @Override
             public void onReady(YouTubePlayer youTubePlayer) {
-                youTubePlayer.loadVideo("zT38i4eF2cE",0);
+                youTubePlayer.loadVideo("1mRXuSPdddc",0);
+
             }
         });
     }
