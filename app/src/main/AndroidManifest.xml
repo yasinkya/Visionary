@@ -16,25 +16,27 @@
 
         <activity
             android:name=".YoutubePlayer"
-            android:screenOrientation="landscape"
-            >
+            android:screenOrientation="landscape">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity android:name=".LoginActivity">
 
         </activity>
+
         <activity android:name=".FavoritesActivity" />
         <activity
             android:name=".VideoPlayerActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".MovieDetails" />
         <activity android:name=".MainActivity" />
+
 
         <meta-data
             android:name="preloaded_fonts"

@@ -16,6 +16,6 @@
         app:autoPlay="true"
         app:showFullScreenButton="false"
         app:showYouTubeButton="false"
-        app:videoId="qzcGfN9S_QY" />
+        />
 
 </LinearLayout>
