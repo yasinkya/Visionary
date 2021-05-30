@@ -1,16 +1,14 @@
 package com.example.filmonerim;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
@@ -54,7 +52,7 @@ public class MovieDetails extends AppCompatActivity {
         //  oynatma butonuna bastığında
         playBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent i = new Intent (MovieDetails.this,VideoPlayerActivity.class); // bu classtan videoplayer classına oynatılacak videonun linkini gönder
+                Intent i = new Intent (MovieDetails.this,YoutubePlayer.class); // bu classtan videoplayer classına oynatılacak videonun linkini gönder
                 i.putExtra("url",mFU);
                 startActivity(i);
 

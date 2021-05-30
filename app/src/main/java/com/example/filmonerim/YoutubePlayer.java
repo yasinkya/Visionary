@@ -19,6 +19,7 @@ public class YoutubePlayer extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        String movieId=getIntent().getStringExtra("url");
 
         YouTubePlayerView player = findViewById(R.id.ytbPlayer);
         getLifecycle().addObserver(player);
@@ -28,7 +29,7 @@ public class YoutubePlayer extends AppCompatActivity {
             @Override
             public void onVideoId(YouTubePlayer youTubePlayer, String videoId) {
                 //https://www.youtube.com/watch?v=1mRXuSPdddc
-                if(!videoId.equals("1mRXuSPdddc"))
+                if(!videoId.equals(movieId))
                     onReady(youTubePlayer);
                 else
                     youTubePlayer.play();
@@ -37,7 +38,7 @@ public class YoutubePlayer extends AppCompatActivity {
 
             @Override
             public void onReady(YouTubePlayer youTubePlayer) {
-                youTubePlayer.loadVideo("1mRXuSPdddc",0);
+                youTubePlayer.loadVideo(movieId,0);
 
             }
         });
