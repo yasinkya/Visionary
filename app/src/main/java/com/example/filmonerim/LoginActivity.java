@@ -1,7 +1,7 @@
     package com.example.filmonerim;
 
     import android.app.Notification;
-    import android.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -11,16 +11,16 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-    import androidx.core.app.NotificationCompat;
-    import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
-    import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-    import static com.example.filmonerim.App.CHANNEL_1_ID;
+import static com.example.filmonerim.App.CHANNEL_1_ID;
 
     public class LoginActivity extends AppCompatActivity {
 
@@ -84,18 +84,10 @@ import com.google.firebase.database.ValueEventListener;
                                         if(check.Password.equals(psw)){
                                             Toast.makeText(LoginActivity.this,"Login Succesful",Toast.LENGTH_SHORT).show();
 
-                                            Notification notification= new NotificationCompat.Builder(LoginActivity.this,CHANNEL_1_ID)
-                                                    .setContentTitle("WELCOME")
-                                                    .setContentText("We glad to see u ")
-                                                    .setSmallIcon(R.drawable.mov)
-                                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                                                    .build();
-
-                                            notificationManager.notify(1,notification);
 
 
-                                            changeIntent(ds.getKey());
+
+                                            changeIntent(ds.getKey(),uName);
                                             isLogin = true;
                                             break;
                                         }
@@ -134,7 +126,7 @@ import com.google.firebase.database.ValueEventListener;
                     long sayac=1;
                     for(DataSnapshot ds : snapshot.child("Users").getChildren()){
                         if(Boolean.parseBoolean( ds.child("LOGIN").getValue().toString())){
-                            changeIntent(ds.getKey());
+                            changeIntent(ds.getKey(),ds.child("UserName").getValue().toString().toUpperCase());
                             break;
                         }
                         else{
@@ -158,11 +150,23 @@ import com.google.firebase.database.ValueEventListener;
 
 
 // Ekran Değiştir ve Giriş yapılan kullanıcının giriş bilgisini db'de değiştir
-        private void changeIntent(String key){
+        private void changeIntent(String key,String userName){
             dbRef.child("Users").child(key).child("LOGIN").setValue("true");
             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
             intent.putExtra("key",key);
             finishAffinity();
+
+        //NOTIFICATION FOR LOG IN
+            Notification notification= new NotificationCompat.Builder(LoginActivity.this,CHANNEL_1_ID)
+                    .setContentTitle("WELCOME")
+                    .setContentText("We glad to see you "+userName)
+                    .setSmallIcon(R.drawable.mov)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                    .build();
+
+            notificationManager.notify(1,notification);
+
             this.startActivity(intent);
         }
 
