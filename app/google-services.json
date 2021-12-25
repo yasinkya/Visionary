@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "429548952783",
+    "firebase_url": "https://visionary-4e870-default-rtdb.firebaseio.com",
+    "project_id": "visionary-4e870",
+    "storage_bucket": "visionary-4e870.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429548952783:android:361a49439ebbb1b91dabba",
+        "android_client_info": {
+          "package_name": "com.yaska.visionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429548952783-386aesqud3114evsgti29okeslc6chui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHOmCKj-6u-Qf9vSX1rylsC2o5MgSM1zE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "429548952783-386aesqud3114evsgti29okeslc6chui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

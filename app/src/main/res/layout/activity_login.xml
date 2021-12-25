@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
+    tools:context=".ActivityLogin"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_marginTop="75dp"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name"
+        app:srcCompat="@drawable/visionary" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carduname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        app:cardBackgroundColor="#48000000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="200dp"
+        tools:ignore="InvalidId">
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="#48ffffff"
+            android:drawableStart="@drawable/user"
+            android:ems="12"
+            android:fontFamily="@font/advent_pro_semibold"
+            android:hint="@string/username"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHint="#48FFFFFF"
+            android:textSize="22sp"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
+            tools:targetApi="lollipop" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/carduname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#48000000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="200dp"
+        tools:ignore="InvalidId">
+
+        <EditText
+            android:id="@+id/et_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="#48ffffff"
+            android:drawableStart="@drawable/pass"
+            android:ems="12"
+            android:fontFamily="@font/advent_pro_semibold"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="#48ffffff"
+            android:textSize="22sp"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
+            tools:targetApi="lollipop" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    Sign Up Options     -->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lay_signup"
+        android:orientation="vertical"
+        android:layout_below="@+id/cardpass"
+        android:layout_centerHorizontal="true"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/carduname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#48000000"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="200dp"
+            tools:ignore="InvalidId">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="#48ffffff"
+                android:ems="12"
+                android:fontFamily="@font/advent_pro_semibold"
+                android:hint="@string/name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textColorHint="#48ffffff"
+                android:textSize="22sp"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
+                tools:targetApi="lollipop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#48000000"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="200dp"
+            tools:ignore="InvalidId">
+
+            <EditText
+                android:id="@+id/et_surname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="#48ffffff"
+                android:ems="12"
+                android:fontFamily="@font/advent_pro_semibold"
+                android:hint="@string/surname"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textColorHint="#48ffffff"
+                android:textSize="22sp"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
+                tools:targetApi="lollipop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#48000000"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="200dp"
+            tools:ignore="InvalidId">
+
+            <EditText
+                android:id="@+id/et_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="#48ffffff"
+                android:ems="12"
+                android:fontFamily="@font/advent_pro_semibold"
+                android:hint="@string/mail"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textColorHint="#48ffffff"
+                android:textSize="22sp"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
+                tools:targetApi="lollipop" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <!--     buttons     -->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lay_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_signup"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_login"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="#EF3232"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="200dp"
+            tools:ignore="InvalidId">
+
+            <TextView
+                android:id="@+id/et_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/advent_pro_semibold"
+                android:text="@string/log_in"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/advent_pro_semibold"
+                android:text="@string/sign_up"
+                android:textColor="#fffff0"
+
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+            <TextView
+                android:id="@+id/btn_forgotpass"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_below="@+id/btnlogin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/advent_pro_semibold"
+                android:text="@string/forgot_password"
+                android:textColor="#fffff0"
+
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</RelativeLayout>
