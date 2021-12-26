@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
-import com.yaska.visionary.database.DatabaseService;
 import com.yaska.visionary.database.UserDB;
 
 import java.util.Objects;
@@ -21,6 +20,18 @@ public class ActivityLogin extends AppCompatActivity {
     boolean signupclicked;
     UserDB userdataBase = new UserDB();
     User user;
+
+    EditText et_username;
+    EditText et_password;
+    EditText et_name;
+    EditText et_surname;
+    EditText et_mail;
+
+    CardView btn_login;
+    TextView logintext;
+    TextView btn_signup;
+    TextView btn_forgot;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +40,19 @@ public class ActivityLogin extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-
         LinearLayoutCompat laysignup = findViewById(R.id.lay_signup);
         laysignup.setVisibility(View.GONE);
 
-        EditText et_username = findViewById(R.id.et_username);
-        EditText et_password = findViewById(R.id.et_pass);
-        EditText et_name = findViewById(R.id.et_name);
-        EditText et_surname = findViewById(R.id.et_surname);
-        EditText et_mail = findViewById(R.id.et_mail);
+        et_username = findViewById(R.id.et_username);
+        et_password = findViewById(R.id.et_pass);
+        et_name = findViewById(R.id.et_name);
+        et_surname = findViewById(R.id.et_surname);
+        et_mail = findViewById(R.id.et_mail);
 
-        CardView btn_login = findViewById(R.id.btn_login);
-        TextView logintext = findViewById(R.id.et_login);
-        TextView btn_signup = findViewById(R.id.btn_signup);
-        TextView btn_forgot = findViewById(R.id.btn_forgotpass);
+        btn_login = findViewById(R.id.btn_login);
+        logintext = findViewById(R.id.et_login);
+        btn_signup = findViewById(R.id.btn_signup);
+        btn_forgot = findViewById(R.id.btn_forgotpass);
 
         btn_login.setOnClickListener(v -> {
 
@@ -70,30 +80,19 @@ public class ActivityLogin extends AppCompatActivity {
                     Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-//                    userdataBase.check_password(username, password, loginResult -> {
-//                        String result = userdataBase.loginResult;
-//                        switch (result){
-//                            case "ok":
-//                                String yaska = userdataBase.yaska;
-//                                this.user = userdataBase.returnUser;
-//                                Toast.makeText(ActivityLogin.this, "Welcome "+yaska, Toast.LENGTH_SHORT).show();
-//                                break;
-//                            case "wrongpass":
-//                                Toast.makeText(ActivityLogin.this, "Wrong Password! "+username, Toast.LENGTH_SHORT).show();
-//                                break;
-//                            case "wronguser":
-//                                Toast.makeText(ActivityLogin.this, "Username " + username + " Not Found!", Toast.LENGTH_SHORT).show();
-//                                break;
-//
-//                        }
-//
-//                    });
-                    userdataBase.check_passw(username, returnUser -> {
-                        this.user = userdataBase.returnUser;
-                        if(this.user.Password.equals(password))
-                            Toast.makeText(ActivityLogin.this, "Welcome", Toast.LENGTH_SHORT).show();
+                    userdataBase.check_user(username, returnUser -> {
+                        if (userdataBase.returnUser != null){
+                            user = userdataBase.returnUser;
+                            if (user.Password.equals(password)){
+                                Toast.makeText(ActivityLogin.this, "Welcome", Toast.LENGTH_SHORT).show();
+
+                            }
+                            else
+                                Toast.makeText(ActivityLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+
+                        }
                         else
-                            Toast.makeText(ActivityLogin.this, "not logged", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ActivityLogin.this, "User Not Found", Toast.LENGTH_SHORT).show();
 
                     });
 
@@ -103,6 +102,7 @@ public class ActivityLogin extends AppCompatActivity {
         });
 
         btn_signup.setOnClickListener(v -> {
+            clean_fields();
             if (signupclicked){
                 laysignup.setVisibility(View.GONE);
                 btn_forgot.setEnabled(true);
@@ -123,10 +123,14 @@ public class ActivityLogin extends AppCompatActivity {
                 Toast.makeText(ActivityLogin.this, "unutma amk", Toast.LENGTH_SHORT).show());
 
 
+    }
 
-
-
-
-
+    private void clean_fields(){
+        et_username.setText("");
+        et_username.requestFocus();
+        et_password.setText("");
+        et_name.setText("");
+        et_surname.setText("");
+        et_mail.setText("");
     }
 }
