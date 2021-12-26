@@ -4,6 +4,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primarydark">#2D2D2D</color>
     <color name="primary">#3C3C3C</color>
-    <color name="textprimwhite">#fffff0</color>
+    <color name="textprimwhite">#E1E1D2</color>
     <color name="winbackcolor">#282828</color>
+    <color name="purple">#A028AF</color>
+    <color name="visionaryred">#E74A3A</color>
+    <color name="darker">#0F0F0F</color>
+    <color name="tabcolor">#0c0c0c</color>
+    <color name="tabtextcolor">#555555</color>
+    <color name="primaryblue">#14141E</color>
 </resources>

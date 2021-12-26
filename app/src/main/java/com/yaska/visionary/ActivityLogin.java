@@ -1,6 +1,7 @@
 package com.yaska.visionary;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import androidx.cardview.widget.CardView;
 
 import com.yaska.visionary.database.UserDB;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 public class ActivityLogin extends AppCompatActivity {
@@ -38,7 +40,6 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
 
         LinearLayoutCompat laysignup = findViewById(R.id.lay_signup);
         laysignup.setVisibility(View.GONE);
@@ -60,7 +61,6 @@ public class ActivityLogin extends AppCompatActivity {
             String password = et_password.getText().toString();
 
             if (signupclicked){
-                Toast.makeText(ActivityLogin.this, "kayıt ol", Toast.LENGTH_SHORT).show();
 
                 String name = et_name.getText().toString();
                 String surname = et_surname.getText().toString();
@@ -70,7 +70,7 @@ public class ActivityLogin extends AppCompatActivity {
                     Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(ActivityLogin.this, "kayıt olunuyo", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityLogin.this, "kayıt olunuyor", Toast.LENGTH_SHORT).show();
                     userdataBase.new_user(new User(name, surname, mail, username, password), username);
                 }
 
@@ -85,7 +85,7 @@ public class ActivityLogin extends AppCompatActivity {
                             user = userdataBase.returnUser;
                             if (user.Password.equals(password)){
                                 Toast.makeText(ActivityLogin.this, "Welcome", Toast.LENGTH_SHORT).show();
-
+                                changeIntent(user);
                             }
                             else
                                 Toast.makeText(ActivityLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
@@ -132,5 +132,28 @@ public class ActivityLogin extends AppCompatActivity {
         et_name.setText("");
         et_surname.setText("");
         et_mail.setText("");
+    }
+
+    // Ekran Değiştir ve Giriş yapılan kullanıcının giriş bilgisini db'de değiştir
+    private void changeIntent(User user){
+        Intent intent = new Intent(ActivityLogin.this, ActivityMainPage.class);
+        intent.putExtra("user", user);
+        finishAffinity();
+
+        this.startActivity(intent);
+    }
+
+
+    // When Back Pressed dont close at first
+    int pressed=0;
+    @Override
+    public void onBackPressed() {
+        if (pressed == 0){
+            Toast.makeText(ActivityLogin.this, "Press again for exit", Toast.LENGTH_SHORT).show();
+            pressed++;
+        }
+        else{
+            super.onBackPressed();
+        }
     }
 }

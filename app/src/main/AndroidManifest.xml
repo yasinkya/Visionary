@@ -9,15 +9,29 @@
         android:roundIcon="@mipmap/appicon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Visionary">
+
+        <activity
+            android:name=".ActivityMainPage"
+            android:exported="true" >
+
+
+
+        </activity>
+
         <activity
             android:name=".ActivityLogin"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+<!--            intent open main -->
+
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

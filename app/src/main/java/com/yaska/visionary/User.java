@@ -1,6 +1,8 @@
 package com.yaska.visionary;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     public String Name;
     public String SurName;
     public String Mail;
