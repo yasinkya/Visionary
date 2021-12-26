@@ -9,8 +9,9 @@
     android:id="@+id/lay_main"
     android:fitsSystemWindows="true"
     app:layout_anchorGravity="fill"
-    tools:openDrawer=""
-
+    tools:openDrawer="end"
+    android:background="@color/primaryblue"
+    android:orientation="vertical"
     >
 
     <com.google.android.material.navigation.NavigationView
@@ -23,18 +24,18 @@
         android:background="#1E1E28"
         app:itemTextColor="#E1E1D2"
         app:itemShapeFillColor="#282832"
-
-        />
+        tools:ignore="RtlHardcoded" />
 
     <ScrollView
         android:id="@+id/view_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
         >
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-105dp">
+            >
 
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/appbar"
@@ -105,12 +106,10 @@
 
             </com.google.android.material.appbar.AppBarLayout>
 
-
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/nested_scroll"
-                android:layout_marginBottom="105dp"
                 android:background="@color/primaryblue"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                 >
@@ -171,6 +170,5 @@
 
 
     </ScrollView>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

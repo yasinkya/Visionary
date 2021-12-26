@@ -21,8 +21,10 @@ public class ActivityMainPage extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        user = (User) getIntent().getSerializableExtra("user");
-        Toast.makeText(ActivityMainPage.this, user.UserName, Toast.LENGTH_SHORT).show();
+//        user = (User) getIntent().getSerializableExtra("user");
+//        Toast.makeText(ActivityMainPage.this, user.UserName, Toast.LENGTH_SHORT).show();
+
+
 
     }
 }
