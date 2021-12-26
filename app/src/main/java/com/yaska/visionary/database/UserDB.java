@@ -33,7 +33,7 @@ public class UserDB extends DatabaseService {
         usersref.child(userName).removeValue();
     }
 
-    public void check(String userName, String pass, final FirebaseCallback firebaseCallback){
+    public void check_password(String userName, String pass, final UserDBCallback firebaseCallback){
        ValueEventListener valueEventListener = new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -43,15 +43,14 @@ public class UserDB extends DatabaseService {
                        if (pass.equals(ds.child("Account").child("Password").getValue()))
                            loginResult = "ok";
                        else
-                           loginResult = ds.child("Account").child("Password").getValue().toString();
+                           loginResult = "wrongpass";
                    }
                    else
                        userCounter++;
                    if (userCounter == snapshot.getChildrenCount())
-                       loginResult = String.valueOf(snapshot.getChildrenCount());
-
+                       loginResult = "wronguser";
                }
-               firebaseCallback.onCallback(loginResult);
+               firebaseCallback.onUserDBCallback(loginResult);
            }
 
            @Override
@@ -62,49 +61,7 @@ public class UserDB extends DatabaseService {
        usersref.addValueEventListener(valueEventListener);
     }
 
-    public String check_paswd(String username, String passwd){
-
-        usersref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                short userCounter = 0;
-                loginResult = snapshot.getKey();
-
-
-                for (DataSnapshot ds: snapshot.getChildren()){
-                    loginResult = ds.getKey();
-                }
-
-
-//                for (DataSnapshot ds:snapshot.getChildren()){
-//
-//                    if(username.equals(ds.getKey().toString())){
-//                        if (passwd.equals(ds.child(username).child("userInfo").child("Password").getValue().toString())){
-//                            loginResult = "ok";
-//                            return;
-//                        }
-//                        else{
-//                            loginResult = "erpsw";
-//                        }
-//                    }
-//                    else
-//                        userCounter++;
-//
-//                    if (userCounter == ds.getChildrenCount())
-//                        loginResult = String.valueOf(ds.getChildrenCount()) + "bulunamadı";
-//                }
-//
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                loginResult = "noluyo";
-            }
-
-        });
-
-
-        return loginResult;
-    }
-
 
 }
+
+

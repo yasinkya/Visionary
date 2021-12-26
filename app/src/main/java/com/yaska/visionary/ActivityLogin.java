@@ -1,9 +1,5 @@
 package com.yaska.visionary;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.cardview.widget.CardView;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +7,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yaska.visionary.database.FirebaseCallback;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.cardview.widget.CardView;
+
 import com.yaska.visionary.database.UserDB;
 
 import java.util.Objects;
@@ -21,14 +20,12 @@ public class ActivityLogin extends AppCompatActivity {
     boolean signupclicked;
     UserDB userdataBase = new UserDB();
     User user;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // -------- Set Full Screen
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 
@@ -46,91 +43,72 @@ public class ActivityLogin extends AppCompatActivity {
         TextView btn_signup = findViewById(R.id.btn_signup);
         TextView btn_forgot = findViewById(R.id.btn_forgotpass);
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btn_login.setOnClickListener(v -> {
 
-                String username = et_username.getText().toString();
-                String password = et_password.getText().toString();
+            String username = et_username.getText().toString();
+            String password = et_password.getText().toString();
 
-                if (signupclicked){
-                    Toast.makeText(ActivityLogin.this, "kayıt ol", Toast.LENGTH_SHORT).show();
+            if (signupclicked){
+                Toast.makeText(ActivityLogin.this, "kayıt ol", Toast.LENGTH_SHORT).show();
 
-                    String name = et_name.getText().toString();
-                    String surname = et_surname.getText().toString();
-                    String mail = et_mail.getText().toString();
+                String name = et_name.getText().toString();
+                String surname = et_surname.getText().toString();
+                String mail = et_mail.getText().toString();
 
-                    if(username.equals("") || password.equals("") || name.equals("") || surname.equals("") || mail.equals("")){
-                        Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
-
-                    }
-                    else{
-                        Toast.makeText(ActivityLogin.this, "kayıt olunuyo", Toast.LENGTH_SHORT).show();
-                        userdataBase.new_user(new User(name, surname, mail, password), username);
-                    }
-
+                if(username.equals("") || password.equals("") || name.equals("") || surname.equals("") || mail.equals("")){
+                    Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    if(username.equals("") || password.equals("")){
-                        Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-//                        String result = userdataBase.check_paswd(username, password);
-                        userdataBase.check(username, password, new FirebaseCallback() {
-                            @Override
-                            public void onCallback(String loginResult) {
-                                String result = userdataBase.loginResult;
-                                Toast.makeText(ActivityLogin.this, result, Toast.LENGTH_SHORT).show();
-
-                            }
-
-                        });
-//                        String result = userdataBase.check_paswd(username, password);
-
-
-//                        if (result.equals("ok")){
-//                            Toast.makeText(ActivityLogin.this, "Welcome "+username, Toast.LENGTH_SHORT).show();
-//                        }
-//                        else if (result.equals("erpsw")){
-//                            Toast.makeText(ActivityLogin.this, "Wrong Password! "+username, Toast.LENGTH_SHORT).show();
-//                        }
-//                        else if (result.equals("nouser")){
-//                            Toast.makeText(ActivityLogin.this, "Username Not Found "+username, Toast.LENGTH_SHORT).show();
-//
-//                        }
-                    }
-
+                    Toast.makeText(ActivityLogin.this, "kayıt olunuyo", Toast.LENGTH_SHORT).show();
+                    userdataBase.new_user(new User(name, surname, mail, password), username);
                 }
-            }
-        });
 
-        btn_signup.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                if (signupclicked){
-                    laysignup.setVisibility(View.GONE);
-                    btn_forgot.setEnabled(true);
-                    btn_signup.setText("Sign Up");
-                    logintext.setText("Login");
-                    signupclicked = false;
+            }
+            else{
+                if(username.equals("") || password.equals("")){
+                    Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    laysignup.setVisibility(View.VISIBLE);
-                    btn_signup.setText("Login");
-                    logintext.setText("Sign Up");
-                    btn_forgot.setEnabled(false);
-                    signupclicked = true;
+                    userdataBase.check_password(username, password, loginResult -> {
+                        String result = userdataBase.loginResult;
+                        switch (result){
+                            case "ok":
+                                Toast.makeText(ActivityLogin.this, "Welcome "+username, Toast.LENGTH_SHORT).show();
+                                break;
+                            case "wrongpass":
+                                Toast.makeText(ActivityLogin.this, "Wrong Password! "+username, Toast.LENGTH_SHORT).show();
+                                break;
+                            case "wronguser":
+                                Toast.makeText(ActivityLogin.this, "Username " + username + " Not Found!", Toast.LENGTH_SHORT).show();
+                                break;
+
+                        }
+
+                    });
                 }
+
             }
         });
 
-        btn_forgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ActivityLogin.this, "unutma amk", Toast.LENGTH_SHORT).show();
+        btn_signup.setOnClickListener(v -> {
+            if (signupclicked){
+                laysignup.setVisibility(View.GONE);
+                btn_forgot.setEnabled(true);
+                btn_signup.setText("Sign Up");
+                logintext.setText("Login");
+                signupclicked = false;
+            }
+            else{
+                laysignup.setVisibility(View.VISIBLE);
+                btn_signup.setText("Login");
+                logintext.setText("Sign Up");
+                btn_forgot.setEnabled(false);
+                signupclicked = true;
             }
         });
+
+        btn_forgot.setOnClickListener(v ->
+                Toast.makeText(ActivityLogin.this, "unutma amk", Toast.LENGTH_SHORT).show());
 
 
 
