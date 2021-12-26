@@ -15,7 +15,9 @@ public class UserDB extends DatabaseService {
 
     Map<String, User> usermap;
     DatabaseReference usersref;
+    public User returnUser;
     public String loginResult;
+    public String yaska;
 
    public UserDB(){
        usersref = ref.child("Users");
@@ -33,24 +35,22 @@ public class UserDB extends DatabaseService {
         usersref.child(userName).removeValue();
     }
 
-    public void check_password(String userName, String pass, final UserDBCallback firebaseCallback){
+    public void check_passw(String userName, final UserDBCallback userDBCallback){
        ValueEventListener valueEventListener = new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot snapshot) {
-               short userCounter = 0;
-               for (DataSnapshot ds: snapshot.getChildren()){
+               short userCount = 0;
+               for(DataSnapshot ds:snapshot.getChildren()){
                    if (userName.equals(ds.getKey())){
-                       if (pass.equals(ds.child("Account").child("Password").getValue()))
-                           loginResult = "ok";
-                       else
-                           loginResult = "wrongpass";
+                       returnUser = ds.child("Account").getValue(User.class);
                    }
                    else
-                       userCounter++;
-                   if (userCounter == snapshot.getChildrenCount())
-                       loginResult = "wronguser";
+                       userCount++;
+                   if (userCount == snapshot.getChildrenCount())
+                       returnUser = null;
+
                }
-               firebaseCallback.onUserDBCallback(loginResult);
+               userDBCallback.onCallback(returnUser);
            }
 
            @Override
@@ -58,8 +58,44 @@ public class UserDB extends DatabaseService {
 
            }
        };
+
        usersref.addValueEventListener(valueEventListener);
     }
+
+//    public void check_password(String userName, String pass, final UserDBCallback firebaseCallback){
+//       ValueEventListener valueEventListener = new ValueEventListener() {
+//           @Override
+//           public void onDataChange(@NonNull DataSnapshot snapshot) {
+//               short userCounter = 0;
+//               for (DataSnapshot ds: snapshot.getChildren()){
+//                   if (userName.equals(ds.getKey())){
+//                       if (pass.equals(ds.child("Account").child("Password").getValue())){
+////                           returnUser = ds.getValue(User.class);
+//                           returnUser.UserName = ds.child("Account").child("UserName").getValue().toString();
+//                           returnUser.Password = ds.child("Account").child("Password").getValue().toString();
+//                           returnUser.Name = ds.child("Account").child("Name").getValue().toString();
+//                           returnUser.SurName = ds.child("Account").child("SurName").getValue().toString();
+//                           returnUser.Mail = ds.child("Account").child("Mail").getValue().toString();
+//                           loginResult = "ok";
+//                       }
+//                       else
+//                           loginResult = "wrongpass";
+//                   }
+//                   else
+//                       userCounter++;
+//                   if (userCounter == snapshot.getChildrenCount())
+//                       loginResult = "wronguser";
+//               }
+//               firebaseCallback.onUserDBCallback(loginResult);
+//           }
+//
+//           @Override
+//           public void onCancelled(@NonNull DatabaseError error) {
+//
+//           }
+//       };
+//       usersref.addValueEventListener(valueEventListener);
+//    }
 
 
 }

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
+import com.yaska.visionary.database.DatabaseService;
 import com.yaska.visionary.database.UserDB;
 
 import java.util.Objects;
@@ -60,7 +61,7 @@ public class ActivityLogin extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(ActivityLogin.this, "kayıt olunuyo", Toast.LENGTH_SHORT).show();
-                    userdataBase.new_user(new User(name, surname, mail, password), username);
+                    userdataBase.new_user(new User(name, surname, mail, username, password), username);
                 }
 
             }
@@ -69,22 +70,33 @@ public class ActivityLogin extends AppCompatActivity {
                     Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    userdataBase.check_password(username, password, loginResult -> {
-                        String result = userdataBase.loginResult;
-                        switch (result){
-                            case "ok":
-                                Toast.makeText(ActivityLogin.this, "Welcome "+username, Toast.LENGTH_SHORT).show();
-                                break;
-                            case "wrongpass":
-                                Toast.makeText(ActivityLogin.this, "Wrong Password! "+username, Toast.LENGTH_SHORT).show();
-                                break;
-                            case "wronguser":
-                                Toast.makeText(ActivityLogin.this, "Username " + username + " Not Found!", Toast.LENGTH_SHORT).show();
-                                break;
-
-                        }
+//                    userdataBase.check_password(username, password, loginResult -> {
+//                        String result = userdataBase.loginResult;
+//                        switch (result){
+//                            case "ok":
+//                                String yaska = userdataBase.yaska;
+//                                this.user = userdataBase.returnUser;
+//                                Toast.makeText(ActivityLogin.this, "Welcome "+yaska, Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case "wrongpass":
+//                                Toast.makeText(ActivityLogin.this, "Wrong Password! "+username, Toast.LENGTH_SHORT).show();
+//                                break;
+//                            case "wronguser":
+//                                Toast.makeText(ActivityLogin.this, "Username " + username + " Not Found!", Toast.LENGTH_SHORT).show();
+//                                break;
+//
+//                        }
+//
+//                    });
+                    userdataBase.check_passw(username, returnUser -> {
+                        this.user = userdataBase.returnUser;
+                        if(this.user.Password.equals(password))
+                            Toast.makeText(ActivityLogin.this, "Welcome", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(ActivityLogin.this, "not logged", Toast.LENGTH_SHORT).show();
 
                     });
+
                 }
 
             }

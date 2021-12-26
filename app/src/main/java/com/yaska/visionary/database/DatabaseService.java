@@ -2,6 +2,7 @@ package com.yaska.visionary.database;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.yaska.visionary.User;
 
 public class DatabaseService {
 
@@ -9,7 +10,7 @@ public class DatabaseService {
     DatabaseReference ref = database.getReference();
 
     public interface UserDBCallback {
-        void onUserDBCallback(String loginResult);
+        void onCallback(User returnUser);
     }
 
 }
