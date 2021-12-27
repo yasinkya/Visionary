@@ -150,6 +150,8 @@
                             android:id="@+id/tab_indicator"
                             android:layout_alignParentBottom="true"
                             android:layout_centerInParent="true"
+                            app:tabBackground="@drawable/indicator_selector"
+                            android:background="#00000000"
                             app:tabIndicatorHeight="0dp"
                             app:tabMaxWidth="15dp"/>
 

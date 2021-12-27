@@ -32,6 +32,7 @@ import com.yaska.visionary.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class ActivityMainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -45,7 +46,7 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
 
     BannerPageAdapter bannerPageAdapter;
     TabLayout indicatorTab, categoryTab;
-    ViewPager bannerPager;
+    ViewPager bannerPageView;
 
     Timer timerSlide;
     NestedScrollView nestedScrollView;
@@ -97,11 +98,11 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
         categoryTab = findViewById(R.id.tablay);
         nestedScrollView = findViewById(R.id.nested_scroll);
 
-        fetchBannerItems();
+        fetchBannerItems("");
 
-        fetchAllCategories();
+        fetchAllCategories("");
 
-        // Tabbar değişiminde içerik değişimi
+        // todo Tabbar değişiminde içerik değişimi
         categoryTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -201,15 +202,15 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
                 Intent intent_share = new Intent(Intent.ACTION_SEND);
                 intent_share.setType("text/plain");
                 intent_share.putExtra(Intent.EXTRA_TEXT, "linkhere");
-                startActivity(Intent.createChooser(intent_share, "Thanks For Using Our App :')"));;
+                startActivity(Intent.createChooser(intent_share, "Thanks For Sharing Our App :')"));;
                 break;
             case R.id.menu_settings:
                 Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
 
                 break;
         }
-
-        return true;
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return false;
     }
 
 
@@ -225,24 +226,40 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
     }
 
 
-    private void fetchAllCategories() {
-        //    todo get datas from database
-
-    }
-
-    private void fetchBannerItems() {
-        //    todo get datas from database
-
-    }
-
-    // WHEN CHANGE THE KİND categories refresh
-    private void setScrDef(){
-        nestedScrollView.fullScroll(View.FOCUS_UP);
-        nestedScrollView.scrollTo(0,0);
-        appBarLayout.setExpanded(true);
-    }
-
     //CATEGORY PAGE
+    private void fetchAllCategories(String element) {
+        //    todo get datas from database
+//        fetchCategoryItem = new FetchCategoryItem(element);
+//
+//        categoryItems =new ArrayList<>();
+//
+//        fetchCategoryItem.readData(list -> {
+//            for (Integer i =0; i<list.size();i++){
+//                try {
+//                    categoryItems.add(new CategoryItem(
+//
+//                            list.get(i).getMovieId(),
+//                            list.get(i).getMovieName(),
+//                            list.get(i).getMovieImgUrl(),
+//                            list.get(i).getMovieFileUrl()
+//                    ));
+//
+//                }catch (Exception e){
+//
+//                }
+//
+//            }
+//            allCategoriesList = new ArrayList<>();
+//            allCategoriesList.add(new AllCategories(1, String.valueOf(element),categoryItems));
+//            setCategoriesMainRecycler(allCategoriesList);
+//
+//
+//
+//        });
+
+    }
+
+    // Set recycler
     private void setCategoriesMainRecycler(List<AllCategories> allCategoriesList){
         recyclerView = findViewById(R.id.main_recycle);
         RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
@@ -250,5 +267,77 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
         mainRecyclerAdapter = new MainRecyclerAdapter(this,allCategoriesList);
         recyclerView.setAdapter(mainRecyclerAdapter);
     }
+
+    // category changed trigger
+    private void setScrDef(){
+        nestedScrollView.fullScroll(View.FOCUS_UP);
+        nestedScrollView.scrollTo(0,0);
+        appBarLayout.setExpanded(true);
+    }
+
+
+    //BANNERS PAGE
+    private void fetchBannerItems(String element) {
+        //    todo get datas from database
+//        firebaseData = new FirebaseData(element);
+//        bannerPage =new ArrayList<>();
+//
+//        firebaseData.readData(list -> {
+//            for (Integer i =0; i<list.size();i++){
+//                try {
+//                    bannerPage.add(new Banners(
+//                            list.get(i).getMovieId(),
+//                            list.get(i).getMovieName(),
+//                            list.get(i).getMovieImgUrl(),
+//                            list.get(i).getMovieFileUrl()
+//                    ));
+//
+//                }catch (Exception e){
+//
+//                }
+//
+//            }
+//            setBannerPageAdapter(bannerPage);
+//        });
+        bannersList = new ArrayList<>();
+        bannersList.add(new Banners(107,"Gattaca","https://64.media.tumblr.com/07a939107981389d5213072b21069bbb/tumblr_pxeuw6FJ3M1tuobsoo1_1280.jpg","https://r6---sn-u0g3uxax3-5nge.googlevideo.com/videoplayback?expire=1622252637&ei=_EexYKbxPIOpgAeW1ZegAw&ip=88.252.134.44&id=o-ACh6wlL7Un4YqLqlKkv-MRGTE5bNajmHERskvIg-6IER&itag=18&source=youtube&requiressl=yes&mh=qr&mm=31%2C29&mn=sn-u0g3uxax3-5nge%2Csn-nv47lney&ms=au%2Crdu&mv=m&mvi=6&pcm2cms=yes&pl=24&ctier=A&pfa=5&initcwndbps=657500&hightc=yes&vprv=1&mime=video%2Fmp4&ns=mR7a_KUn9PAu1n2HQ2SM8SwF&gir=yes&clen=44913882&ratebypass=yes&dur=1203.165&lmt=1540938972819852&mt=1622230852&fvip=6&fexp=24001373%2C24007246&c=WEB&txp=5431432&n=IJ4b9uHUDUWynRQKH9&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cctier%2Cpfa%2Chightc%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgGe6utuDyQUT7MSjlMzq2v1A8pJhjZDrK3xgISHViyPICIQCOqSs8Rj7yuAXp2kqPm9Ig6owaZxVCeMC4Ee_ppGkG4g%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgcyKm7AQ06Xa6lto1WcCvWyrb_VK_fgpEpU4TFGiQ4Q0CIEWXkCgj8fvP5r-ZrmDvP2AuTJ4uwlTps_Ty9wDVzQ9d"));
+        bannersList.add(new Banners(108,"Creation","https://64.media.tumblr.com/69dd95732f7830896427958b9d68bbf0/tumblr_pssiqhUfnR1tuobsoo1_1280.jpg","https://androidappsforyoutube.s3.ap-south-1.amazonaws.com/primevideo/patallok.mp4"));
+        bannersList.add(new Banners(109,"Altered Carbon","https://64.media.tumblr.com/e950c52ee46f2dae9e030eed1ab55c1e/tumblr_psskl7qmFc1tuobsoo1_r1_1280.jpg","https://cload13.cf/hls/oncayoksullukvarken-2020-trdubmp4-b4C2N6HscFH.mp4"));
+        bannersList.add(new Banners(110,"Hızlı Ve Öfkeli","data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYWFRgWFRYZGBgZGRoaGhwaGBgaHBwaGBkaGhgaGhkcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHhISHjQhJCs0NDQ0NDQ0NDQ0NDQ0NDQ0NDE0NDQ0NDQ0NDQxNDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAL8BCAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAADBQIEBgEAB//EAEQQAAIBAgQDBgMFBQUGBwAAAAECAAMRBBIhMQVBUQYiYXGBkRMyoUKxwdHwFFJyguEjkqLS8RVEU2KywhYkM2Nzg+L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAiEQACAgICAgMBAQAAAAAAAAAAAQIRAxIhMUFRBBMiYRT/2gAMAwEAAhEDEQA/AK2WetJz1p6dnCcE6BO5Z0RNgctPAQlpILEBFRCgTgEkBADyLeeDWhqdpPIN4rKojTMM73gp1Y6FYN6POAZJcleokBEA2sKlWCAlqjhusGMEVJO0mQbRpToi0OlIDSQ5DURTSwmaTq8P00jLJbaSi2Y9RIcKw1Erup5zRUVJJuJT4nhR8w0jUuROIltOoNdZMLJubmWSM6L5bcpZSqDtrEmcw9PEZdpDiWpDGsgMqYiwFoM4gmCzRJDbBssGwh8si6CWmSyu05aFKiRIjJIAT0ItMnadgOioBJT07ARydWdtPBYASUQhE4qwloWVRBRCKk8iS1TSS5AkZ7jOKqA5KJUMPma92F9go6+MXGnj6YD3qPzIdCVI8zLFfh1QYstcAO9152A1N19NOX1msqcYAT4JSqXYMb/DcCwBvra2w3P1nl5fkTU+Geli+PFw5Qr4VjvipmK5WBsy9DYHn5y6xi3gVRaod0BALn5tDoq62jn9nnoYptxTZwZIpTaQKmLydSiYehTtLyUgZTkSkJWw5BlmmYxekJSraQ2sKoItW0ktcHYxdhaiuwLC630H4+cucXFNFLgohFtyBfew9ZyP5UVKkuDsj8RuNt0w3xJ1KusV08TmUMOf6MMlQzrStWcd06HSvKmOpBxvADFQb4u+kFFodlNgBpIubiWGpA7SKi1xKsQAJJmnbnO3ni8LFQO05Js04kPAz15G0s0KV+UuNgNN4roKE87aXqmFtzgGSUpCcQQYz0kyT0doVFNEvLX7GSbCew1MXBJmjwNAWBMiUqKjGxUOEHL4yg9AqZtCotF2MwYPLWTHJ7KcfRnFWEVJZqYQqesGSFBJ2Gp9I3ImiCJrPYjHpTGup6D63PIDWUMTji3y3A+p/KJsbUJBA3YhPIEd4+05p5vCNoY/LHBxjVFDtlCB+6LHMpK5SC2zKbjlcXjLEcTf4XcPeCgZiVK31ADBjry5iZVcSi/FRz3Cqm1+oK6ePdEzJ43VS6I7FTvex05ThcHKTZ6CyqMEfTOztzSDsLM2/wDKAvt3TGVRpjezPakOUo1ECNYKjL8rWGxH2TYeIPhNYGvPTxpapI8ybbk2wtIy4jSmglhDLZKCVHi3FG9x1uPeXXlSpTvzgKxVw5CwyMSLgd4DUX8GH3jYiWeIYRKNMhKPxVe7tndAM62Kls+/hYW32lHjeIemyOBdQCrWABHME9eftKbcfplSXcGwNgB3vQ8jPJnBxm0z2MeWMo2mMsEEF1QBUAUgDlmF7S4TPnZ404qMaTsq2UagG9h0I63956pxmudTUf0OUewsJ34susUmeflhtNtG/ZpEGZ3BYDGOi1VxQuwDBGS62OwLdbW1tG/DsQ7grUTJUS2Ybgg3synmpsfabQzwm6XZnkwTgra4Lwqmez3kSs8omrSMkdAkgs6ohAsmxgWWcVYZ1kVEALWDNpearpFtN7Txe8TVjsLVfXrBheohaNO8timJLdDRVTCqdZ6HcgT0YCrDprteaDCvprFCVANBLNLFQlyEeBwKkhUqC0pJiJ6q9xM6oexVxNS5Ntol4xVKplAuX0HXcfmI2ruFBZjYAXJPICJOGA4jE/EIISipyjxfa/jbX18JGaajEvFDeSKuPwb0lUutgeYN9eh6GZ/iGOC+fKb/AIzi0CkPaxB0PO34z5Dj6wZ2K7XIHkNpx4pbHXlgo9BqNUuXzcwPYH+sqYmlY/Lb1JB8QTynaD2N4zw2GqV/7Ommcm7Ac1I31OgHidNZr5MRbhKeZ1F7XO/l+M+o8BxudAha7IBqTqw6nqZgq3Z/FUmBeg4G91AcAcyShNt+cc8CpVS6tSDOR0GhB/eOwEtTcJX4JlHZUuzdI9oQVIE94dDz8DAMSDOtNSVo5mmnTLpeVsTXRFZnaygXJ6QDuZke2ONOdKQOgXOfEkkD2t9YSeqscY7OgNfjDVq4JYrTAbKnUgXGbqzWIA6kAc70eP8A7OFVqLqzHdV105a7AxeWljBUviOp0zhgWGgzgG7Mt92sDddzuL3IHDP9S2Z2ResdUiu1DI7re5DEX8V0P3GRdrTrVMxLHdiSfMm5kH2gmSfXuzuKpthqN7f+kgO24UA/USOJornBTy9DPk+C4nUp2Achb9dBefW+zqU2UEvnJAIN9Nek5pKUJWjshKM40wdWiV3ECVj/ABaAixEUMljYzuwfI2/Muziz4Nf1HoEohVE5lkkE6WcyPMIOGYSFoJgwdocUhbxkFFjrJMINiJK9oVMRK7nrILCh2W2sd5yBzTkKCwSiHSQRIdaRg2KjqiFVpC1pW4nUdKZKKzMdBlFyt/tW/W4kydI0Ssz/AGl4lnf4SHuqbMRzfp5Lv5y72WxKAMh0Ytc+wA+6Z2hTdwSqWQXGbUk/wnmTvfXlz0l3D4dKZzrnDgb52OvS18vXlOLJGU0dGOaxyG/a3hbVKZK/MAShG+2o8iJ8mtra3pPs3COMLVBRsuZbZgDtfYgHlrFGP4FRR3ZqQcNqTbNr4A8vLnMML0esjozLdbR5MDwnh71qi00F2b2AG5J5AT7FwTg6YankTUnVmI1Y9fAdBEXDDTwxZkRVFwrkAbXtv1G5A00mtnZFHHJkWTpFin4DEqO4xuw5Kx5+R+nlszcyu5vKlBTjTCEnF2gFRMxLp6jr4jxlJ2lqnZLKBpfTyO6/iIDH08r3+y1vQ9fX8phgyPHP65dG+bGskPsj2AJmT7Z8OYgV01CqFccwASQ3lqb9NPGasCerOFUsdgCbdbC9hO+aTVM4Yt3wfKEqXh8NXyOrgXKEMBe2o1F/C9rjmLjTeDxbKzMVUISSco0XU3sJTznnOLs6i/jsQrOzJ8ptYWAsLDu2Gll+X0lN6kFmnVsSL7XF/LnCgL2H4dUqLmVdOpIHtztL3DMRicObKMy9AwNvLX6R9hsYioBYDQaD92w1HuJFqSMMyH0O/tIbvhlrjlDXA9sGYZWQlhupFj6AzQYCstdcy6Hl1BHIj6WmBxGAVgCSUYbMNweo/KOOy3FHWqaVYgOQLNawewtmH/NYDSYuGv6ibxybfmRp3GpB0I5SappD41NA/MaN5c/zgy2k78GXeP8ATizY9JfwEVhaYHOBNSdDzejCydRRykFMg73nFMKCztSQEkZwiCEeInpGejoC2iiFvIKskZm2XQTeey7jwg1eTBgNGPNfJ3QO7zHQDTT8vGDq1Ab26y12hoGm+ciyNseVzup6Hp195m3x4Ate5tqBf2vMLrgsoY+oyVy6Eq2hBGltAPbSfRex/Ef2qg+cDOjFT43W4a3K+o9DPmeLYscze00nZGnUoF61/wCz/Z3dgDvlXMgItvfn4mZZYKSs2xTaaQ37T4Q0qbtqU00/dzNY389dTG3CO1dDEXCq6MBchl0HTvKSPe05geNpXpI2VP7ZHSz6oKyjvUX02fcHw8pQwyU6fdo0ymZjmQ62boHv3uenK0WKcq1kPLCN3E1QYEXBBHUQbRZimXDKHqsUZtQi/Mf4uUS1e1BJ7iH1Jv8AfN1NIx1NDiUuCD+vKU1RmVkOpAup8OvmPxiCv2iqbmnYbXIFvcxDj+LviHVFQudbKo08TYb7bnpM8qjOuKfs0xScH7Xo1rcSQOqZgWZsuh0BvbU8heR4hj6aMVdgRax8WYahR4Dn4zHJh6ruERCHsSVG6hdGLHkAYZ+zuIc5nJJO5JT8WhPfItb4/gQcMdyrnxYoxeFAcqjBxfum4Gh2udgesdYHs/QNIipVTOxuCrqcnhvZt9fp1gx2Vqdfqv4NPf8AhqsNm/xGaQjr2rInJS6dGdxuFNNyhIax0ZTow5EQE0tfszWYaspI2uze2xilOGvfVlHXf15ROLXgItPySw1V8mxKofYHl9/lHmCqqACxtcf6GeRStB0sLFSFPPvc2Ft/KUcFTNshYb6ae8z1b8F7JDVMTm03gccFbKFYBlJKHmD0PUaSt8Mow19h/WFpuAdo9GG6RteyvGGr0mDbqbN1BFvcfnGKHS3Q/Tl+vCY/A4tqWZqVu9vpz6zmE4i6OWZ3YNowZifUA6A+UMOKUZt+B5ssZQryap21kc0AK2bUG4O3jO5p6FpdnBYbNJB5XDyQaCphZYDzt5XvJBoajsIZ6QzT0VBYzBnLz0mEmRuCIkkMmVkCIE1RNkDAqwBB0IIuCOhB3ibH9ksPUU5F+G/IrqPVSdvK0dIIdZEkmUj5riOxWJvYBXHUOB9GsYzwmGalTem47yoVaxuNLC1+c3JMxnGVYPWsTq4A8AbMTb0EjVIbZh0NRGNJWe2cHKCbF1+RrD7XQz6j2LwoyPiqyEZAT3ySxbqSfHX2mE/ZW/aKRGpzXJtbRDmJI+nqJ9K4svweGAbGoRfrYxNIqLbMLxXiD1Kr1CAWY3UMAbKdRYNoNLcjOU6rtlS5zMQNrWHOwtcAC5ubeA5yHCw2IIRQqj7bO+Wmo6sTdreAO+k2fE+z2HwlNai1QzldtLvtmNMDkAf66wSVqxSunQj4pwtK62csNCAVYgi9r6bHbmJV/wBnphxVqoLsEVVB2REXYeBIzHqYzFS4uNjtIlA11OzKQfI7zpyUla7OfG3dPoW8Ae2d17rscrFSdQNtyTYm5840Zr6215+PjM3wStkdkfe9j/Ept+vOaMScWtX5KyOV14CU2ka4AFzoIGriFQXJHlcXksMRVBzZrhWK5VY6hSVGgtqbD1lSmkTGLZneIcWYkhO6OvM/lFtFWe7b663O/nGHEOHsrkAG3oD7XvBUcO6iwRt77TCUrN4xoDiEYKSW9IvLG8cNhqpvemxv5Rx2f4BRt8TFG52Wnry+05X6D3iUqG1bEGFrBt9x+rwzZW2AvNgMLTV8qCkKehzKlNX12BZRe8BxB0Swpm5sbnfXMbW/lt9YnPnoevBl++DlRCT1ANgJYo4KowtkcnmSLe1/wjnAK9R7M7qu7HbyAuNzadxdR0fILE30bU3HLQ3EPs5oWvFlLAivT7ppuy8tRp/TwjOi7MPkZT0YW/1lhsKVphmYl32GgAH71h15CRFNhux+kr7qRm8VgMTQYqQvMeEr4CnVU95DbxKj8ZYrlxz92gDUY/uxLNXKGsRerK4tkQOemcDTrpedF+YI9oHA4x6bZkZAw0Byg29xHNTiqVVGdWasT84CKLE2AIA1A94/9ErH9MaFtzPS5i8OUYowsR+rielffIn6kXBCLB2kgZTKJgQbSZMG5ghPo6rQyNfSUncKLk2ibjeJNWk9JGKZ+6721KfaUa6ZtAT0uOcJLgUWMKvanBh8hxKX20zlAfFwuT1zWmc7T8cSlWylS5bK/dYABSoy/wAV9/aJh2UT/iP7LHOA7P0zTQV3LLTZsrABXYNZhTvZu6pzH+cbaTFt0aKgvDAHVXKFSdAGtcLcXGnUgewmy7dpmwlEr8vd+4f1mZUBRuCosFUXAAGw1Gmka43tB8WitJqQKrv3zrppsAR7xO2NUj5rSUqpXY6H3Fh589fGO6y1FRGLaMMoBddwLiwvcC2l7dIxTBLUZ7KO8VJF7BQoyqq2+yBYczoJXq4VmcJSTMb6sdvGxP3xPvsa6sV1sXUD5EZhawsORIFx5gkg+UbcFFVrtULW0ChhY+J69I24TwjMHclQwsrWNybXym3lufCXK+DVUZmqAclXdm67fKPOVtxROvkznEOE06jB85RyASRqCetuvlBpwlftVKj+ZsPreMLAHQevP3k7wSCypS4dTXZfqZYCDoPaSzSawpBdkAk7lk/OdFoBSIBZK0llnrRgQyzppXkwISKwO03shTKpUm/Q32BvK2DoAN3t+ksgQnwwdIqodhcS2aqd7ZQR4WUaAcpUxT2sB+tJ6tSde8LnT1A/HylM4i/j9JOlj2CMq27xglpDpJfGnviR/XIW0SQo8/u8pOlhhzgxU8534g8feL65BvEZ4amiK+gZmAAN7BOZNuZnouWtbYfWdl/WxboftPAz1pwmbknc0r4nEhR1PSexWICIWPITA8T7Q1C9qfXa2Ynz/pJlLUFGzUVHLG7X/XSe+ATrKnZ7iIrdxxkcfZPPxW+48OU06Yaw2mTk2UoozlVLSziXy5E/cRfVnGdifG7W/lEliaJZrAcmO9vlBYn2BiqnijVLFmK1Gb7NmQi9yxIUFF8L/hCwosOb7zl57L620vrrbnrzM5aVwSEppz6S4+LKLlU6nf8AKVM9oGo8nh9jTZZQ5Rnv3iTl8Lbt+A8b9INqpbeQxVUZrX0UBR6DU+pufWDRxBUNphLyd4FXEi1e0eyFqyxFfFeMCm60xvbMxGptyVQPtH6XhhiiAzMQFGt/AbzLB87vVI1cnKDyXYethIlIqMRm/EajHTKg6EZm9TewhaXFai6kK45gAqfqSD9InVrnlDUq1jM9maao2HDsclVbodRup3B8RLD6GY5iyMKlM2cexHQx/gOMpVW5FmGjDofKWpESjQ0Vp56kr/tKdfpPLiU6/SVaFQcVDDU6pHSV6eJS+8ZcNq0dWZgSPlU7Enw5gW28fODkhE6SOwvYKOpv9Bzi/E0Kea4JJ55QLH75cx2IZ237p5ZvvHnLP+z8tLNmUO1yTcHKo/dH7x5HaQ5ei0hC6JexBv5iC+Eg2LfSOaXBVZb5FsB3mY7HkLncxa+FCtZD3eVyLj1gskvYOC9FKtUVRY5hrzOsjQdSbBrnpGj0aWdTkDADXMTqTz0I05DyPWNsbh6ap9ku24UpkQbgKBrfbWDnL2CivQuwtO+hUaz0sYJNDrqDbz6T0Wz9j1ReJkWa06ZC07DAyPaziLBQu19fy/E+kzeEUKLk946+Npf7VnNWC8sx9hp+ctUcKEWxPfYiwtv11OwAnLOVs1iqFNWkH05jY+M1XZjtS1Jlo40kobBaxuSvQVDuy/8ANuOdxtnq6ANcaAnylipTDLqLgiQnRdWbTHVVWq6L3u44DDmcmbS29xcesSq9hYAAeEp8FJQLrfIQVv0BuFPla3laMKlIBmUbA93xU6ofVSDKUiWgZJgyxhysGySgIQNSHtBvACNY7Hqo+ndP1BlZ3cfYJ8iJcK3QHoxB8iAR9c0goiQCrG8TNNM5S/ey2zWOoJvt4QWC4t8R8mS2lwb3vpe23SM+IXCE5mS1u8qhiBz0JHKKMDjVZ0/t6r3LLlZQFJAJ73eNtDp5RWAbjTkIqDTObt/CP6/dKmGwpqMFGii17X5/Kot+tuoh+Kn+015C3t/qZqOynDcq/EYfIuc/xOpb/CoH0kyZSEmMoLRFsguBtpcnp0HnFbqHF7BW3Kj8L7x/+yirVzVWYF8xUKL2tsPE6WHlEmP4JXw9XI6kPYMutwQRfcaHxgnYujmGe+hgsRTZGz0/mG45MOk8ji4YbMLj7iPQ3HpLbHS/MRDLODxqugZT5jmDzBhi8zeKDUXLp8pPeHKx2MaUMQHUMpuD+veVZJdNWFp4gxazyHxrRdgazC4kMM3Tccx4+X5TuIxWY77ADysSfxEzuGx5Bup768r7qd5ZOMQ3defzKNx4gRUUmaXhVBqz5Ad5ex/A2RbsCBrr4BSW+gPtFXAeMU6bK6uLi1wdD6dR5/WXu0va74q5KdiCMpPgfmt57eV+sVIYpw6ZlJB1yZgNNSCAR7G81HAuCCtT1srA9RtYcrTGYdijXAJXewGuu/oZo8Bxr4d8r5QR9ogEedzGASvhvhuydD5/Wei2rxigCWevTBO/fX856ADsrPESQkavynyP3Tsbo5z55jkzYxAdguY+7EzT/sSvVRVu7LRa41+ZzawA23Y+sQinnxzAfZS3rkLfnNLRpOhd0+ZVW5tfQ+W9iNfCckjZCvtHwrJQzlSHD2boVI7pHTXT0img/ctNr2oxCvgKmhDE02set1Jt13b0mFwrd0xFFnCtb3I+l/wMdMboj+aN5pqpP8rAfyGIhoH8HU/9cdcPbOjpzK50/ipgtp5oXHnaCYmSJkLSC1NIVDzmhIFl1lepoZfZZWqLeCAjSN1ceAYean/KWg1xRTkP7gb8DJU2AYX22PkdD9CZAggkcwbe0AOPxm4KkixBBGRdQRYg93oYuw9fDipkREVw5GlMCzC4NmC+exl9qQO4B85Uo4VBXvkpg6tcO5f5Tc5S1jrFYFDEjPVK9So/vE/5xPolJsuEcjQu7D6AH6AifP6IzYsgf8RP+hD9835X/wAsi9ar/Uf1mUikUKuHRwq/JVpLmpn961jfxsRt0m0qYaliaauw1TUNzFhcjysGX0mL7T8OY0i6GzowsR0ZgD94jrs/WY4b4OznuknS6kBvxOviY10PyfPeM8NSlmyPmRar5TbQo5Y/TKP7xlRH05TVdsuHOitp3baEczmBNvC0yNM6H8YIDrqGsDqCLH0NopLthqhG6E/ojxjXP3euv4CDx+HD6dbEedpSE1wFWsrC6nQwDNE1DENSYqduY6eIjAVgdb6R0SCxGZTmU2IMitdr6j2hi4YEHnK6U3JsNPGAEamKYHQ2haOLco3eYHlY2+6SxHDmsGuLbEgbHxhqFEKLQG2UDiKjblyPGobQbL1VfV7/AIyeJoFCe4Cp1BIJt4aGdoYZ3tlRDfw19rwEBK/wD1/rPRvR7PYlvsKP5G/yz0dhR9eUzzbSKGSYXE6JGRluDIGxznrVqL7U2H3ibMcPPwqmW4ORgCDbVSxUX9PrEmH4atGolYNf+0ViLHXO9mJ137xmsrYpmDUwQt2sSByO/rqZzSXs1i7PmvFMSClRWclsgW2pBs6HLe9gQB0iXDP3T+uU1fa5aTKzouUqyUulyBctp4BRr0mPonT3kJlUWi/zeP5mW+H4wpkdfmTKdfCxAPhyixn+Y+EBUyBh8XNlC6hbE3sANza28YM0WPKo5yG6NZ0P/ttqB5qbqfFTIUeIptr7GJMNxegBl/acSg3yqul/ABgIapxTDn/fcR/NTP8A2sZSZI6bHp1+hkP2pesRLXpn/emPnTcny6QlOkjGy11N/wB6j/8AkygGlaqOREkcSLhiAbgXve2YaHY89D6xcOGNa61aZH/x2/7Z0cIqcmU32sWHv9YuQHFPiKf8NPd/8087o7B1RVdUcAgtqGtcEE67CIzw6uNcy+5/KSpJiUIYZWtyuLH7jCgB8NpsuM74sTXvrzBYWI6i0+iJhDmKH5Qb25TDYrHVGekXpqhRhYqb31B118PqZ9e/YySCNnUH8ZIzF8c+BTfKKwDGwykmxJ5ec5/tx6ZQ1ad1HdGUjYaZhrZrg6+kD2j7P/FxdnUIwswZCLVEOi51+y3iOmo5xw3CqNRqStdspIAN7EW1BiY6FvaDi6YrDO1JL5BlqEixQGxB8b23mAVv0Z9D7TcCp4ejVq4c5EZLVKfeINzoQSfpPnGbnvEMJy9ZLNqvpAu85n+WMClxPDZrsNxvFKV2TbbmJoGb5oixVOx89ZUWSwoxZPSEGKaKVaxlr4vSVQhlhuIuhuLEHcEXBHQiNaHH6YHewdJj1z1AP7oNpmfj+H1/pOGuegioDVN2rcfJhsMn/wBWc+7kwNTtbizoKxQdKapTH+ETMDEmRbENfeFDsb1+I1nN3qO38TsfvM9E3x2Ol56Goj//2Q==","mgE4RpiW8Uw"));
+
+        setBannerPageAdapter(bannersList);
+
+    }
+
+    private void setBannerPageAdapter(List<Banners> listBanners){
+
+        timerSlide =new Timer();
+        timerSlide.scheduleAtFixedRate(new AutoSlider(),9000,12000);
+        indicatorTab.setupWithViewPager(bannerPageView,true);
+
+        bannerPageView = findViewById(R.id.bannerView);
+        bannerPageAdapter = new BannerPageAdapter(this, listBanners);
+        bannerPageView.setAdapter(bannerPageAdapter);
+        indicatorTab.setupWithViewPager(bannerPageView);
+    }
+
+    // BANNER PAGE OUTO SLİDE NEXT
+    class AutoSlider extends TimerTask {
+        @Override
+        public void run() {
+            ActivityMainPage.this.runOnUiThread(()->{
+                if(bannerPageView.getCurrentItem() < bannerPageView.getChildCount()-1){
+                    bannerPageView.setCurrentItem(bannerPageView.getCurrentItem()+1);
+                }
+                else
+                    bannerPageView.setCurrentItem(0);
+
+            });
+        }
+    }
+
+
+
+
 
 }
