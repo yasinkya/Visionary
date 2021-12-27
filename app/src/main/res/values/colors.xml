@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="softwhite">#F5F3F7</color>
     <color name="textprimwhite">#E1E1D2</color>
     <color name="visionaryred">#E74A3A</color>
     <color name="tabcolor">#0c0c0c</color>

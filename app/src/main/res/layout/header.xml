@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/actor"
             android:text="@string/visionary"
-            android:textColor="#FFF0F5"
+            android:textColor="@color/softwhite"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/username"
-            android:textColor="#fff0f5"
+            android:textColor="@color/softwhite"
             android:fontFamily="@font/actor"
             android:textSize="20sp" />
 
