@@ -31,7 +31,7 @@
 <!--        tools:ignore="ContentDescription,VectorDrawableCompat" />-->
 
     <TextView
-        android:id="@+id/movName"
+        android:id="@+id/et_movieName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/mini_player" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/playButton"
+        android:id="@+id/button_play"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -63,19 +63,19 @@
         android:textStyle="normal|bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movName"
+        app:layout_constraintTop_toBottomOf="@+id/et_movieName"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/favButton"
+        android:id="@+id/button_addfav"
         android:layout_width="50dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/icon_addfav"
         android:drawablePadding="16dp"
-        app:layout_constraintStart_toEndOf="@+id/playButton"
-        app:layout_constraintTop_toBottomOf="@+id/movName"
+        app:layout_constraintStart_toEndOf="@+id/button_play"
+        app:layout_constraintTop_toBottomOf="@+id/et_movieName"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -84,15 +84,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text=""
+        android:text="@string/description"
         android:textColor="#A1A1A1"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton" />
+        app:layout_constraintTop_toBottomOf="@+id/button_play" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/et_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"

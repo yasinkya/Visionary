@@ -312,7 +312,7 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
     private void setBannerPageAdapter(List<Banners> listBanners){
 
         timerSlide =new Timer();
-        timerSlide.scheduleAtFixedRate(new AutoSlider(),9000,12000);
+        timerSlide.scheduleAtFixedRate(new AutoSlider(),10000,12500);
         indicatorTab.setupWithViewPager(bannerPageView,true);
 
         bannerPageView = findViewById(R.id.bannerView);
