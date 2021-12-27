@@ -1,4 +1,4 @@
-package com.yaska.visionary;
+package com.yaska.visionary.model;
 
 import java.io.Serializable;
 

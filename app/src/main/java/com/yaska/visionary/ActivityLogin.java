@@ -13,9 +13,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
 import com.yaska.visionary.database.UserDB;
-
-import java.io.Serializable;
-import java.util.Objects;
+import com.yaska.visionary.model.User;
 
 public class ActivityLogin extends AppCompatActivity {
 

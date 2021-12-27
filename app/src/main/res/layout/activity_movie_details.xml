@@ -8,15 +8,26 @@
     tools:context=".ActivityMovieDetails"
     >
 <!-- todo youtubeplayer for imageview-->
-    <ImageView
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
         android:id="@+id/movImg"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
+        app:autoPlay="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_background"
-        tools:ignore="ContentDescription,VectorDrawableCompat" />
+        app:videoId="4PRkZuv6c9k"/>
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/movImg"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/image_background"-->
+<!--        tools:ignore="ContentDescription,VectorDrawableCompat" />-->
 
     <TextView
         android:id="@+id/movName"

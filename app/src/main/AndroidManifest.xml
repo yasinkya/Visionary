@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yaska.visionary">
 
     <application
@@ -8,24 +9,34 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/appicon_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Visionary">
+        android:theme="@style/Theme.Visionary"
+        tools:ignore="AllowBackup">
+
+<!--       youtube player activity-->
+        <activity
+            android:name=".ActivityPlayer"
+            android:exported="true"
+            android:screenOrientation="landscape"/>
+
+<!--        movie detail activity -->
         <activity
             android:name=".ActivityMovieDetails"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+<!--        main plage activity -->
         <activity
             android:name=".ActivityMainPage"
             android:exported="true">
 
+
         </activity>
+
+<!--        login activity -->
         <activity
             android:name=".ActivityLogin"
             android:exported="true">

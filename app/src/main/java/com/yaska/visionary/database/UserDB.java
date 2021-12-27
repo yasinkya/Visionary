@@ -6,7 +6,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.yaska.visionary.User;
+import com.yaska.visionary.model.User;
 
 import java.util.HashMap;
 import java.util.Map;

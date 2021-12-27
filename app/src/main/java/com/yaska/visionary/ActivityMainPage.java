@@ -2,12 +2,10 @@ package com.yaska.visionary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.Toast;
 
-import java.util.Objects;
+import com.yaska.visionary.model.User;
 
 public class ActivityMainPage extends AppCompatActivity {
 
