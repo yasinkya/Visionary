@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:id="@+id/player"
         app:autoPlay="true"
-        app:videoId="4PRkZuv6c9k"
+        app:videoId=""
         />
     
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,13 +1,17 @@
 package com.yaska.visionary;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class ActivityMovieDetails extends AppCompatActivity {
@@ -37,7 +41,9 @@ public class ActivityMovieDetails extends AppCompatActivity {
         movieVideoId = getIntent().getStringExtra("movieFileUrl");
 
         et_movieName.setText(movieName);
-        et_description.setText("deneme description");
+        et_description.setText("deneme ");
+
+        et_description.setMovementMethod(new ScrollingMovementMethod());
 
         // glide internetten resim çekip image viewe aktar
 //        Glide.with(this).load(movieImage).into()
@@ -63,6 +69,21 @@ public class ActivityMovieDetails extends AppCompatActivity {
             }
 
 
+        });
+
+        player.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                youTubePlayer.cueVideo(movieVideoId, 0);
+            }
+
+            @Override
+            public void onVideoId(@NonNull YouTubePlayer youTubePlayer, @NonNull String videoId) {
+                if (!videoId.equals(movieVideoId))
+                    onReady(youTubePlayer);
+                else
+                    youTubePlayer.play();
+            }
         });
 
 

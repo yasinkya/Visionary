@@ -7,7 +7,7 @@
     android:background="#000000"
     tools:context=".ActivityMovieDetails"
     >
-<!-- todo youtubeplayer for imageview-->
+    <!-- todo youtubeplayer for imageview-->
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:layout_width="match_parent"
         android:layout_height="270dp"
@@ -20,15 +20,15 @@
         />
 
 
-<!--    <ImageView-->
-<!--        android:id="@+id/movImg"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="300dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/image_background"-->
-<!--        tools:ignore="ContentDescription,VectorDrawableCompat" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/movImg"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="300dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/image_background"-->
+    <!--        tools:ignore="ContentDescription,VectorDrawableCompat" />-->
 
     <TextView
         android:id="@+id/et_movieName"
@@ -93,14 +93,18 @@
 
     <TextView
         android:id="@+id/et_description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxHeight="270dp"
         android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
         android:layout_marginTop="16dp"
         android:textColor="#838383"
         android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dsc" />
+        app:layout_constraintTop_toBottomOf="@+id/dsc"
+        android:scrollbars="vertical"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
