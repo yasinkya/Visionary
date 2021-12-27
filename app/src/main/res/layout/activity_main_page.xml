@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityMainPage"
-    android:id="@+id/lay_main"
+    android:id="@+id/drawerlay_main"
     android:fitsSystemWindows="true"
     app:layout_anchorGravity="fill"
     tools:openDrawer="end"
@@ -29,12 +29,15 @@
     <ScrollView
         android:id="@+id/view_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:scrollbars="none"
+
         >
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="-100dp"
+
             >
 
             <com.google.android.material.appbar.AppBarLayout
@@ -54,9 +57,11 @@
                         android:id="@+id/btn_slide"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/icon_menuopen"/>
+                        android:src="@drawable/icon_menuopen"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
+                        android:id="@+id/mainpage_appname"
                         android:layout_width="match_parent"
                         android:layout_height="?actionBarSize"
                         android:layout_marginEnd="30dp"
@@ -86,20 +91,17 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Series"
+                        android:text="@string/vizyondakiler"
                         />
+
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Series"/>
+                        android:text="@string/yakinda"/>
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Series"/>
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Series"/>
+                        android:text="@string/top_5"/>
 
 
                 </com.google.android.material.tabs.TabLayout>
@@ -109,6 +111,8 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="100dp"
+
                 android:id="@+id/nested_scroll"
                 android:background="@color/primaryblue"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
@@ -118,6 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:context=".Screens.MainActivity"
+
                     >
 
                     <RelativeLayout
@@ -134,10 +139,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="2dp"
-                            android:layout_marginEnd="2dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginEnd="2dp"
                             android:layout_marginBottom="5dp"
-                            tools:ignore="MissingConstraints"/>
+                            tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
                         <com.google.android.material.tabs.TabLayout
                             android:layout_width="wrap_content"

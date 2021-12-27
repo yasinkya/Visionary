@@ -75,7 +75,8 @@
         android:background="@drawable/icon_addfav"
         android:drawablePadding="16dp"
         app:layout_constraintStart_toEndOf="@+id/playButton"
-        app:layout_constraintTop_toBottomOf="@+id/movName" />
+        app:layout_constraintTop_toBottomOf="@+id/movName"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/dsc"

@@ -19,11 +19,11 @@
             android:title="@string/top"
             android:icon="@drawable/icon_top"/>
         <item
-            android:id="@+id/favorites"
+            android:id="@+id/menu_favorites"
             android:title="@string/favorites"
             android:icon="@drawable/icon_favorites"/>
         <item
-            android:id="@+id/account"
+            android:id="@+id/menu_account"
             android:title="@string/account"
             android:icon="@drawable/icon_account"/>
         <item
