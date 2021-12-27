@@ -19,13 +19,13 @@
             android:title="@string/top"
             android:icon="@drawable/icon_top"/>
         <item
-            android:id="@+id/account"
-            android:title="@string/account"
-            android:icon="@drawable/icon_account"/>
-        <item
             android:id="@+id/favorites"
             android:title="@string/favorites"
             android:icon="@drawable/icon_favorites"/>
+        <item
+            android:id="@+id/account"
+            android:title="@string/account"
+            android:icon="@drawable/icon_account"/>
         <item
             android:id="@+id/menu_share"
             android:title="@string/share"

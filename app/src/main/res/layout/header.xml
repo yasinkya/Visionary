@@ -1,23 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
+    android:id="@+id/lay_header"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="125dp"
-    android:background="#14141E"
-    android:gravity="bottom"
-    android:orientation="vertical"
-    android:padding="20dp"
+    android:background="@color/thirtyblue"
 
     >
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/visionary"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/visionary"
-        android:textColor="@color/visionaryred"
-        android:textSize="20sp" />
 
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_appinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/visionary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/actor"
+            android:text="@string/visionary"
+            android:textColor="#FFF0F5"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_alignParentEnd="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="#fff0f5"
+            android:fontFamily="@font/actor"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
