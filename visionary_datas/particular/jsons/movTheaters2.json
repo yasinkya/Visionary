@@ -1,0 +1,1599 @@
+{
+    "Batman Petrol City AVM Cinemart": {
+        "Name": "Batman Petrol City AVM Cinemart",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2232/batman-petrol-city-avm-cinemart",
+        "Address": " Gültepe Mah. Demokrasi Bulvarı Petrol City AVM No:60 Merkez/Batman",
+        "Number": "Adres: Gültepe Mah. Demokrasi Bulvarı Petrol City AVM No:60 Merkez/Batman",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Batman Park AVM Cinemart": {
+        "Name": "Batman Park AVM Cinemart",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1904/batman-park-avm-cinemart",
+        "Address": " Turgut Özal Bulvarı Batman Park AVM Kat:3 Batman",
+        "Number": " (488) 2901407",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Lain",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Batman Worldmar Cinegold": {
+        "Name": "Batman Worldmar Cinegold",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1027/batman-worldmar-cinegold",
+        "Address": " Pınarbaşı Mah. Atatürk Parkı Karşısı Worldmar AVM K:2 Batman",
+        "Number": " (488) 2121234",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Lain",
+            "Pişiriciler"
+        ]
+    },
+    "Bayburt Şair Zihni Kültür Merkezi": {
+        "Name": "Bayburt Şair Zihni Kültür Merkezi",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1886/bayburt-sair-zihni-kultur-merkezi",
+        "Address": " Genç Osman Mah. Oslu Baba Cad. Bayburt",
+        "Number": " (458) 2114995",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Bilecik 6 Eylül Kültür Merkezi": {
+        "Name": "Bilecik 6 Eylül Kültür Merkezi",
+        "Url": "https://www.sinemalar.com/sinemasalonu/317/bilecik-6-eylul-kultur-merkezi",
+        "Address": " Gazipaşa Mah. Dedeoğlu Cad. No:9 Bilecik",
+        "Number": " (228) 2130132",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Bingöl Elit": {
+        "Name": "Bingöl Elit",
+        "Url": "https://www.sinemalar.com/sinemasalonu/319/bingol-elit",
+        "Address": " Kültür Cad. Bektaş İşhanı Orman İşletme Karşısı Bingöl Merkez/Bingöl",
+        "Number": " (426) 2136579",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Bingöl Cinemaximum (Bingöl Kalium)": {
+        "Name": "Bingöl Cinemaximum (Bingöl Kalium)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2167/bingol-cinemaximum-bingol-kalium",
+        "Address": " Şehit Mustafa Gündoğdu Mah. Bülent Arınç Cad. No:4 Bingöl Merkez/Bingöl",
+        "Number": " (085) 02200967",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Bitlis Tatvan Yaşam AVM Cinemed": {
+        "Name": "Bitlis Tatvan Yaşam AVM Cinemed",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1436/bitlis-tatvan-yasam-avm-cinemed",
+        "Address": " Yaşam AVM K:3 Tatvan/Bitlis",
+        "Number": " (434) 8277380",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Kızım Gibi Kokuyorsun"
+        ]
+    },
+    "Bolu Cinegooo": {
+        "Name": "Bolu Cinegooo",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1961/bolu-cinegooo",
+        "Address": " Ankara İstanbul Otoyolu 227. km Elmalık Mevkii Highway Outlet AVM Bolu Merkez/Bolu",
+        "Number": " (374) 2501014",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Bolu Cinemaximum (14 Burda)": {
+        "Name": "Bolu Cinemaximum (14 Burda)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2057/bolu-cinemaximum-14-burda",
+        "Address": " Paşaköy Mah. D-100 Karayolu Cad. 14 Burda AVM No: 8  Bolu Merkez/Bolu",
+        "Number": " (085) 02200967",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Bolu Cadde Cinema Pink": {
+        "Name": "Bolu Cadde Cinema Pink",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2095/bolu-cadde-cinema-pink",
+        "Address": " Karamanlı, İzzet Baysal Cad. Becikoğlu AVM No:19, 14100 Bolu Merkez/Bolu",
+        "Number": " (374) 2227799",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Burdur Oscar": {
+        "Name": "Burdur Oscar",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1952/burdur-oscar",
+        "Address": " Atatürk Cad. Cumhuriyet Meydanı No:1 Burdur",
+        "Number": " (248) 2344555",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Kuklalı Köşk 2: Orman Kaşifi"
+        ]
+    },
+    "Biga Paktplus My CineLife": {
+        "Name": "Biga Paktplus My CineLife",
+        "Url": "https://www.sinemalar.com/sinemasalonu/333/biga-paktplus-my-cinelife",
+        "Address": " Sakarya Mah. Turgut Özal Cad. Paktplus AVM 3. Kat No:1/50 Biga/Çanakkale",
+        "Number": " (286) 3163037",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Çanakkale Gelibolu Cine My": {
+        "Name": "Çanakkale Gelibolu Cine My",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1924/canakkale-gelibolu-cine-my",
+        "Address": " Alaeddin Mahallesi Kore Kahramanları Caddesi, Gelibolu Savaş Müzesinin yanı Gelibolu/Çanakkale",
+        "Number": " (533) 2393344",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Süveyda"
+        ]
+    },
+    "Çanakkale Cinemaximum (17 Burda)": {
+        "Name": "Çanakkale Cinemaximum (17 Burda)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2031/canakkale-cinemaximum-17-burda",
+        "Address": " Barbaros Mah. Atatürk Cad. No: 207 Çanakkale",
+        "Number": " (085) 02200967",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Çankırı Sinemax": {
+        "Name": "Çankırı Sinemax",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1784/cankiri-sinemax",
+        "Address": " Yunus AVM No:125 Çankırı",
+        "Number": " (376) 2901560",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Çorum Sinema MB": {
+        "Name": "Çorum Sinema MB",
+        "Url": "https://www.sinemalar.com/sinemasalonu/336/corum-sinema-mb",
+        "Address": " Üçtutlar Mah. Eşrefhoca Cad. No:48 Çorum",
+        "Number": " (364) 2276700",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "Maşa ile Koca Ayı 4",
+            "Bayram Şekeri",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Çorum Cinemaximum (AHL Park)": {
+        "Name": "Çorum Cinemaximum (AHL Park)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2098/corum-cinemaximum-ahl-park",
+        "Address": " Çepni, Kerebi Gazi 1. Sk. No:7 19040 Çorum",
+        "Number": " (085) 02200967",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Düzce Özdilek Cinetime": {
+        "Name": "Düzce Özdilek Cinetime",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2117/duzce-ozdilek-cinetime",
+        "Address": " Hamidiye Mah. Akçakoca Yolu No:79 Düzce",
+        "Number": " (380) 9991530",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Düzce Krempark Cinema Pink": {
+        "Name": "Düzce Krempark Cinema Pink",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2202/duzce-krempark-cinema-pink",
+        "Address": " Kültür Merkez İstanbul Cad. No:116 Krempark AVM, 81600 Düzce Merkez/Düzce",
+        "Number": " (380) 7901255",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Edirne Erasta AVM Cinemarine": {
+        "Name": "Edirne Erasta AVM Cinemarine",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2118/edirne-erasta-avm-cinemarine",
+        "Address": " Erasta Edirne AVM Talat Paşa Cd. No:59 Edirne",
+        "Number": " (284) 2144222",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Clifford Büyük Kırmızı Köpek",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Edirne Keşan Cine Bendis": {
+        "Name": "Edirne Keşan Cine Bendis",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2092/edirne-kesan-cine-bendis",
+        "Address": " Bendis AVM Aşağı Zaferiye Mah. İstek Cad. No:6A-1 Keşan/Edirne",
+        "Number": " (284) 7154444",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Edirne Margi Cinegold": {
+        "Name": "Edirne Margi Cinegold",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1768/edirne-margi-cinegold",
+        "Address": " Atatürk Bulvarı Sanayi Sitesi Karşısı MARGİ Alışveriş Merkezi Edirne",
+        "Number": " (284) 2365001",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Lain",
+            "Aykut Enişte 2",
+            "Pişiriciler"
+        ]
+    },
+    "Edirne Uzunköprü AKM Cine İstanbul": {
+        "Name": "Edirne Uzunköprü AKM Cine İstanbul",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2110/edirne-uzunkopru-akm-cine-istanbul",
+        "Address": " Mescit Mah. Keşan Cad. No:215 22200 Uzunköprü/Edirne",
+        "Number": " (284) 5131717",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": []
+    },
+    "Elazığ Cinepoint (Elysium Park)": {
+        "Name": "Elazığ Cinepoint (Elysium Park)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2231/elazig-cinepoint-elysium-park",
+        "Address": " Cumhuriyet Mah. Malatya Cad. Elysium AVM No:10/2  Merkez/Elazığ",
+        "Number": "Adres: Cumhuriyet Mah. Malatya Cad. Elysium AVM No:10/2  Merkez/Elazığ",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Elazığ Cineworld (Park 23)": {
+        "Name": "Elazığ Cineworld (Park 23)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2018/elazig-cineworld-park-23",
+        "Address": " Malatya Yolu Cad. Park 23 AVM Elazığ",
+        "Number": " (424) 5020516",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Elazığ Saray Sinemaları": {
+        "Name": "Elazığ Saray Sinemaları",
+        "Url": "https://www.sinemalar.com/sinemasalonu/345/elazig-saray-sinemalari",
+        "Address": " İzzetpaşa, Şehit Korgeneral Hulusi Sayın Cad. Akgün Avm No:18 D:102, 23350 Merkez/Elâzığ",
+        "Number": " (424) 2472222",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Erzincan Cinebest Erzincan Park": {
+        "Name": "Erzincan Cinebest Erzincan Park",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2069/erzincan-cinebest-erzincan-park",
+        "Address": " Mimar Sinan Mah.Halitpaşa Cad.No:151 Erzincan",
+        "Number": " (446) 2232378",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Erzurum Narman Belediye": {
+        "Name": "Erzurum Narman Belediye",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2227/erzurum-narman-belediye",
+        "Address": " Tuzla Mah. Atatürk Cad. Toki No:131 Narman/Erzurum",
+        "Number": " (442) 7412020",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Erzurum Cinemaximum (Erzurum AVM)": {
+        "Name": "Erzurum Cinemaximum (Erzurum AVM)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1438/erzurum-cinemaximum-erzurum-avm",
+        "Address": " Erzurum A.V.M. Yavuz Sultan Selim Bul. Solakzade Camii yanı No:43 Yenişehir/Erzurum",
+        "Number": " (085) 02200967",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Erzurum Cinetekno": {
+        "Name": "Erzurum Cinetekno",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1812/erzurum-cinetekno",
+        "Address": " Üniversite, Atatürk Üniversitesi Teknokent, Yakutiye/Erzurum",
+        "Number": " (442) 2822083",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya",
+            "Spencer"
+        ]
+    },
+    "Erzurum Palerium Cinemix": {
+        "Name": "Erzurum Palerium Cinemix",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2019/erzurum-palerium-cinemix",
+        "Address": " Cumhuriyet Cad. No:22 Palerium AVM Yakutiye/Erzurum",
+        "Number": " (442) 2377171",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Azamet",
+            "Dayı: Bir Adamın Hikayesi",
+            "Lain",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Erzurum Cinemaximum (MNG Mall)": {
+        "Name": "Erzurum Cinemaximum (MNG Mall)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2130/erzurum-cinemaximum-mng-mall",
+        "Address": " Terminal Mahallesi, Somunoğlu Sokak Yakutiye/Erzurum",
+        "Number": " (085) 02200967",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Giresun G-City": {
+        "Name": "Giresun G-City",
+        "Url": "https://www.sinemalar.com/sinemasalonu/832/giresun-g-city",
+        "Address": " Fevzi Çakmak Mah. Orhan Yılmaz Cad. G-City AVM Giresun",
+        "Number": " (454) 2163580",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Giresun Cinemas": {
+        "Name": "Giresun Cinemas",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2059/giresun-cinemas",
+        "Address": " Çıtlakkale Mah. İnönü Cad. Sabah Center Carrefour Kat: 1  No: 112  Giresun",
+        "Number": " (454) 2604444",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Gümüşhane Sema Doğan Park": {
+        "Name": "Gümüşhane Sema Doğan Park",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2132/gumushane-sema-dogan-park",
+        "Address": " Gümüşhane Belediyesi Işıl Sema Doğan Parkı Akçakale Mevkii Gümüşhane",
+        "Number": " (456) 2332929",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Hakkari Cinegold": {
+        "Name": "Hakkari Cinegold",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2220/hakkari-cinegold",
+        "Address": " Bulak Mah. Atatürk Kültür Merkezi, Zemin Kat Hakkari",
+        "Number": "Adres: Bulak Mah. Atatürk Kültür Merkezi, Zemin Kat Hakkari",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Kızım Gibi Kokuyorsun"
+        ]
+    },
+    "Antakya Prima Mall Prestige": {
+        "Name": "Antakya Prima Mall Prestige",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1808/antakya-prima-mall-prestige",
+        "Address": " Samandağ Yolu Üzeri Yeni Otogar Karşısı Prima Mall AVM Antakya/Hatay",
+        "Number": " (326) 2901030",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Antakya Palladium Cinens": {
+        "Name": "Antakya Palladium Cinens",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1997/antakya-palladium-cinens",
+        "Address": " Haraparası Mah. İzzet Güçlü Sok. No:26 Palladium AVM 31060 Antakya/Hatay",
+        "Number": " (326) 5020000",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Clifford Büyük Kırmızı Köpek",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Hatay Kırıkhan": {
+        "Name": "Hatay Kırıkhan",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2148/hatay-kirikhan",
+        "Address": " Kurtuluş Mah. İnönü Bulvarı Şehit Gülşah Güler Sosyal Tesisleri Kırıkhan/Hatay",
+        "Number": " (326) 4523581",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Azra"
+        ]
+    },
+    "Tulpar Reyhanlı Sineması": {
+        "Name": "Tulpar Reyhanlı Sineması",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2188/tulpar-reyhanli-sinemasi",
+        "Address": " Yeni mahalle 11. sokak sosyal tesisleri binası / HATAY",
+        "Number": "Adres: Yeni mahalle 11. sokak sosyal tesisleri binası / HATAY",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Karınca"
+        ]
+    },
+    "Reyhanlı Tulpar": {
+        "Name": "Reyhanlı Tulpar",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2192/reyhanli-tulpar",
+        "Address": " Yeni Mah. Şemseddin Mursaloglu Cad. 111 Sokak Reyhanlı/Hatay",
+        "Number": "Adres: Yeni Mah. Şemseddin Mursaloglu Cad. 111 Sokak Reyhanlı/Hatay",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Karınca"
+        ]
+    },
+    "Hatay Samandağ Şark": {
+        "Name": "Hatay Samandağ Şark",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1967/hatay-samandag-sark",
+        "Address": " Yeni Mah. Sivas Şehitleri Cad. No: 31 Samandağ/Hatay",
+        "Number": " (326) 5127600",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Aykut Enişte 2"
+        ]
+    },
+    "İskenderun Prime Mall Prestige": {
+        "Name": "İskenderun Prime Mall Prestige",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1665/iskenderun-prime-mall-prestige",
+        "Address": " Numune Mah. Eyüp Sultan cad. No: 1 Prime Mall Avm. İskenderun/Hatay",
+        "Number": " (326) 6192121",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Hatay Cinemaximum (Park Forbes)": {
+        "Name": "Hatay Cinemaximum (Park Forbes)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2090/hatay-cinemaximum-park-forbes",
+        "Address": " Süleymaniye Mah., Kazım Karabekir cad. Park Forbes AVM, İskenderun/Hatay",
+        "Number": " (085) 02200967",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Iğdır Cinegold": {
+        "Name": "Iğdır Cinegold",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2111/igdir-cinegold",
+        "Address": " Söğütlü Mah. Eski Hamam Sok. Iğdır Kültür Merkezi No:1 Merkez/Iğdır",
+        "Number": " (476) 2277168",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Isparta Garden Cinegold": {
+        "Name": "Isparta Garden Cinegold",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2074/isparta-garden-cinegold",
+        "Address": " Sanayi Mah. Atatürk Blv.104 Cad. No:73 Isparta",
+        "Number": " (246) 2242450",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok"
+        ]
+    },
+    "Isparta Saraç Avşar": {
+        "Name": "Isparta Saraç Avşar",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1037/isparta-sarac-avsar",
+        "Address": " Gazi Kemal, Mh. Saraç Sitesi, Şht. Fethi Bey Cd. No: 33 D:23, 32100 Isparta Merkez/Isparta",
+        "Number": " (246) 2326914",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok"
+        ]
+    },
+    "Isparta İyaşpark Cinema Pink": {
+        "Name": "Isparta İyaşpark Cinema Pink",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1586/isparta-iyaspark-cinema-pink",
+        "Address": " Süleyman Demirel Bulvarı Bahçelievler Sokağı 156. Cad. İyaş Park Yaşam Merkezi k:1 Isparta",
+        "Number": " (246) 2282611",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Isparta Yalvaç Yıldız": {
+        "Name": "Isparta Yalvaç Yıldız",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1977/isparta-yalvac-yildiz",
+        "Address": " Pazar Aşağı Mah. Toptancı Hal Binası Bodrum Kat Yalvaç/Isparta",
+        "Number": " (246) 4418358",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": []
+    },
+    "Kahramanmaraş Arsan Center": {
+        "Name": "Kahramanmaraş Arsan Center",
+        "Url": "https://www.sinemalar.com/sinemasalonu/463/kahramanmaras-arsan-center",
+        "Address": " Mehmet Akif Mah. Arsan Center No:63 Dulkadiroğlu/Kahramanmaraş",
+        "Number": " (344) 2353310",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya",
+            "Akif"
+        ]
+    },
+    "Kahramanmaraş Cinemaximum (Piazza)": {
+        "Name": "Kahramanmaraş Cinemaximum (Piazza)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1921/kahramanmaras-cinemaximum-piazza",
+        "Address": " Şazi Bey Mah. Haydar Aliyev Blv. Piazza AVM 3/103, 46040 Onikişubat/Kahramanmaraş",
+        "Number": " (085) 02200967",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Karabük Kares AVM Cityplex": {
+        "Name": "Karabük Kares AVM Cityplex",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2077/karabuk-kares-avm-cityplex",
+        "Address": " Bayır Mah. Kıbrıs Şehitleri Cad. No:20 Bayır Mah. Kıbrıs Şehitleri Cad. No:20 Karabük",
+        "Number": " (370) 4132827",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Karabük Onel Cineboss": {
+        "Name": "Karabük Onel Cineboss",
+        "Url": "https://www.sinemalar.com/sinemasalonu/813/karabuk-onel-cineboss",
+        "Address": " Bayır Mah. Kemal Güneş Cad. Onel Alışveriş Merkezi Kat:3  78200 Karabük",
+        "Number": " (370) 4245916",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok"
+        ]
+    },
+    "Safranbolu Atamerkez Cineboss": {
+        "Name": "Safranbolu Atamerkez Cineboss",
+        "Url": "https://www.sinemalar.com/sinemasalonu/467/safranbolu-atamerkez-cineboss",
+        "Address": " Atatürk Bulvarı Atamerkez İş Merkezi Kat:3 Daire:49 Safranbolu/Karabük",
+        "Number": " (370) 7122204",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Karaman Sinenas": {
+        "Name": "Karaman Sinenas",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1444/karaman-sinenas",
+        "Address": " Kemal Kaynaş Cad. No:51 Migros Üstü Kombasan/Karaman",
+        "Number": " (338) 2148444",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Kars Şehir": {
+        "Name": "Kars Şehir",
+        "Url": "https://www.sinemalar.com/sinemasalonu/834/kars-sehir",
+        "Address": " Atatürk Cad. 100 Yıl İş Hanı Kars",
+        "Number": " (474) 2124836",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Kastamonu Kastamall Cinegold": {
+        "Name": "Kastamonu Kastamall Cinegold",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2228/kastamonu-kastamall-cinegold",
+        "Address": " Saraçlar, İstanbul Cd. No:4 Kastamall AVM 37100 Merkez/Kastamonu",
+        "Number": "Adres: Saraçlar, İstanbul Cd. No:4 Kastamall AVM 37100 Merkez/Kastamonu",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Lain",
+            "Aykut Enişte 2",
+            "Pişiriciler"
+        ]
+    },
+    "Kastamonu Cine Zirve": {
+        "Name": "Kastamonu Cine Zirve",
+        "Url": "https://www.sinemalar.com/sinemasalonu/469/kastamonu-cine-zirve",
+        "Address": " İnönü Mah. Taşköprü Cad. Zirve Avm Kastamonu",
+        "Number": " (366) 2129757",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Kastamonu Barutçuoğlu": {
+        "Name": "Kastamonu Barutçuoğlu",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1090/kastamonu-barutcuoglu",
+        "Address": " Aktekke, Yalçın Cd. Barutçuoğlu Avm No:20, 37200 Merkez/Kastamonu ",
+        "Number": " (366) 2125777",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Lain",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "İnsanlar İkiye Ayrılır"
+        ]
+    },
+    "Kastamonu Taşköprü Sine Yıldız": {
+        "Name": "Kastamonu Taşköprü Sine Yıldız",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2198/kastamonu-taskopru-sine-yildiz",
+        "Address": " Taşköprü Kurban Tepe Mevkii Belediye Kültür Merkezi Taşköprü/Kastamonu",
+        "Number": "Adres: Taşköprü Kurban Tepe Mevkii Belediye Kültür Merkezi Taşköprü/Kastamonu",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": []
+    },
+    "Kastamonu Tosya Sinemax": {
+        "Name": "Kastamonu Tosya Sinemax",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2155/kastamonu-tosya-sinemax",
+        "Address": " Cumhuriyet Mah. Çerkez Sok. No: 36 Tosya/Kastamonu",
+        "Number": "Adres: Cumhuriyet Mah. Çerkez Sok. No: 36 Tosya/Kastamonu",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok"
+        ]
+    },
+    "Kilis Cinema X": {
+        "Name": "Kilis Cinema X",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1976/kilis-cinema-x",
+        "Address": " Ekrem Çetin mah. Doğan Güreş Paşa Bulvarı No:47 Kilis",
+        "Number": " (348) 8139495",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": false,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Girne Lemar Cineplex": {
+        "Name": "Girne Lemar Cineplex",
+        "Url": "https://www.sinemalar.com/sinemasalonu/473/girne-lemar-cineplex",
+        "Address": " Karaoğlanoğlu Girne/Kıbrıs",
+        "Number": " (392) 8223565",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Girne Starlux": {
+        "Name": "Girne Starlux",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2058/girne-starlux",
+        "Address": " Karaoğlanoğlu Girne/Kıbrıs",
+        "Number": " (392) 8224450",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": []
+    },
+    "Güzelyurt Lemar Cineplex": {
+        "Name": "Güzelyurt Lemar Cineplex",
+        "Url": "https://www.sinemalar.com/sinemasalonu/474/guzelyurt-lemar-cineplex",
+        "Address": " Lefkoşa Yolu Güzelyurt/Kıbrıs",
+        "Number": " (392) 7146940",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Lefkoşa Ortaköy Lemar Cineplex": {
+        "Name": "Lefkoşa Ortaköy Lemar Cineplex",
+        "Url": "https://www.sinemalar.com/sinemasalonu/476/lefkosa-ortakoy-lemar-cineplex",
+        "Address": " Gazeteci Hasan Tahsin Cad. Kermiya Bölgesi Ortaköy Lefkoşa/Kıbrıs",
+        "Number": " (392) 2235395",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Lefkoşa Kaymaklı Lemar Cineplex": {
+        "Name": "Lefkoşa Kaymaklı Lemar Cineplex",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1978/lefkosa-kaymakli-lemar-cineplex",
+        "Address": " Mustafa Ruso Cad. Lemar Market Kaymaklı Lefkoşa/Kıbrıs",
+        "Number": " (392) 2283925",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Örümcek-Adam: Eve Dönüş Yok"
+        ]
+    },
+    "Lefkoşa Avenue Cinemax": {
+        "Name": "Lefkoşa Avenue Cinemax",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2011/lefkosa-avenue-cinemax",
+        "Address": " Mehmet Akif Caddesi Dereboyu No : 87 Lefkoşa/Kıbrıs",
+        "Number": " (392) 4442400",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi"
+        ]
+    },
+    "Mağusa Galleria": {
+        "Name": "Mağusa Galleria",
+        "Url": "https://www.sinemalar.com/sinemasalonu/478/magusa-galleria",
+        "Address": " Sakarya Sok. Mağusa/Kıbrıs",
+        "Number": " (392) 3651270",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Mağusa Lemar Cineplex": {
+        "Name": "Mağusa Lemar Cineplex",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1914/magusa-lemar-cineplex",
+        "Address": " Gazi Mustafa Kemal Bulvarı Mağusa/Kıbrıs",
+        "Number": " (392) 3656387",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": []
+    },
+    "Mağusa Cine Mall": {
+        "Name": "Mağusa Cine Mall",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2139/magusa-cine-mall",
+        "Address": " Şehit İbrahim Cad. 2K City Mall AVM Mağusa/Kıbrıs",
+        "Number": " (392) 3655800",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Kırıkkale Makro": {
+        "Name": "Kırıkkale Makro",
+        "Url": "https://www.sinemalar.com/sinemasalonu/874/kirikkale-makro",
+        "Address": " Ovacık Mah. Samsun Bulvarı No: 124/34 Makro AVM Kırıkkale",
+        "Number": " (318) 2188855",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Kırıkkale Cinemaximum (Podium)": {
+        "Name": "Kırıkkale Cinemaximum (Podium)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1979/kirikkale-cinemaximum-podium",
+        "Address": " Podium AVM Erenler Mah. 856/5 Kırıkkale Otogar Karşısı Yahşihan/Kırıkkale",
+        "Number": " (085) 02200967",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": false,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Lüleburgaz Bercadia AVM Cine İstanbul": {
+        "Name": "Lüleburgaz Bercadia AVM Cine İstanbul",
+        "Url": "https://www.sinemalar.com/sinemasalonu/480/luleburgaz-bercadia-avm-cine-istanbul",
+        "Address": " Kocasinan Mah. İstanbul Cad. Bercadia AVM No:30 39780 Lüleburgaz/Kırklareli",
+        "Number": " (288) 4170102",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": []
+    },
+    "Lüleburgaz 39 Burda Cinema Pink": {
+        "Name": "Lüleburgaz 39 Burda Cinema Pink",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2158/luleburgaz-39-burda-cinema-pink",
+        "Address": " Durak Mahallesi 39 Burda AVM 39750 Lüleburgaz/Kırklareli",
+        "Number": " (502) 0080-81",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "Her Şey Yolunda",
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Kırklareli By Prestige": {
+        "Name": "Kırklareli By Prestige",
+        "Url": "https://www.sinemalar.com/sinemasalonu/479/kirklareli-by-prestige",
+        "Address": " Bademlik Mah. Hastane Cad. Dar Sok. No:45 39020 Kırklareli",
+        "Number": " (288) 2148288",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Aykut Enişte 2",
+            "Uzak Ülke"
+        ]
+    },
+    "Kırşehir Klas": {
+        "Name": "Kırşehir Klas",
+        "Url": "https://www.sinemalar.com/sinemasalonu/481/kirsehir-klas",
+        "Address": " Sahir Kurutlu Cad. No:27 Kırşehir",
+        "Number": " (386) 2131344",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Lain",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Kütahya Cinetech Sera": {
+        "Name": "Kütahya Cinetech Sera",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1897/kutahya-cinetech-sera",
+        "Address": " Balıklı, Eskişehir Yolu 1. Km. No:1, Kütahya Merkez/Kütahya",
+        "Number": " (274) 2251313",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Gölgeler İçinde"
+        ]
+    },
+    "Kütahya Simav Kültür Merkezi": {
+        "Name": "Kütahya Simav Kültür Merkezi",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2219/kutahya-simav-kultur-merkezi",
+        "Address": " 4 Eylül Mahallesi Azerbaycan Caddesi Kültür Merkezi Belediye Sineması No: 16 Kat:1 Simav/Kütahya",
+        "Number": " (274) 5133993",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok"
+        ]
+    },
+    "Malatya Yeşil": {
+        "Name": "Malatya Yeşil",
+        "Url": "https://www.sinemalar.com/sinemasalonu/485/malatya-yesil",
+        "Address": " Mücelli Cad. Yeşil İş Merkezi No: 5 Battalgazi/Malatya",
+        "Number": " (422) 3211222",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Lain",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Malatya Park Avşar": {
+        "Name": "Malatya Park Avşar",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1500/malatya-park-avsar",
+        "Address": " İnönü Caddesi No:192 Malatya Park AVM Kat: 2 No: 139 Yeşilyurt/Malatya",
+        "Number": " (422) 2128385",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Akhisar Novada Cinens": {
+        "Name": "Akhisar Novada Cinens",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2032/akhisar-novada-cinens",
+        "Address": " Seyit Ahmet Mah. 787 Sokak No: 2 Novada Outlet AVM Akhisar/Manisa",
+        "Number": " (236) 4120014",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Manisa Alaşehir CINEmagic (Ala City)": {
+        "Name": "Manisa Alaşehir CINEmagic (Ala City)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2152/manisa-alasehir-cinemagic-ala-city",
+        "Address": " Kurtuluş, Ala City AVM, Süleyman Demirel Blv., 45600 Alaşehir/Manisa",
+        "Number": "Adres: Kurtuluş, Ala City AVM, Süleyman Demirel Blv., 45600 Alaşehir/Manisa",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Lain",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya",
+            "Pişiriciler"
+        ]
+    },
+    "Kula Yunus Emre": {
+        "Name": "Kula Yunus Emre",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2053/kula-yunus-emre",
+        "Address": " 4 Eylül Mah. Yunus Emre Cad. No:96 Kula/Manisa",
+        "Number": " (236) 8167005",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": []
+    },
+    "Manisa Magnesia Cinens": {
+        "Name": "Manisa Magnesia Cinens",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1894/manisa-magnesia-cinens",
+        "Address": " Laleli Mah. Ali Rıza Efendi Cad. No: 4 Magnesia AVM Manisa",
+        "Number": " (236) 3022212",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": true,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Salihli Hollywood (Çarşı)": {
+        "Name": "Salihli Hollywood (Çarşı)",
+        "Url": "https://www.sinemalar.com/sinemasalonu/556/salihli-hollywood-carsi",
+        "Address": " Belediye Cad. No:120 A Salihli/Manisa",
+        "Number": " (236) 7122000",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Salihli Hollywood Sineması": {
+        "Name": "Salihli Hollywood Sineması",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1379/salihli-hollywood-sinemasi",
+        "Address": " Mithatpaşa Mh. Belediye Cd. No:120 Salihli MANİSA",
+        "Number": " (236) 7122000",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Aykut Enişte 2"
+        ]
+    },
+    "Turgutlu Cinepoll": {
+        "Name": "Turgutlu Cinepoll",
+        "Url": "https://www.sinemalar.com/sinemasalonu/1745/turgutlu-cinepoll",
+        "Address": " Turan Mah. Yedi Eylül Yolu No:23 Turgutlu/Manisa",
+        "Number": " (236) 3145051",
+        "3-d": true,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": true,
+        "phone-sale": true,
+        "parking": true,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Azamet",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya",
+            "Karınca"
+        ]
+    },
+    "Turgutlu Özdilek Cinetime": {
+        "Name": "Turgutlu Özdilek Cinetime",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2084/turgutlu-ozdilek-cinetime",
+        "Address": " Selvilitepe Mah. Dursun Savci Sokak Turgutlu/Manisa",
+        "Number": " (236) 2281130",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Maşa ile Koca Ayı 4",
+            "Dayı: Bir Adamın Hikayesi",
+            "Aykut Enişte 2",
+            "Enkanto: Sihirli Dünya"
+        ]
+    },
+    "Manisa Sinerol 45 Park": {
+        "Name": "Manisa Sinerol 45 Park",
+        "Url": "https://www.sinemalar.com/sinemasalonu/2164/manisa-sinerol-45-park",
+        "Address": " Güzelyurt Mah. 5737 Sok. No:3 / 10245 PARK AVM Yunusemre/Manisa",
+        "Number": " (236) 2221245",
+        "3-d": false,
+        "air-cond": true,
+        "cafe": false,
+        "dolby": false,
+        "phone-sale": false,
+        "parking": false,
+        "InTheaters": [
+            "The Matrix Resurrections",
+            "Maşa ile Koca Ayı 4",
+            "Örümcek-Adam: Eve Dönüş Yok",
+            "Lain",
+            "Dayı: Bir Adamın Hikayesi",
+            "Azamet",
+            "Aykut Enişte 2"
+        ]
+    }
+}
