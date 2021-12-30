@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.yaska.visionary.model.User;
 
 import java.util.List;
+import java.util.Map;
 
 public class DatabaseService {
 
@@ -29,6 +30,10 @@ public class DatabaseService {
 
     public interface GetCitiesCallback{
         void onCallback(List<String> getCities);
+    }
+
+    public interface GetTheatersMapCallback{
+        void onCallback(Map<String, List<String>> getTheatersMap);
     }
 
 }
