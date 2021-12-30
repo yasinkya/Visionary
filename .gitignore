@@ -14,6 +14,3 @@
 .externalNativeBuild
 .cxx
 local.properties
-*myenv
-visionary_datas/myenv
-
