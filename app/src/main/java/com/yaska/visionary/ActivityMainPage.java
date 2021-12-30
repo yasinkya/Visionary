@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -175,6 +176,7 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // todo conf here
@@ -201,7 +203,7 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
                 Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 Intent intent_share = new Intent(Intent.ACTION_SEND);
                 intent_share.setType("text/plain");
-                intent_share.putExtra(Intent.EXTRA_TEXT, "linkhere");
+                intent_share.putExtra(Intent.EXTRA_TEXT, "https://github.com/yasinkya/Visionary.git");
                 startActivity(Intent.createChooser(intent_share, "Thanks For Sharing Our App :')"));;
                 break;
             case R.id.menu_settings:
