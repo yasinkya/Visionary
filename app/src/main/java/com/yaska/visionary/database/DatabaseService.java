@@ -9,8 +9,20 @@ public class DatabaseService {
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
 
-    public interface UserDBCallback {
+    public interface UserCallback {
         void onCallback(User returnUser);
+    }
+
+    public interface CheckPassCallback {
+        void onCallBack(String result);
+    }
+
+    public interface GetUserCallback{
+        void onCallback(User getUser);
+    }
+    
+    public interface GetLastUserCallback {
+        void onCallBack(String getLastUser);
     }
 
 }

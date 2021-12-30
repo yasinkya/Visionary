@@ -18,6 +18,7 @@ import com.yaska.visionary.model.User;
 public class ActivityLogin extends AppCompatActivity {
 
     boolean signupclicked;
+    String lastUser, checkResult;
     UserDB userdataBase = new UserDB();
     User user;
 
@@ -38,7 +39,8 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        checkLastLogin();
+        
         LinearLayoutCompat laysignup = findViewById(R.id.lay_signup);
         laysignup.setVisibility(View.GONE);
 
@@ -58,8 +60,8 @@ public class ActivityLogin extends AppCompatActivity {
             String username = et_username.getText().toString();
             String password = et_password.getText().toString();
 
+            // Sing up
             if (signupclicked){
-
                 String name = et_name.getText().toString();
                 String surname = et_surname.getText().toString();
                 String mail = et_mail.getText().toString();
@@ -69,30 +71,52 @@ public class ActivityLogin extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(ActivityLogin.this, "kayıt olunuyor", Toast.LENGTH_SHORT).show();
-                    userdataBase.new_user(new User(name, surname, mail, username, password), username);
+                    user = new User(name, surname, mail, username, password);
+                    userdataBase.new_user(user, username);
+//                    userdataBase.change_last_login(username);
+                    changeIntent(user);
                 }
 
             }
+            // Login
             else{
                 if(username.equals("") || password.equals("")){
                     Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    userdataBase.check_user(username, returnUser -> {
-                        if (userdataBase.returnUser != null){
-                            user = userdataBase.returnUser;
-                            if (user.Password.equals(password)){
-                                Toast.makeText(ActivityLogin.this, "Welcome", Toast.LENGTH_SHORT).show();
+                    userdataBase.checkUserPass(username, password, result -> {
+                        checkResult = userdataBase.checkResult;
+                        if(checkResult.equals("ok")){
+                            userdataBase.getUser(username, getUser -> {
+                                user = userdataBase.returnUser;
+                                Toast.makeText(ActivityLogin.this, "Welcome "+user.UserName, Toast.LENGTH_SHORT).show();
                                 changeIntent(user);
-                            }
-                            else
-                                Toast.makeText(ActivityLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
 
+                            });
                         }
+                        else if (checkResult.equals("wp"))
+                            Toast.makeText(ActivityLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                         else
                             Toast.makeText(ActivityLogin.this, "User Not Found", Toast.LENGTH_SHORT).show();
 
+
                     });
+
+//                    userdataBase.check_user(username, returnUser -> {
+//                        if (userdataBase.returnUser != null){
+//                            user = userdataBase.returnUser;
+//                            if (user.Password.equals(password)){
+//                                Toast.makeText(ActivityLogin.this, "Welcome", Toast.LENGTH_SHORT).show();
+//                                changeIntent(user);
+//                            }
+//                            else
+//                                Toast.makeText(ActivityLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                        else
+//                            Toast.makeText(ActivityLogin.this, "User Not Found", Toast.LENGTH_SHORT).show();
+//
+//                    });
 
                 }
 
@@ -141,6 +165,18 @@ public class ActivityLogin extends AppCompatActivity {
         this.startActivity(intent);
     }
 
+
+    private void checkLastLogin(){
+        userdataBase.getLastUser(getLastUser -> {
+            lastUser = userdataBase.lastUser;
+            if(!lastUser.equals("")){
+                userdataBase.getUser(lastUser, getUser -> {
+                    user = userdataBase.returnUser;
+                    changeIntent(user);
+                });
+            }
+        });
+    }
 
     // When Back Pressed dont close at first
     int pressed=0;

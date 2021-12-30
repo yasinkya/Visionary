@@ -73,9 +73,6 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-//        user = (User) getIntent().getSerializableExtra("user");
-        user = new User("yasin", "kaya", "yaska.com", "yaska", "1");
-
         // Sliding menu items
         drawerLayout = findViewById(R.id.drawerlay_main);
         navigationView = findViewById(R.id.view_nav);
@@ -88,6 +85,9 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
 
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.menu_home);
+
+        user = (User) getIntent().getSerializableExtra("user");
+//        user = new User("yasin", "kaya", "yaska.com", "yaska", "1");
 
         menu = navigationView.getMenu();
 
@@ -314,7 +314,7 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
     private void setBannerPageAdapter(List<Banners> listBanners){
 
         timerSlide =new Timer();
-        timerSlide.scheduleAtFixedRate(new AutoSlider(),10000,12500);
+        timerSlide.scheduleAtFixedRate(new AutoSlider(),8000,10000);
         indicatorTab.setupWithViewPager(bannerPageView,true);
 
         bannerPageView = findViewById(R.id.bannerView);

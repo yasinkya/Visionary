@@ -16,11 +16,12 @@ public class UserDB extends DatabaseService {
     Map<String, User> usermap;
     DatabaseReference usersref;
     public User returnUser;
+    public String checkResult, lastUser;
 
-   public UserDB(){
-       usersref = ref.child("Users");
+    public UserDB(){
+        usersref = ref.child("Users");
 
-   }
+    }
 
 
     public void new_user(User user, String username){
@@ -33,33 +34,93 @@ public class UserDB extends DatabaseService {
         usersref.child(userName).removeValue();
     }
 
-    public void check_user(String userName, final UserDBCallback userDBCallback){
-       ValueEventListener valueEventListener = new ValueEventListener() {
-           @Override
-           public void onDataChange(@NonNull DataSnapshot snapshot) {
-               short userCount = 0;
-               for(DataSnapshot ds:snapshot.getChildren()){
-                   if (userName.equals(ds.getKey())){
-                       returnUser = ds.child("Account").getValue(User.class);
-                   }
-                   else
-                       userCount++;
-                   if (userCount == snapshot.getChildrenCount())
-                       returnUser = null;
+    public void check_user(String userName, final UserCallback userCallback){
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                short userCount = 0;
+                for(DataSnapshot ds:snapshot.getChildren()){
+                    if (userName.equals(ds.getKey())){
+                        returnUser = ds.child("Account").getValue(User.class);
+                    }
+                    else
+                        userCount++;
+                    if (userCount == snapshot.getChildrenCount())
+                        returnUser = null;
 
-               }
-               userDBCallback.onCallback(returnUser);
-           }
+                }
+                userCallback.onCallback(returnUser);
+            }
 
-           @Override
-           public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-           }
-       };
+            }
+        };
 
-       usersref.addValueEventListener(valueEventListener);
+        usersref.addValueEventListener(valueEventListener);
     }
 
-}
+    public void checkUserPass(String username, String pass, final CheckPassCallback checkPassCallback){
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                short userCount = 0;
+                for(DataSnapshot ds:snapshot.getChildren()){
+                    if (username.equals(ds.getKey())){
+                        if (pass.equals(ds.child("Account").child("Password").getValue()))
+                            checkResult = "ok";
+                        else
+                            checkResult = "wp";
+                    }
+                    else
+                        userCount++;
+                    if (userCount == snapshot.getChildrenCount())
+                        checkResult = "none";
 
+                }
+                checkPassCallback.onCallBack(checkResult);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        };
+
+        usersref.addListenerForSingleValueEvent(valueEventListener);
+    }
+
+    public void getUser(String username, final GetUserCallback getUserCallback){
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                returnUser = snapshot.child(username).child("Account").getValue(User.class);
+                getUserCallback.onCallback(returnUser);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        usersref.addListenerForSingleValueEvent(valueEventListener);
+    }
+    
+    public void getLastUser(final GetLastUserCallback getLastUserCallback){
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lastUser = (String) snapshot.child("LastLogin").getValue();
+                getLastUserCallback.onCallBack(lastUser);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        usersref.addListenerForSingleValueEvent(valueEventListener);
+    }
+}
 
