@@ -15,6 +15,7 @@ public class TheaterDB extends DatabaseService {
 
     DatabaseReference theaterRef;
     public List<String> cities = new ArrayList<>();
+    
 
     public TheaterDB(){
         theaterRef = ref.child("Movie Theaters");
