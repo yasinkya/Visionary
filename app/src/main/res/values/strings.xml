@@ -24,4 +24,8 @@
     <string name="opennavdrawer">"Open Navigation Drawer"</string>
     <string name="closenavdrawer">"Close Navigation Drawer"</string>
     <string name="description">Description</string>
+    <string name="theaters">Theaters</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cities">Cities</string>
 </resources>

@@ -40,7 +40,7 @@ public class ActivityLogin extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         checkLastLogin();
-        
+
         LinearLayoutCompat laysignup = findViewById(R.id.lay_signup);
         laysignup.setVisibility(View.GONE);
 

@@ -193,7 +193,10 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.menu_favorites:
                 Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
-
+                break;
+            case R.id.menu_theaters:
+                Intent intent = new Intent(ActivityMainPage.this, ActivityTheater.class);
+                this.startActivity(intent);
                 break;
             case R.id.menu_account:
                 Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();

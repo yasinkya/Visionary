@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityMainPage"
+    android:id="@+id/drawerlay_main"
+    android:fitsSystemWindows="true"
+    app:layout_anchorGravity="fill"
+    tools:openDrawer="end"
+    android:background="@color/primaryblue"
+    android:orientation="vertical"
+    >
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/view_nav"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/right_menu"
+        android:layout_gravity="left"
+        android:background="@color/secondaryblue"
+        app:itemTextColor="#E1E1D2"
+        app:itemShapeFillColor="@color/thirtyblue"
+        tools:ignore="RtlHardcoded" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:id="@+id/btn_slide"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_menuopen"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/mainpage_appname"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/baloo"
+                android:gravity="center_vertical"
+                android:text="@string/visionary"
+                android:textAlignment="center"
+                android:textColor="@color/textprimwhite"
+                tools:ignore="RtlCompat" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cities"
+            android:textColor="@color/softwhite"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/advent_pro_semibold"
+            android:textSize="20sp"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/citiesListView"
+            android:layout_margin="20dp"
+            android:background="@color/secondaryblue"
+            android:scrollbars="none"
+            >
+
+
+
+        </ListView>
+
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

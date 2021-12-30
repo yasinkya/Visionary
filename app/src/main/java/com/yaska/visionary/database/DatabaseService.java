@@ -4,6 +4,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.yaska.visionary.model.User;
 
+import java.util.List;
+
 public class DatabaseService {
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -23,6 +25,10 @@ public class DatabaseService {
     
     public interface GetLastUserCallback {
         void onCallBack(String getLastUser);
+    }
+
+    public interface GetCitiesCallback{
+        void onCallback(List<String> getCities);
     }
 
 }

@@ -27,6 +27,7 @@ public class ActivityPlayer extends AppCompatActivity {
         player = findViewById(R.id.player);
         getLifecycle().addObserver(player);
 
+
         player.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onVideoId(@NonNull YouTubePlayer youTubePlayer, @NonNull String videoId) {
