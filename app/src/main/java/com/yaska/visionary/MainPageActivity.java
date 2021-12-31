@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ActivityMainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     User user;
 
@@ -86,8 +86,8 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.menu_home);
 
-        user = (User) getIntent().getSerializableExtra("user");
-//        user = new User("yasin", "kaya", "yaska.com", "yaska", "1");
+//        user = (User) getIntent().getSerializableExtra("user");
+        user = new User("yasin", "kaya", "yaska.com", "yaska", "1");
 
         menu = navigationView.getMenu();
 
@@ -110,24 +110,24 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
                 switch(tab.getPosition()){
                     case 1:
 //                        setScrDef();
-                        Toast.makeText(ActivityMainPage.this, tab.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainPageActivity.this, tab.getText(), Toast.LENGTH_SHORT).show();
 //                        fetchBannerItems("Top","Movies");
                         break;
                     case 2:
 //                        setScrDef();
-                        Toast.makeText(ActivityMainPage.this, tab.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainPageActivity.this, tab.getText(), Toast.LENGTH_SHORT).show();
 
 //                        fetchBannerItems("Top","Movies");
 
                         break;
                     case 3:
 //                        setScrDef();
-                        Toast.makeText(ActivityMainPage.this, tab.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainPageActivity.this, tab.getText(), Toast.LENGTH_SHORT).show();
 
 //                        fetchBannerItems("Top","Movies");
                         break;
                     default:
-                        Toast.makeText(ActivityMainPage.this, tab.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainPageActivity.this, tab.getText(), Toast.LENGTH_SHORT).show();
 
 //                        setScrDef();
 //                        fetchBannerItems("Top","Movies");
@@ -153,7 +153,6 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
         List<CategoryItem> homeCatItemList2 = new ArrayList<>();
         homeCatItemList2.add(new CategoryItem(104,"Görevimiz Tatil","https://tr.web.img4.acsta.net/pictures/18/01/12/14/36/3191471.jpg","H7lvU8yY_xQ"));
         homeCatItemList2.add(new CategoryItem(105,"Hugo","https://foto.sondakika.com/haber/2011/11/30/hugo-filmi-3160674-3160674_o.jpg","_5g9rL9dQXw"));
-        //homeCatItemList.add(new CategoryItem(1,"","",""));
         homeCatItemList2.add(new CategoryItem(106,"Joker","data:image/jpeg;base64,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","https://s330.fdfiles.net/download.php?name=Joker.2019.mp4&md5=0429f13319b33d3b9e9474c2585b9d5a&fid=oga0xspncsgz&uid=free&speed=59&till=1622387315&trycount=1&ip=81.215.160.21&sid=a4dc4012a97898c6462f321c792b6b8b&browser=0d9b315c9114fee54103aa841dbc2e27&did=2471170939&secure=1&sign=7fee1b00380335604d5a78ce1ff89225"));
 
 
@@ -185,32 +184,31 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
 
                 break;
             case R.id.menu_search:
-                Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_top:
-                Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_favorites:
-                Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_theaters:
-                Intent intent = new Intent(ActivityMainPage.this, ActivityTheater.class);
+                Intent intent = new Intent(MainPageActivity.this, CityTheaterActivity.class);
                 this.startActivity(intent);
                 break;
             case R.id.menu_account:
-                Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.menu_share:
-                Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 Intent intent_share = new Intent(Intent.ACTION_SEND);
                 intent_share.setType("text/plain");
                 intent_share.putExtra(Intent.EXTRA_TEXT, "https://github.com/yasinkya/Visionary.git");
                 startActivity(Intent.createChooser(intent_share, "Thanks For Sharing Our App :')"));;
                 break;
             case R.id.menu_settings:
-                Toast.makeText(ActivityMainPage.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
 
                 break;
         }
@@ -330,7 +328,7 @@ public class ActivityMainPage extends AppCompatActivity implements NavigationVie
     class AutoSlider extends TimerTask {
         @Override
         public void run() {
-            ActivityMainPage.this.runOnUiThread(()->{
+            MainPageActivity.this.runOnUiThread(()->{
                 if(bannerPageView.getCurrentItem() < bannerPageView.getChildCount()-1){
                     bannerPageView.setCurrentItem(bannerPageView.getCurrentItem()+1);
                 }

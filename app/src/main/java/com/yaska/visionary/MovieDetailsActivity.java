@@ -14,7 +14,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
-public class ActivityMovieDetails extends AppCompatActivity {
+public class MovieDetailsActivity extends AppCompatActivity {
 
     YouTubePlayerView player;
     TextView et_movieName, et_description;
@@ -49,7 +49,7 @@ public class ActivityMovieDetails extends AppCompatActivity {
 //        Glide.with(this).load(movieImage).into()
 
         btn_play.setOnClickListener(v ->{
-            Intent intent = new Intent(ActivityMovieDetails.this, ActivityPlayer.class);
+            Intent intent = new Intent(MovieDetailsActivity.this, PlayerActivity.class);
             intent.putExtra("videoId", movieVideoId);
             startActivity(intent);
 

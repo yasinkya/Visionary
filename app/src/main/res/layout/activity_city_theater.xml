@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityMainPage"
+    tools:context=".MainPageActivity"
     android:id="@+id/drawerlay_main"
     android:fitsSystemWindows="true"
     app:layout_anchorGravity="fill"
@@ -83,20 +83,20 @@
                 android:orientation="horizontal"
                 android:layout_margin="20dp"
                 >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/et_theaterof"
-                    android:textColor="@color/softwhite"
-                    android:fontFamily="@font/advent_pro_semibold"
-                    android:textSize="20sp"/>
+
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnUp"
-                    android:layout_width="30dp"
+                    android:id="@+id/btnUpcity"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:background="@drawable/icon_up"
-                    android:layout_alignParentEnd="true"
-                    />
+                    android:background="@drawable/transparent"
+                    android:drawableEnd="@drawable/icon_up"
+                    android:fontFamily="@font/advent_pro_semibold"
+                    android:layout_marginStart="7dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/softwhite"
+                    android:textSize="17sp"
+                    tools:ignore="RelativeOverlap" />
+
 
             </RelativeLayout>
 

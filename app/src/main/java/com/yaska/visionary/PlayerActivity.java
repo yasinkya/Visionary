@@ -11,7 +11,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
-public class ActivityPlayer extends AppCompatActivity {
+public class PlayerActivity extends AppCompatActivity {
 
     String mvideoId;
     YouTubePlayerView player;

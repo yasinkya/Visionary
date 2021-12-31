@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primaryblue"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/movie_layout"
+    >
+
+    <ImageView
+        android:src="@drawable/visionary"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_margin="20dp"
+        android:id="@+id/movie_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/movie_name"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/value"
+        android:textSize="23sp"
+        android:textColor="@color/softwhite"
+        app:layout_constraintStart_toEndOf="@+id/movie_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp"
+        android:text="@string/movie_genre"
+        android:textColor="@color/softwhite"
+        android:id="@+id/movie_genre"
+        app:layout_constraintStart_toEndOf="@+id/movie_image"
+        app:layout_constraintTop_toBottomOf="@+id/movie_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/altwhite"
+        android:text="@string/value"
+        android:id="@+id/movie_genre_value"
+        app:layout_constraintStart_toEndOf="@id/movie_genre"
+        app:layout_constraintTop_toBottomOf="@id/movie_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/softwhite"
+        android:id="@+id/movie_time"
+        android:text="@string/time"
+        app:layout_constraintStart_toEndOf="@id/movie_image"
+        app:layout_constraintTop_toBottomOf="@id/movie_genre"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/altwhite"
+        android:text="@string/value"
+        android:id="@+id/movie_time_value"
+        app:layout_constraintStart_toEndOf="@id/movie_time"
+        app:layout_constraintTop_toBottomOf="@id/movie_genre"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/softwhite"
+        app:layout_constraintStart_toEndOf="@id/movie_image"
+        app:layout_constraintTop_toBottomOf="@id/movie_time"
+        android:text="@string/producer"
+        android:id="@+id/movie_producer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/altwhite"
+        android:text="@string/value"
+        android:id="@+id/movie_producer_value"
+        app:layout_constraintTop_toBottomOf="@id/movie_time_value"
+        app:layout_constraintStart_toEndOf="@id/movie_producer"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/softwhite"
+        android:text="@string/actors"
+        android:id="@+id/movie_actors"
+        app:layout_constraintStart_toEndOf="@id/movie_image"
+        app:layout_constraintTop_toBottomOf="@id/movie_producer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/altwhite"
+        android:text="@string/value"
+        android:id="@+id/movie_actors_value"
+        app:layout_constraintTop_toBottomOf="@+id/movie_producer"
+        app:layout_constraintStart_toEndOf="@id/movie_actors"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPageActivity"
+    tools:context=".InTheatersActivity"
     android:id="@+id/drawerlay_main"
     android:fitsSystemWindows="true"
     app:layout_anchorGravity="fill"
@@ -27,7 +27,7 @@
         tools:ignore="RtlHardcoded" />
 
     <ScrollView
-        android:id="@+id/view_scroll"
+        android:id="@+id/view_scroll_intheaters"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
@@ -36,7 +36,7 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-100dp"
+            android:layout_marginBottom="-55dp"
 
             >
 
@@ -74,45 +74,13 @@
 
                 </androidx.appcompat.widget.Toolbar>
 
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tablay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:background="@color/secondaryblue"
-                    app:tabIndicator="@color/cardview_light_background"
-                    app:tabRippleColor="#0f171e"
-                    app:tabTextColor="@color/tabtextcolor"
-                    app:tabSelectedTextColor="@color/textprimwhite"
-
-                    >
-
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/vizyondakiler"
-                        />
-
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/yakinda"/>
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/top_5"/>
-
-
-                </com.google.android.material.tabs.TabLayout>
-
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="100dp"
-                android:id="@+id/nested_scroll"
+                android:layout_marginBottom="55dp"
+                android:id="@+id/nested_scroll_intheaters"
                 android:background="@color/primaryblue"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                 >
@@ -120,50 +88,17 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:context=".Screens.MainActivity"
 
                     >
 
-                    <RelativeLayout
-                        android:id="@+id/lay_slidingbanner"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginTop="5dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"
-                        tools:ignore="MissingConstraints">
-
-                        <androidx.viewpager.widget.ViewPager
-                            android:id="@+id/bannerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="2dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="2dp"
-                            android:layout_marginBottom="5dp"
-                            tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
-
-                        <com.google.android.material.tabs.TabLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tab_indicator"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerInParent="true"
-                            app:tabBackground="@drawable/indicator_selector"
-                            android:background="#00000000"
-                            app:tabIndicatorHeight="0dp"
-                            app:tabMaxWidth="15dp"/>
-
-                    </RelativeLayout>
-
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/intheaters_main_recycle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/main_recycle"
-                        android:layout_marginTop="4dp"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/lay_slidingbanner"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

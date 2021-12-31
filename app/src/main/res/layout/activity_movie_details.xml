@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".ActivityMovieDetails"
+    tools:context=".MovieDetailsActivity"
     >
     <!-- todo youtubeplayer for imageview-->
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView

@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
-import com.yaska.visionary.ActivityMovieDetails;
+import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.Banners;
 
@@ -63,7 +63,7 @@ public class BannerPageAdapter extends PagerAdapter {
 
             // movieDetails classına film özelliklerini gönder
 
-            Intent i =new Intent(context, ActivityMovieDetails.class);
+            Intent i =new Intent(context, MovieDetailsActivity.class);
             i.putExtra("movieId",bannerList.get(position).getMovieId());
             i.putExtra("movieName",bannerList.get(position).getMovieName());
             i.putExtra("movieImageUrl",bannerList.get(position).getMovieImgUrl());

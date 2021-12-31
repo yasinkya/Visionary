@@ -15,7 +15,7 @@ import androidx.cardview.widget.CardView;
 import com.yaska.visionary.database.UserDB;
 import com.yaska.visionary.model.User;
 
-public class ActivityLogin extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     boolean signupclicked;
     String lastUser, checkResult;
@@ -67,10 +67,10 @@ public class ActivityLogin extends AppCompatActivity {
                 String mail = et_mail.getText().toString();
 
                 if(username.equals("") || password.equals("") || name.equals("") || surname.equals("") || mail.equals("")){
-                    Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(ActivityLogin.this, "kayıt olunuyor", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "kayıt olunuyor", Toast.LENGTH_SHORT).show();
                     user = new User(name, surname, mail, username, password);
                     userdataBase.new_user(user, username);
 //                    userdataBase.change_last_login(username);
@@ -81,7 +81,7 @@ public class ActivityLogin extends AppCompatActivity {
             // Login
             else{
                 if(username.equals("") || password.equals("")){
-                    Toast.makeText(ActivityLogin.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     userdataBase.checkUserPass(username, password, result -> {
@@ -89,15 +89,15 @@ public class ActivityLogin extends AppCompatActivity {
                         if(checkResult.equals("ok")){
                             userdataBase.getUser(username, getUser -> {
                                 user = userdataBase.returnUser;
-                                Toast.makeText(ActivityLogin.this, "Welcome "+user.UserName, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Welcome "+user.UserName, Toast.LENGTH_SHORT).show();
                                 changeIntent(user);
 
                             });
                         }
                         else if (checkResult.equals("wp"))
-                            Toast.makeText(ActivityLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                         else
-                            Toast.makeText(ActivityLogin.this, "User Not Found", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "User Not Found", Toast.LENGTH_SHORT).show();
 
 
                     });
@@ -142,7 +142,7 @@ public class ActivityLogin extends AppCompatActivity {
         });
 
         btn_forgot.setOnClickListener(v ->
-                Toast.makeText(ActivityLogin.this, "unutma amk", Toast.LENGTH_SHORT).show());
+                Toast.makeText(LoginActivity.this, "unutma amk", Toast.LENGTH_SHORT).show());
 
 
     }
@@ -158,7 +158,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     // Ekran Değiştir ve Giriş yapılan kullanıcının giriş bilgisini db'de değiştir
     private void changeIntent(User user){
-        Intent intent = new Intent(ActivityLogin.this, ActivityMainPage.class);
+        Intent intent = new Intent(LoginActivity.this, MainPageActivity.class);
         intent.putExtra("user", user);
         finishAffinity();
 
@@ -183,7 +183,7 @@ public class ActivityLogin extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (pressed == 0){
-            Toast.makeText(ActivityLogin.this, "Press again for exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Press again for exit", Toast.LENGTH_SHORT).show();
             pressed++;
         }
         else{

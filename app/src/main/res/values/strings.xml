@@ -28,4 +28,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cities">Cities</string>
+    <string name="movie_genre">Movie Genre:</string>
+    <string name="value">value</string>
+    <string name="time">Time:</string>
+    <string name="producer">Producer:</string>
+    <string name="actors">Actors:</string>
 </resources>

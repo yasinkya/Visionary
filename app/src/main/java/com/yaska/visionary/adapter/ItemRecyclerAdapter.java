@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.yaska.visionary.ActivityMovieDetails;
+import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.CategoryItem;
 
@@ -52,7 +52,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
         holder.itemImage.setOnClickListener(view -> {
             //Toast.makeText(context,categoryItemList.get(position).getMovieName(),Toast.LENGTH_LONG).show();
-            Intent i =new Intent(context, ActivityMovieDetails.class);
+            Intent i =new Intent(context, MovieDetailsActivity.class);
             i.putExtra("movieId",categoryItemList.get(position).getMovieId().toString());
             i.putExtra("movieName",categoryItemList.get(position).getMovieName());
             i.putExtra("movieImageUrl",categoryItemList.get(position).getMovieImgUrl());
