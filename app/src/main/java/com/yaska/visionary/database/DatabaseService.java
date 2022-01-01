@@ -2,6 +2,7 @@ package com.yaska.visionary.database;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.yaska.visionary.model.Movie;
 import com.yaska.visionary.model.Theater;
 import com.yaska.visionary.model.User;
 
@@ -30,8 +31,11 @@ public class DatabaseService {
     }
 
     public interface GetCityTheatersCallback{
-//        void onCallback(Map<String, List<Theater>> getCityTheaters);
         void onCallback(Map<String, Map<String, Theater>> getCityTheaters);
+    }
+
+    public interface getMoviesListCallback{
+        void onCallback(List<Movie> getMoviesList);
     }
 
 }

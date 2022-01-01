@@ -12,7 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
+import com.yaska.visionary.database.MovieDB;
 import com.yaska.visionary.model.Actor;
+import com.yaska.visionary.model.InTheater;
 import com.yaska.visionary.model.Movie;
 import com.yaska.visionary.model.Theater;
 
@@ -21,8 +23,12 @@ import java.util.List;
 
 public class InTheatersActivity extends AppCompatActivity {
 
+    MovieDB moviedatabase;
+
     Theater theater;
     String city;
+    List<String> movieNames = new ArrayList<>();
+    List<Movie> movies;
 
     RecyclerView recyclerView;
     InTheatersRecyclerAdapter recyclerAdapter;
@@ -38,9 +44,11 @@ public class InTheatersActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        moviedatabase = new MovieDB();
 
         city = getIntent().getStringExtra("city");
         theater = (Theater) getIntent().getSerializableExtra("theater");
+
 
         cityName = findViewById(R.id.cityname);
         theaterName = findViewById(R.id.theatername);
@@ -61,7 +69,10 @@ public class InTheatersActivity extends AppCompatActivity {
         theaterAddress.setText(theater.Address);
         theaterNumber.setText(theater.Number);
 
-        Toast.makeText(InTheatersActivity.this, city+ theater, Toast.LENGTH_SHORT).show();
+        for (InTheater movs: theater.InTheaters){
+            movieNames.add(movs.Name);
+        }
+
         setRecycler();
 
 
@@ -102,6 +113,10 @@ public class InTheatersActivity extends AppCompatActivity {
     }
 
     void setRecycler(){
+
+        moviedatabase.getMoviesList(movieNames, getMoviesList -> {
+            movies = moviedatabase.movieList;
+        });
 
         String image = "https://img02.imgsinemalar.com/images/afis_buyuk/a/addams-ailesi-2-1636542332.jpg";
         List<Movie> movies = new ArrayList<>();
