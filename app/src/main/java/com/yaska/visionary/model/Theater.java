@@ -1,8 +1,9 @@
 package com.yaska.visionary.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Theater {
+public class Theater implements Serializable {
 
     public String City;
     public String Name;

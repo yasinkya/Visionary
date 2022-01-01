@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/secondaryblue"
+    android:background="@color/thirtyblue"
     android:clickable="true"
     android:focusable="true"
     android:id="@+id/movie_layout"
@@ -28,19 +28,6 @@
 
             />
     </androidx.cardview.widget.CardView>
-
-
-<!--    <ImageView-->
-<!--        android:src="@drawable/background_btn_play"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="150dp"-->
-<!--        android:layout_margin="20dp"-->
-<!--        android:id="@+id/movie_image"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:cardCornerRadius="10dp"-->
-<!--        tools:ignore="ContentDescription" />-->
 
     <TextView
         android:layout_width="wrap_content"

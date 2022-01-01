@@ -28,7 +28,7 @@ public class CityTheaterActivity extends AppCompatActivity {
 
     TheaterDB database;
 
-    String currentCity;
+    String currentCity, currentTheater;
     List<String> cities;
     ArrayAdapter<String> adapter;
     public Map<String, Map<String, Theater>> allTheatersMap = new HashMap<>();
@@ -61,15 +61,24 @@ public class CityTheaterActivity extends AppCompatActivity {
         });
 
         listViewCities.setOnItemClickListener((parent, view, position, id) -> {
+
             listViewCities.setVisibility(View.GONE);
             currentCity = (String) listViewCities.getItemAtPosition(position);
             upButton.setText(String.format("Movie Theaters of %s", currentCity));
-            setListViewTheaters(currentCity);
+
+            adapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_list_item_1,
+                    new ArrayList<>(allTheatersMap.get(currentCity).keySet()));
+            listViewTheaters.setAdapter(adapter);
 
         });
 
-        listViewTheaters.setOnItemClickListener((parent, view, pos, id) ->
-                setIntheatersRecycler(currentCity, (String) listViewTheaters.getItemAtPosition(pos)));
+        listViewTheaters.setOnItemClickListener((parent, view, pos, id) ->{
+            currentTheater = (String) listViewTheaters.getItemAtPosition(pos);
+            setIntheatersRecycler(currentCity,
+                    allTheatersMap.get(currentCity).get(currentTheater));
+
+        });
 
         upButton.setOnClickListener(v -> listViewCities.setVisibility(View.VISIBLE));
 
@@ -77,18 +86,12 @@ public class CityTheaterActivity extends AppCompatActivity {
 
 
     }
-    public void setListViewTheaters(String currentCity){
-        adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                new ArrayList<>(allTheatersMap.get(currentCity).keySet()));
-        listViewTheaters.setAdapter(adapter);
-    }
 
-    public void setIntheatersRecycler(String city, String theater){
+    public void setIntheatersRecycler(String currentCity, Theater currentTheater){
 
         Intent intent = new Intent(CityTheaterActivity.this, InTheatersActivity.class);
-        intent.putExtra("city", city);
-        intent.putExtra("theater", theater);
+        intent.putExtra("city", currentCity);
+        intent.putExtra("theater", currentTheater);
         startActivity(intent);
 
     }
