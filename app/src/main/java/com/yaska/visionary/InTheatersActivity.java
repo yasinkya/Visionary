@@ -87,7 +87,7 @@ public class InTheatersActivity extends AppCompatActivity {
         if (theater.Parking)
             parking.setVisibility(View.VISIBLE);
         else
-            phoneSale.setVisibility(View.GONE);
+            parking.setVisibility(View.GONE);
 
         if(theater.AirCond)
             airCond.setVisibility(View.VISIBLE);

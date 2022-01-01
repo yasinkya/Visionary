@@ -82,17 +82,14 @@ public class CityTheaterActivity extends AppCompatActivity {
 
         upButton.setOnClickListener(v -> listViewCities.setVisibility(View.VISIBLE));
 
-
-
-
     }
 
     public void setIntheatersRecycler(String currentCity, Theater currentTheater){
-
         Intent intent = new Intent(CityTheaterActivity.this, InTheatersActivity.class);
         intent.putExtra("city", currentCity);
         intent.putExtra("theater", currentTheater);
         startActivity(intent);
+
 
     }
 }

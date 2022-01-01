@@ -1,6 +1,8 @@
 package com.yaska.visionary.model;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket  implements Serializable {
     public String Time;
     public String Url;
 
