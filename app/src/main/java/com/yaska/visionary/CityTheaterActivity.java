@@ -75,7 +75,7 @@ public class CityTheaterActivity extends AppCompatActivity {
 
         listViewTheaters.setOnItemClickListener((parent, view, pos, id) ->{
             currentTheater = (String) listViewTheaters.getItemAtPosition(pos);
-            setIntheatersRecycler(currentCity,
+            changeIntentTo(currentCity,
                     allTheatersMap.get(currentCity).get(currentTheater));
 
         });
@@ -84,11 +84,21 @@ public class CityTheaterActivity extends AppCompatActivity {
 
     }
 
-    public void setIntheatersRecycler(String currentCity, Theater currentTheater){
+    public void changeIntentTo(String currentCity, Theater currentTheater){
         Intent intent = new Intent(CityTheaterActivity.this, InTheatersActivity.class);
         intent.putExtra("city", currentCity);
         intent.putExtra("theater", currentTheater);
         startActivity(intent);
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (listViewCities.getVisibility() == View.GONE)
+            listViewCities.setVisibility(View.VISIBLE);
+        else
+            super.onBackPressed();
 
 
     }

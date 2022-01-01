@@ -37,7 +37,7 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-235dp"
+            android:layout_marginBottom="-232dp"
 
             >
 
@@ -46,7 +46,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/primaryblue"
-
                 >
 
                 <androidx.appcompat.widget.Toolbar
@@ -195,13 +194,13 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             </com.google.android.material.appbar.AppBarLayout>
+
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="235dp"
+                android:layout_marginBottom="230dp"
                 android:id="@+id/nested_scroll_intheaters"
                 android:background="@color/primaryblue"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
@@ -210,9 +209,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     >
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/intheaters_main_recycle"
                         android:layout_width="match_parent"
@@ -221,7 +218,6 @@
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

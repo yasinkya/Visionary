@@ -143,7 +143,7 @@
         android:background="@drawable/border_textview"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
     <TextView
         android:layout_width="40dp"
         android:layout_height="20dp"
@@ -158,7 +158,7 @@
         android:background="@drawable/border_textview"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <TextView
         android:layout_width="40dp"
@@ -174,7 +174,7 @@
         android:background="@drawable/border_textview"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <TextView
         android:layout_width="40dp"
@@ -190,7 +190,7 @@
         android:background="@drawable/border_textview"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <TextView
         android:layout_width="40dp"
@@ -206,7 +206,7 @@
         android:background="@drawable/border_textview"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
 
 
