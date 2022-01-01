@@ -10,29 +10,31 @@ import android.view.View;
 import android.view.WindowManager;
 
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
+
 import android.widget.ListView;
 
 import com.yaska.visionary.database.TheaterDB;
 import com.yaska.visionary.model.Theater;
 
+import java.text.Collator;
 import java.util.ArrayList;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class CityTheaterActivity extends AppCompatActivity {
 
     TheaterDB database;
-    Map<String, List<String>> theatersMap = new HashMap<>();
-    Map<String, List<Theater>> cityTheaters = new HashMap<>();
 
-    ArrayAdapter<String> adapter;
-    ListView citiesListView, theatersListView;
-    AppCompatButton upButton;
     String currentCity;
-    LinearLayout theaters;
+    List<String> cities;
+    ArrayAdapter<String> adapter;
+    public Map<String, Map<String, Theater>> allTheatersMap = new HashMap<>();
+
+    AppCompatButton upButton;
+    ListView listViewCities, listViewTheaters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,43 +45,43 @@ public class CityTheaterActivity extends AppCompatActivity {
 
         database = new TheaterDB();
         upButton = findViewById(R.id.btnUpcity);
-        theaters = findViewById(R.id.layouttheaters);
-        citiesListView = findViewById(R.id.citiesListView);
-        theatersListView = findViewById(R.id.theatersListView);
+        listViewCities = findViewById(R.id.citiesListView);
+        listViewTheaters = findViewById(R.id.theatersListView);
 
 
         database.getCityTheaters(getCityTheaters -> {
-            cityTheaters = database.cityTheaters;
+            allTheatersMap = database.allTheatersMap;
+            cities = new ArrayList<>(allTheatersMap.keySet());
+            cities.sort((s1, s2) -> {
+                Collator collator = Collator.getInstance(new Locale("tr", "TR"));
+                return collator.compare(s1, s2);
+            });
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cities);
+            listViewCities.setAdapter(adapter);
         });
 
-        database.getTheatrsMap(getTheatersMap -> {
-            theatersMap = database.theatersMap;
-            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(theatersMap.keySet()));
-            citiesListView.setAdapter(adapter);
-        });
-
-        citiesListView.setOnItemClickListener((parent, view, position, id) -> {
-            citiesListView.setVisibility(View.GONE);
-            currentCity = (String) citiesListView.getItemAtPosition(position);
+        listViewCities.setOnItemClickListener((parent, view, position, id) -> {
+            listViewCities.setVisibility(View.GONE);
+            currentCity = (String) listViewCities.getItemAtPosition(position);
             upButton.setText(String.format("Movie Theaters of %s", currentCity));
-            setTheatersListView(currentCity);
+            setListViewTheaters(currentCity);
 
         });
 
-        theatersListView.setOnItemClickListener((parent, view, pos, id) ->
-                setIntheatersRecycler(currentCity, (String) theatersListView.getItemAtPosition(pos)));
+        listViewTheaters.setOnItemClickListener((parent, view, pos, id) ->
+                setIntheatersRecycler(currentCity, (String) listViewTheaters.getItemAtPosition(pos)));
 
-        upButton.setOnClickListener(v -> citiesListView.setVisibility(View.VISIBLE));
+        upButton.setOnClickListener(v -> listViewCities.setVisibility(View.VISIBLE));
 
 
 
 
     }
-    public void setTheatersListView(String key){
+    public void setListViewTheaters(String currentCity){
         adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
-                theatersMap.get(key));
-        theatersListView.setAdapter(adapter);
+                new ArrayList<>(allTheatersMap.get(currentCity).keySet()));
+        listViewTheaters.setAdapter(adapter);
     }
 
     public void setIntheatersRecycler(String city, String theater){

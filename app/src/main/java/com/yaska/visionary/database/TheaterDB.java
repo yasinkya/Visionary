@@ -19,16 +19,16 @@ import java.util.Objects;
 
 public class TheaterDB extends DatabaseService {
 
-    DatabaseReference theaterRef;
+    DatabaseReference databaseRef;
+    Theater theater;
+    Map<String, Theater> theaterMap;
+    public Map<String, Map<String, Theater>> allTheatersMap = new HashMap<>();
 
-    public Map<String, List<String>> theatersMap = new HashMap<>();
-    public Map<String, List<Theater>> cityTheaters = new HashMap<>();
-    Theater cityTheater;
 
 
 
     public TheaterDB(){
-        theaterRef = ref.child("Movie Theaters");
+        databaseRef = ref.child("Movie Theaters");
     }
 
     public void getCityTheaters(final GetCityTheatersCallback getCityTheatersCallback){
@@ -36,37 +36,37 @@ public class TheaterDB extends DatabaseService {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot city: snapshot.getChildren()){
-                    List<Theater> theaterList = new ArrayList<>();
+                    theaterMap = new HashMap<>();
                     for (DataSnapshot theater: city.getChildren()){
-                        cityTheater = new Theater();
+                        TheaterDB.this.theater = new Theater();
                         for (DataSnapshot attrs: theater.getChildren()){
                             switch (Objects.requireNonNull(attrs.getKey())){
                                 case "3-d":
-                                    cityTheater.ThreeD = (boolean) attrs.getValue();
+                                    TheaterDB.this.theater.ThreeD = (boolean) attrs.getValue();
                                     break;
                                 case "air-cond":
-                                    cityTheater.AirCond = (boolean) attrs.getValue();
+                                    TheaterDB.this.theater.AirCond = (boolean) attrs.getValue();
                                     break;
                                 case "cafe":
-                                    cityTheater.Cafe = (boolean) attrs.getValue();
+                                    TheaterDB.this.theater.Cafe = (boolean) attrs.getValue();
                                     break;
                                 case "dolby":
-                                    cityTheater.Dolby = (boolean) attrs.getValue();
+                                    TheaterDB.this.theater.Dolby = (boolean) attrs.getValue();
                                     break;
                                 case "parking":
-                                    cityTheater.Parking = (boolean) attrs.getValue();
+                                    TheaterDB.this.theater.Parking = (boolean) attrs.getValue();
                                     break;
                                 case "phone-sale":
-                                    cityTheater.PhoneSale = (boolean) attrs.getValue();
+                                    TheaterDB.this.theater.PhoneSale = (boolean) attrs.getValue();
                                     break;
                                 case "Address":
-                                    cityTheater.Address = (String) attrs.getValue();
+                                    TheaterDB.this.theater.Address = (String) attrs.getValue();
                                     break;
                                 case "Name":
-                                    cityTheater.Name = (String) attrs.getValue();
+                                    TheaterDB.this.theater.Name = (String) attrs.getValue();
                                     break;
                                 case "Number":
-                                    cityTheater.Number = (String) attrs.getValue();
+                                    TheaterDB.this.theater.Number = (String) attrs.getValue();
                                     break;
                                 case "InTheaters":
                                     List<InTheater> inTheaters = new ArrayList<>();
@@ -78,51 +78,28 @@ public class TheaterDB extends DatabaseService {
                                         }
                                         inTheaters.add(new InTheater(movies.getKey(), tickets));
                                     }
-                                    cityTheater.InTheaters = inTheaters;
+                                    TheaterDB.this.theater.InTheaters = inTheaters;
 
                                     break;
 
                             }
-                            cityTheater.City = city.getKey();
+                            TheaterDB.this.theater.City = city.getKey();
 
                         }
-                        theaterList.add(cityTheater);
+                        theaterMap.put(theater.getKey(), TheaterDB.this.theater);
                     }
-                    cityTheaters.put(city.getKey(), theaterList);
-
+                    allTheatersMap.put(city.getKey(), theaterMap);
                 }
-                getCityTheatersCallback.onCallback(cityTheaters);
+                getCityTheatersCallback.onCallback(allTheatersMap);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         };
-        theaterRef.addValueEventListener(valueEventListener);
+        databaseRef.addValueEventListener(valueEventListener);
 
     }
 
-    public void getTheatrsMap(final GetTheatersMapCallback getTheatersMapCallback){
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()){
-                    List<String> templist = new ArrayList<>();
-                    for (DataSnapshot _ds : ds.getChildren()){
-                        templist.add(_ds.getKey());
-                    }
-                    theatersMap.put(ds.getKey(), templist);
-                }
-                getTheatersMapCallback.onCallback(theatersMap);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        };
-        theaterRef.addListenerForSingleValueEvent(valueEventListener);
-    }
 
 }

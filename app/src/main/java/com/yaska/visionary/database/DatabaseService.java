@@ -29,12 +29,9 @@ public class DatabaseService {
         void onCallBack(String getLastUser);
     }
 
-    public interface GetTheatersMapCallback{
-        void onCallback(Map<String, List<String>> getTheatersMap);
-    }
-
     public interface GetCityTheatersCallback{
-        void onCallback(Map<String, List<Theater>> getCityTheaters);
+//        void onCallback(Map<String, List<Theater>> getCityTheaters);
+        void onCallback(Map<String, Map<String, Theater>> getCityTheaters);
     }
 
 }
