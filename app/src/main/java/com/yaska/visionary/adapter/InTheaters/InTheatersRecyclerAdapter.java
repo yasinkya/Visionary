@@ -2,6 +2,7 @@ package com.yaska.visionary.adapter.InTheaters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,7 @@ import com.yaska.visionary.model.CategoryItem;
 import com.yaska.visionary.model.Movie;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRecyclerAdapter.MainViewHolder> {
@@ -41,22 +44,18 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
         return new MainViewHolder(LayoutInflater.from(context).inflate(R.layout.in_theaters_item,parent,false));
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         holder.movieName.setText(movieList.get(position).Name);
         holder.movieProducer.setText(movieList.get(position).Producer);
         holder.movieGenre.setText(movieList.get(position).Genre);
         holder.movieTime.setText(movieList.get(position).Time);
-        StringBuilder actors = new StringBuilder();
-        int i = 1, actsize = movieList.get(position).Actors.size();
-        for (Actor actor: movieList.get(position).Actors){
-            if (i != actsize){
-                actors.append(actor.Name += ", ");
-                i ++;
-            }
-            else
-                actors.append(actor.Name);
+        List<String> actors = new ArrayList<>();
+        for (Actor actname :movieList.get(position).Actors){
+            actors.add(actname.Name);
         }
+        holder.movieActors.setText(String.join(", ", actors));
         Glide.with(context).load(movieList.get(position).BannerImageUrl).into(holder.movieImage);
 
         holder.movieLayout.setOnClickListener(v -> {

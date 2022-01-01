@@ -12,6 +12,7 @@
     tools:openDrawer="end"
     android:background="@color/primaryblue"
     android:orientation="vertical"
+
     >
 
     <com.google.android.material.navigation.NavigationView
@@ -36,7 +37,7 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-55dp"
+            android:layout_marginBottom="-235dp"
 
             >
 
@@ -74,12 +75,130 @@
 
                 </androidx.appcompat.widget.Toolbar>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="#0B0B10"
+                    >
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:id="@+id/iconmovietheater"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cityname"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/icons_movietheater"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cityname"
+                        android:text="@string/value"
+                        android:textColor="@color/softwhite"
+                        android:textSize="30sp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/iconmovietheater"
+                        android:layout_marginStart="25dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/theatername"
+                        android:text="@string/value"
+                        android:textColor="@color/botwhite"
+                        android:textSize="25sp"
+                        android:layout_marginTop="7dp"
+                        app:layout_constraintTop_toBottomOf="@id/cityname"
+                        app:layout_constraintLeft_toRightOf="@id/iconmovietheater"
+                        android:layout_marginStart="25dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/theateraddress"
+                        android:text="@string/value"
+                        android:textSize="17sp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/altwhite"
+                        app:layout_constraintTop_toBottomOf="@id/theatername"
+                        app:layout_constraintLeft_toLeftOf="@id/theatername"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/value"
+                        android:id="@+id/theaternumber"
+                        app:layout_constraintTop_toBottomOf="@id/theateraddress"
+                        app:layout_constraintLeft_toLeftOf="@id/theateraddress"
+                        android:textColor="@color/altwhite"
+                        android:textSize="17sp"
+                        />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/icon3d"
+                        app:layout_constraintLeft_toLeftOf="@id/theateraddress"
+                        app:layout_constraintTop_toBottomOf="@id/theaternumber"
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/icons_3dglasses"
+                        tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/iconaircon"
+                        app:layout_constraintLeft_toRightOf="@id/icon3d"
+                        app:layout_constraintTop_toTopOf="@id/icon3d"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/icon_aircond"
+                        tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/icondolby"
+                        app:layout_constraintLeft_toRightOf="@id/iconaircon"
+                        app:layout_constraintTop_toTopOf="@id/icon3d"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/icon_dolby"
+                        tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/iconcafe"
+                        app:layout_constraintLeft_toRightOf="@id/icondolby"
+                        app:layout_constraintTop_toTopOf="@id/icon3d"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/icon_cafe"
+                        tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/iconphonesale"
+                        app:layout_constraintLeft_toRightOf="@id/iconcafe"
+                        app:layout_constraintTop_toTopOf="@id/icon3d"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/icon_phone"
+                        tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/iconparking"
+                        app:layout_constraintLeft_toRightOf="@id/iconphonesale"
+                        app:layout_constraintTop_toTopOf="@id/icon3d"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/icon_parking"
+                        tools:ignore="ContentDescription" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="55dp"
+                android:layout_marginBottom="235dp"
                 android:id="@+id/nested_scroll_intheaters"
                 android:background="@color/primaryblue"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"

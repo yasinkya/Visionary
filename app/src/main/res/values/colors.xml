@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="softwhite">#F5F3F7</color>
     <color name="altwhite">#9B999D</color>
+    <color name="botwhite">#AFADB1</color>
     <color name="textprimwhite">#E1E1D2</color>
     <color name="visionaryred">#E74A3A</color>
     <color name="tabcolor">#0c0c0c</color>

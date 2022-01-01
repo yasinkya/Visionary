@@ -5,7 +5,7 @@ public class Actor {
     public String ImageUrl;
 
     public Actor(String name){
-
+        this.Name = name;
     }
     public Actor(){
 

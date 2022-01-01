@@ -2,25 +2,19 @@ package com.yaska.visionary;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.WindowManager;
+
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
 import com.yaska.visionary.database.TheaterDB;
-import com.yaska.visionary.model.Actor;
-import com.yaska.visionary.model.Movie;
+import com.yaska.visionary.model.Theater;
 
 import java.util.ArrayList;
 
@@ -32,18 +26,20 @@ public class CityTheaterActivity extends AppCompatActivity {
 
     TheaterDB database;
     Map<String, List<String>> theatersMap = new HashMap<>();
+    Map<String, List<Theater>> cityTheaters = new HashMap<>();
+
     ArrayAdapter<String> adapter;
     ListView citiesListView, theatersListView;
     AppCompatButton upButton;
     String currentCity;
-    RecyclerView recyclerView;
-    InTheatersRecyclerAdapter recyclerAdapter;
-
     LinearLayout theaters;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_theater);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         database = new TheaterDB();
         upButton = findViewById(R.id.btnUpcity);
@@ -51,6 +47,10 @@ public class CityTheaterActivity extends AppCompatActivity {
         citiesListView = findViewById(R.id.citiesListView);
         theatersListView = findViewById(R.id.theatersListView);
 
+
+        database.getCityTheaters(getCityTheaters -> {
+            cityTheaters = database.cityTheaters;
+        });
 
         database.getTheatrsMap(getTheatersMap -> {
             theatersMap = database.theatersMap;
@@ -66,9 +66,8 @@ public class CityTheaterActivity extends AppCompatActivity {
 
         });
 
-        theatersListView.setOnItemClickListener((parent, view, pos, id) -> {
-            setIntheatersRecycler(currentCity, (String) theatersListView.getItemAtPosition(pos));
-        });
+        theatersListView.setOnItemClickListener((parent, view, pos, id) ->
+                setIntheatersRecycler(currentCity, (String) theatersListView.getItemAtPosition(pos)));
 
         upButton.setOnClickListener(v -> citiesListView.setVisibility(View.VISIBLE));
 
@@ -89,24 +88,6 @@ public class CityTheaterActivity extends AppCompatActivity {
         intent.putExtra("city", city);
         intent.putExtra("theater", theater);
         startActivity(intent);
-
-//        List<Movie> movies = new ArrayList<>();
-//        List<Actor> actors = new ArrayList<>();
-//        String image = "https://img02.imgsinemalar.com/images/afis_buyuk/a/addams-ailesi-2-1636542332.jpg";
-//        actors.add(new Actor("yaska"));
-//        actors.add(new Actor("eska"));
-//        actors.add(new Actor("mahka"));
-//        movies.add(new Movie("film1", "tür", image, "bune", "aaa", actors));
-//        movies.add(new Movie("anaa", "tür", image, "bune", "aaa", actors));
-//        movies.add(new Movie("ooo", "tür", image, "bune", "aaa", actors));
-//        movies.add(new Movie("hadi", "tür", image, "bune", "aaa", actors));
-//        movies.add(new Movie("inşallah", "tür", image, "bune", "aaa", actors));
-//
-//        recyclerView = findViewById(R.id.intheaters_main_recycle);
-//        RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerAdapter = new InTheatersRecyclerAdapter(this, movies);
-//        recyclerView.setAdapter(recyclerAdapter);
 
     }
 }

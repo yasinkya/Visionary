@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
@@ -23,6 +24,8 @@ public class InTheatersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_theaters);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         String city = getIntent().getStringExtra("city");
         String theater = getIntent().getStringExtra("theater");
@@ -35,17 +38,21 @@ public class InTheatersActivity extends AppCompatActivity {
 
     public void setRecycler(){
 
+        String image = "https://img02.imgsinemalar.com/images/afis_buyuk/a/addams-ailesi-2-1636542332.jpg";
         List<Movie> movies = new ArrayList<>();
         List<Actor> actors = new ArrayList<>();
-        String image = "https://img02.imgsinemalar.com/images/afis_buyuk/a/addams-ailesi-2-1636542332.jpg";
+        List<Actor> actors2 = new ArrayList<>();
         actors.add(new Actor("yaska"));
         actors.add(new Actor("eska"));
         actors.add(new Actor("mahka"));
-        movies.add(new Movie("film1", "tür", image, "bune", "aaa", actors));
-        movies.add(new Movie("anaa", "tür", image, "bune", "aaa", actors));
-        movies.add(new Movie("ooo", "tür", image, "bune", "aaa", actors));
+        actors2.add(new Actor("mahka"));
+        actors2.add(new Actor("eheh"));
+        actors2.add(new Actor("hüü"));
+        movies.add(new Movie("The Maxtix ", "tür", image, "bune", "aaa", actors));
+        movies.add(new Movie("İstanbul Muhafızları: Yüzyılın Muhafızları", "tür", image, "bune", "aaa", actors));
+        movies.add(new Movie("ooo", "tür", image, "bune", "aaa", actors2));
         movies.add(new Movie("hadi", "tür", image, "bune", "aaa", actors));
-        movies.add(new Movie("inşallah", "tür", image, "bune", "aaa", actors));
+        movies.add(new Movie("inşallah", "tür", image, "bune", "aaa", actors2));
 
         recyclerView = findViewById(R.id.intheaters_main_recycle);
         RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);

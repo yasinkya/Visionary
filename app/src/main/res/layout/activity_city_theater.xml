@@ -88,14 +88,14 @@
                     android:id="@+id/btnUpcity"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
+                    android:layout_marginStart="7dp"
                     android:background="@drawable/transparent"
                     android:drawableEnd="@drawable/icon_up"
                     android:fontFamily="@font/advent_pro_semibold"
-                    android:layout_marginStart="7dp"
                     android:textAlignment="viewStart"
                     android:textColor="@color/softwhite"
                     android:textSize="17sp"
-                    tools:ignore="RelativeOverlap" />
+                    tools:ignore="RelativeOverlap,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
 
             </RelativeLayout>

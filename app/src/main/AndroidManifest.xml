@@ -17,11 +17,14 @@
         tools:ignore="AllowBackup">
         <activity
             android:name=".InTheatersActivity"
-            android:exported="true" />
+            android:exported="true">
+
+
+        </activity>
         <activity
             android:name=".CityTheaterActivity"
             android:exported="true">
-            <!-- intheaters -->
+            <!--  -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,6 +55,8 @@
             android:exported="true">
 
             <!-- intent open main -->
+
+
 
         </activity>
 
