@@ -16,16 +16,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomline"
-        android:layout_width="90dp"
-        android:layout_height="130dp"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
         app:cardCornerRadius="7dp"
-        android:layout_margin="15dp">
+        android:layout_margin="15dp"
+        >
 
         <ImageView
             android:id="@+id/movie_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:background="@color/thirtyblue"
             />
     </androidx.cardview.widget.CardView>
 
@@ -122,19 +123,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="200dp"
         android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
         android:textColor="@color/altwhite"
         android:text="@string/value"
         android:id="@+id/movie_actors_value"
         app:layout_constraintTop_toBottomOf="@+id/movie_producer"
+
         app:layout_constraintStart_toEndOf="@id/movie_actors"/>
 
     <TextView
         android:layout_width="40dp"
         android:layout_height="20dp"
         android:id="@+id/ticket1"
-        app:layout_constraintTop_toBottomOf="@id/movie_actors"
+        app:layout_constraintTop_toBottomOf="@id/movie_actors_value"
         app:layout_constraintLeft_toLeftOf="@id/movie_actors"
         android:layout_marginTop="10dp"
         android:text="@string/value"
@@ -148,7 +151,7 @@
         android:layout_width="40dp"
         android:layout_height="20dp"
         android:id="@+id/ticket2"
-        app:layout_constraintTop_toBottomOf="@id/movie_actors"
+        app:layout_constraintTop_toBottomOf="@id/movie_actors_value"
         app:layout_constraintLeft_toRightOf="@id/ticket1"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -164,7 +167,7 @@
         android:layout_width="40dp"
         android:layout_height="20dp"
         android:id="@+id/ticket3"
-        app:layout_constraintTop_toBottomOf="@id/movie_actors"
+        app:layout_constraintTop_toBottomOf="@id/movie_actors_value"
         app:layout_constraintLeft_toRightOf="@id/ticket2"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
@@ -180,7 +183,7 @@
         android:layout_width="40dp"
         android:layout_height="20dp"
         android:id="@+id/ticket4"
-        app:layout_constraintTop_toBottomOf="@id/movie_actors"
+        app:layout_constraintTop_toBottomOf="@id/movie_actors_value"
         app:layout_constraintLeft_toRightOf="@id/ticket3"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
@@ -196,8 +199,10 @@
         android:layout_width="40dp"
         android:layout_height="20dp"
         android:id="@+id/ticket5"
-        app:layout_constraintTop_toBottomOf="@id/movie_actors"
+        app:layout_constraintTop_toBottomOf="@id/movie_actors_value"
         app:layout_constraintLeft_toRightOf="@id/ticket4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:text="@string/value"
@@ -206,7 +211,7 @@
         android:background="@drawable/border_textview"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
 
 
@@ -214,9 +219,9 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:id="@+id/bottomline"
-        app:layout_constraintTop_toBottomOf="@id/ticket1"
-        android:layout_marginTop="15dp"
-        android:background="@color/primaryblue"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/primaryblue"
+        tools:ignore="Orientation" />
 
 
 
