@@ -1,15 +1,14 @@
 package com.yaska.visionary;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
 import com.yaska.visionary.database.MovieDB;
@@ -28,7 +27,7 @@ public class InTheatersActivity extends AppCompatActivity {
     Theater theater;
     String city;
     List<String> movieNames = new ArrayList<>();
-    List<Movie> movies;
+    List<Movie> movies = new ArrayList<>();
 
     RecyclerView recyclerView;
     InTheatersRecyclerAdapter recyclerAdapter;
@@ -69,23 +68,27 @@ public class InTheatersActivity extends AppCompatActivity {
         theaterAddress.setText(theater.Address);
         theaterNumber.setText(theater.Number);
 
-        for (InTheater movs: theater.InTheaters){
-            movieNames.add(movs.Name);
+
+        if (theater.InTheaters != null){
+            for (InTheater movs : theater.InTheaters) {
+                movieNames.add(movs.Name);
+            }
+
+            setRecycler();
+
         }
-
-        setRecycler();
-
+        
 
     }
 
-    void setIconsVisibility(){
+    void setIconsVisibility() {
 
-        if(theater.ThreeD)
+        if (theater.ThreeD)
             threeD.setVisibility(View.VISIBLE);
         else
             threeD.setVisibility(View.GONE);
 
-        if(theater.Dolby)
+        if (theater.Dolby)
             dolby.setVisibility(View.VISIBLE);
         else
             dolby.setVisibility(View.GONE);
@@ -100,19 +103,19 @@ public class InTheatersActivity extends AppCompatActivity {
         else
             parking.setVisibility(View.GONE);
 
-        if(theater.AirCond)
+        if (theater.AirCond)
             airCond.setVisibility(View.VISIBLE);
         else
             airCond.setVisibility(View.GONE);
 
-        if(theater.Cafe)
+        if (theater.Cafe)
             cafe.setVisibility(View.VISIBLE);
         else
             cafe.setVisibility(View.GONE);
 
     }
 
-    void setRecycler(){
+    void setRecycler() {
 
         moviedatabase.getMoviesList(movieNames, getMoviesList -> {
             movies = moviedatabase.movieList;
@@ -135,7 +138,7 @@ public class InTheatersActivity extends AppCompatActivity {
         movies.add(new Movie("inşallah", "tür", image, "bune", "aaa", actors2));
 
         recyclerView = findViewById(R.id.intheaters_main_recycle);
-        RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerAdapter = new InTheatersRecyclerAdapter(this, movies);
         recyclerView.setAdapter(recyclerAdapter);

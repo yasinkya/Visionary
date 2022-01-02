@@ -1,6 +1,8 @@
 package com.yaska.visionary.model;
 
-public class Actor {
+import java.io.Serializable;
+
+public class Actor implements Serializable {
     public String Name;
     public String ImageUrl;
 
