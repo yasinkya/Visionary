@@ -32,6 +32,7 @@ public class TheaterDB extends DatabaseService {
     }
 
     public void getCityTheaters(final GetCityTheatersCallback getCityTheatersCallback){
+
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -100,6 +101,5 @@ public class TheaterDB extends DatabaseService {
         databaseRef.addValueEventListener(valueEventListener);
 
     }
-
 
 }

@@ -127,24 +127,6 @@ public class InTheatersActivity extends AppCompatActivity {
             recyclerAdapter = new InTheatersRecyclerAdapter(this, movies);
             recyclerView.setAdapter(recyclerAdapter);
         });
-        
-//        String image = "https://img02.imgsinemalar.com/images/afis_buyuk/a/addams-ailesi-2-1636542332.jpg";
-//        List<Movie> movies = new ArrayList<>();
-//        List<Actor> actors = new ArrayList<>();
-//        List<Actor> actors2 = new ArrayList<>();
-//        actors.add(new Actor("yaska"));
-//        actors.add(new Actor("eska"));
-//        actors.add(new Actor("mahka"));
-//        actors2.add(new Actor("mahka"));
-//        actors2.add(new Actor("eheh"));
-//        actors2.add(new Actor("hüü"));
-//        movies.add(new Movie("The Maxtix ", "tür", image, "bune", "aaa", actors));
-//        movies.add(new Movie("İstanbul Muhafızları: Yüzyılın Muhafızları", "tür", image, "bune", "aaa", actors));
-//        movies.add(new Movie("ooo", "tür", image, "bune", "aaa", actors2));
-//        movies.add(new Movie("hadi", "tür", image, "bune", "aaa", actors));
-//        movies.add(new Movie("inşallah", "tür", image, "bune", "aaa", actors2));
-
-
 
     }
 }

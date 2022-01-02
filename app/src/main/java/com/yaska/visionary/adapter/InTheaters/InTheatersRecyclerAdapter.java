@@ -12,17 +12,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.Actor;
-import com.yaska.visionary.model.CategoryItem;
 import com.yaska.visionary.model.Movie;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +38,7 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
     @NonNull
     @Override
     public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MainViewHolder(LayoutInflater.from(context).inflate(R.layout.in_theaters_item,parent,false));
+        return new MainViewHolder(LayoutInflater.from(context).inflate(R.layout.item_intheaters,parent,false));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

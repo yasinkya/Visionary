@@ -211,7 +211,7 @@
         android:background="@drawable/border_textview"
         android:clickable="true"
         android:focusable="true"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
 
 
