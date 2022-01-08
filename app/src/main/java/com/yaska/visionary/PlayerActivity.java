@@ -39,7 +39,7 @@ public class PlayerActivity extends AppCompatActivity {
 
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                youTubePlayer.cueVideo(mvideoId, 0);
+                youTubePlayer.loadVideo(mvideoId, 0);
             }
         });
 

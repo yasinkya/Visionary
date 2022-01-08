@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+import com.yaska.visionary.model.Movie;
+
+import java.io.Serializable;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
@@ -20,6 +23,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView et_movieName, et_description;
     AppCompatButton btn_play, btn_addfav;
     String movieName, movieImage, movieId, movieVideoId;
+    Movie currentMovie;
     boolean added_fav;
 
     @Override
@@ -35,14 +39,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
         btn_play = findViewById(R.id.button_play);
         btn_addfav = findViewById(R.id.button_addfav);
 
-        movieName = getIntent().getStringExtra("movieName");
-        movieImage = getIntent().getStringExtra("movieImageUrl");
-        movieId= getIntent().getStringExtra("movieId");
-        movieVideoId = getIntent().getStringExtra("movieFileUrl");
+        currentMovie = (Movie) getIntent().getSerializableExtra("movie");
 
-        et_movieName.setText(movieName);
-        et_description.setText("deneme ");
+//        movieName = getIntent().getStringExtra("movieName");
+//        movieImage = getIntent().getStringExtra("movieImageUrl");
+//        movieId= getIntent().getStringExtra("movieId");
+//        movieVideoId = getIntent().getStringExtra("movieFileUrl");
 
+        et_movieName.setText(currentMovie.Name);
+        et_description.setText(currentMovie.Description);
         et_description.setMovementMethod(new ScrollingMovementMethod());
 
         // glide internetten resim çekip image viewe aktar
@@ -50,7 +55,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         btn_play.setOnClickListener(v ->{
             Intent intent = new Intent(MovieDetailsActivity.this, PlayerActivity.class);
-            intent.putExtra("videoId", movieVideoId);
+//            intent.putExtra("videoId", currentMovie.VideId);
+            intent.putExtra("videoId", "utFoRNkjELo");
             startActivity(intent);
 
         });
@@ -74,12 +80,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
         player.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                youTubePlayer.cueVideo(movieVideoId, 0);
+                youTubePlayer.cueVideo("utFoRNkjELo", 0);
             }
 
             @Override
             public void onVideoId(@NonNull YouTubePlayer youTubePlayer, @NonNull String videoId) {
-                if (!videoId.equals(movieVideoId))
+                if (!videoId.equals("utFoRNkjELo"))
                     onReady(youTubePlayer);
                 else
                     youTubePlayer.play();

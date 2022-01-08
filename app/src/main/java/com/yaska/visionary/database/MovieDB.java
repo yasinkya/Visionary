@@ -40,25 +40,25 @@ public class MovieDB extends DatabaseService{
                                 case "Description":
                                     movie.Description = (String) attr.getValue();
                                     break;
-                                case "Süre:":
+                                case "Süre":
                                     movie.Time = (String) attr.getValue();
                                     break;
                                 case "VideoId":
                                     movie.VideId = (String) attr.getValue();
                                     break;
-                                case "Vizyon Tarihi:":
+                                case "Vizyon Tarihi":
                                     movie.ReleaseDate = (String) attr.getValue();
                                     break;
-                                case "Yapımı:":
+                                case "Yapımı":
                                     movie.Producer = (String) attr.getValue();
                                     break;
-                                case "Yönetmen:":
+                                case "Yönetmen":
                                     movie.Director = (String) attr.getValue();
                                     break;
-                                case "Senarist:":
+                                case "Senarist":
                                     movie.ScreenWriter = (String) attr.getValue();
                                     break;
-                                case "Tür:":
+                                case "Tür":
                                     movie.Genre = (String) attr.getValue();
                                 case "Actors":
                                     for(DataSnapshot act: attr.getChildren()){

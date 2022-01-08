@@ -20,6 +20,7 @@ import com.yaska.visionary.R;
 import com.yaska.visionary.model.Actor;
 import com.yaska.visionary.model.Movie;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
+
         holder.movieName.setText(movieList.get(position).Name);
         holder.movieProducer.setText(movieList.get(position).Producer);
         holder.movieGenre.setText(movieList.get(position).Genre);
@@ -57,8 +59,8 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
 
         holder.movieLayout.setOnClickListener(v -> {
             Intent intent = new Intent(context, MovieDetailsActivity.class);
-//            intent.putExtra("movie", (Serializable) movieList.get(position));
-            intent.putExtra("movie", "mov");
+            intent.putExtra("movie", (Serializable) movieList.get(position));
+//            intent.putExtra("movie", "mov");
             context.startActivity(intent);
 
         });
