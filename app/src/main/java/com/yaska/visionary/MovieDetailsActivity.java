@@ -81,6 +81,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
                 youTubePlayer.cueVideo("utFoRNkjELo", 0);
+//                todo video id
             }
 
             @Override
