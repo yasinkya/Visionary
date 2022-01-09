@@ -55,56 +55,68 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/accardpass"
-        android:layout_width="315dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_acpass"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/accarduname"
+        android:layout_below="@id/accarduname"
         android:layout_alignStart="@+id/accarduname"
-        android:layout_marginTop="10dp"
-        app:cardBackgroundColor="#08FFFFFF"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="200dp"
-        tools:ignore="InvalidId">
+        android:layout_alignEnd="@+id/accarduname">
 
-        <EditText
-            android:id="@+id/et_pass"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/accardpass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:backgroundTint="#48ffffff"
-            android:drawableStart="@drawable/pass"
-            android:ems="12"
-            android:fontFamily="@font/advent_pro_semibold"
-            android:hint="@string/password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            android:textColorHint="#48ffffff"
-            android:textSize="22sp"
-            tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
-            tools:targetApi="lollipop" />
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#08FFFFFF"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="InvalidId">
 
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:id="@+id/showpass"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignTop="@+id/accardpass"
-        android:layout_toEndOf="@+id/accardpass"
-        android:background="@drawable/icon_showpassw"
-        android:layout_marginTop="12dp"
-        android:layout_marginStart="10dp"
-        android:clickable="true"
-        android:focusable="true" />
+            <EditText
+                android:id="@+id/et_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="#48ffffff"
+                android:drawableStart="@drawable/pass"
+                android:ems="11"
+                android:fontFamily="@font/advent_pro_semibold"
+                android:hint="@string/password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="#48ffffff"
+                android:textSize="22sp"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
+                tools:targetApi="lollipop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/showpass"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/icon_showpassw"
+            android:clickable="true"
+            android:focusable="true" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <!--    Sign Up Options     -->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/lay_acsignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/accardpass"
+        android:layout_below="@+id/lay_acpass"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 

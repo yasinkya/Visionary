@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="25dp">
+    android:background="@color/secondaryblue"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,15 +15,18 @@
         android:text="@string/reset_password"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:textColor="@color/softwhite"/>
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        app:cardCornerRadius="7dp"
+        android:backgroundTint="#12FFFFFF"
         >
 
         <EditText
@@ -30,14 +36,18 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:backgroundTint="#48ffffff"
+            android:backgroundTint="#B2FFFFFF"
             android:drawableStart="@drawable/user"
+            android:drawableTint="@color/altwhite"
+            android:textColor="@color/softwhite"
+            android:textColorHint="@color/altwhite"
             android:ems="12"
             android:fontFamily="@font/advent_pro_semibold"
             android:hint="@string/username"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:textSize="22sp"/>
+            android:textSize="22sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     </androidx.cardview.widget.CardView>
 
@@ -47,6 +57,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
+        android:backgroundTint="#12FFFFFF"
         >
 
         <EditText
@@ -55,14 +66,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:backgroundTint="#48ffffff"
+            android:backgroundTint="#B2FFFFFF"
             android:drawableStart="@drawable/pass"
+            android:drawableTint="@color/altwhite"
+            android:textColor="@color/softwhite"
+            android:textColorHint="@color/altwhite"
             android:ems="12"
             android:fontFamily="@font/advent_pro_semibold"
             android:hint="@string/new_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:textSize="22sp"/>
+            android:textSize="22sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     </androidx.cardview.widget.CardView>
 
@@ -71,13 +86,15 @@
         android:id="@+id/btn_reset"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="25dp"
         android:clickable="true"
         android:focusable="true"
         app:cardBackgroundColor="@color/visionaryred"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        tools:ignore="DuplicateSpeakableTextCheck">
 
         <TextView
             android:layout_width="match_parent"
@@ -86,6 +103,7 @@
             android:fontFamily="@font/advent_pro_semibold"
             android:text="@string/reset_password"
             android:textAlignment="center"
+            android:textColor="@color/softwhite"
             android:textSize="21sp" />
 
     </androidx.cardview.widget.CardView>
