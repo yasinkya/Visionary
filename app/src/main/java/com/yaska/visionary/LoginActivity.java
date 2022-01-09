@@ -1,17 +1,26 @@
 package com.yaska.visionary;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.yaska.visionary.database.UserDB;
 import com.yaska.visionary.model.User;
 
@@ -32,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView logintext;
     TextView btn_signup;
     TextView btn_forgot;
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -89,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(checkResult.equals("ok")){
                             userdataBase.getUser(username, getUser -> {
                                 user = userdataBase.returnUser;
-                                Toast.makeText(LoginActivity.this, "Welcome "+user.UserName, Toast.LENGTH_SHORT).show();
+                                makeToast("Welcome "+user.UserName);
                                 changeIntent(user);
 
                             });
@@ -101,22 +111,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     });
-
-//                    userdataBase.check_user(username, returnUser -> {
-//                        if (userdataBase.returnUser != null){
-//                            user = userdataBase.returnUser;
-//                            if (user.Password.equals(password)){
-//                                Toast.makeText(ActivityLogin.this, "Welcome", Toast.LENGTH_SHORT).show();
-//                                changeIntent(user);
-//                            }
-//                            else
-//                                Toast.makeText(ActivityLogin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
-//
-//                        }
-//                        else
-//                            Toast.makeText(ActivityLogin.this, "User Not Found", Toast.LENGTH_SHORT).show();
-//
-//                    });
 
                 }
 
@@ -141,9 +135,58 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btn_forgot.setOnClickListener(v ->
-                Toast.makeText(LoginActivity.this, "unutma amk", Toast.LENGTH_SHORT).show());
+        btn_forgot.setOnClickListener(v -> {
+            showResetPassDialog();
+        });
 
+
+
+
+    }
+
+    private void makeToast(String mes){
+        Toast.makeText(LoginActivity.this, mes, Toast.LENGTH_SHORT).show();
+    }
+
+    void showResetPassDialog(){
+        final Dialog dialog = new Dialog(LoginActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.dialog_forgot_passwd);
+
+        final EditText et_username, et_respas, et_newpas;
+        et_username = dialog.findViewById(R.id.et_resusername);
+        et_respas = dialog.findViewById(R.id.et_respass);
+
+        final CardView btnreset = dialog.findViewById(R.id.btn_reset);
+
+        btnreset.setOnClickListener(v -> {
+            String username, newpas;
+            username = et_username.getText().toString();
+            newpas = et_respas.getText().toString();
+
+            userdataBase.check_user(username, returnUser -> {
+                if(userdataBase.returnUser == null)
+                    makeToast("User Not Found!");
+                else{
+                    userdataBase.update_user(username, "Password", newpas);
+                    makeToast("Password Updated");
+                    dialog.dismiss();
+                    userdataBase.getUser(username, getUser -> {
+                        user = userdataBase.returnUser;
+                        makeToast("Welcome "+user.UserName);
+                        changeIntent(user);
+
+                    });
+
+                }
+            });
+
+
+
+
+        });
+        dialog.show();
 
     }
 

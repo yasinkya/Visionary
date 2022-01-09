@@ -39,6 +39,10 @@ public class UserDB extends DatabaseService {
         usersref.child(userName).removeValue();
     }
 
+    public void update_user(String username, String key, String value){
+        usersref.child(username).child("Account").child(key).setValue(value);
+    }
+
     public void check_user(String userName, final UserCallback userCallback){
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
