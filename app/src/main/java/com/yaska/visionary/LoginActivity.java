@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -19,7 +20,7 @@ import com.yaska.visionary.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
-    boolean signupclicked;
+    boolean signupclicked, ispassShow = false;
     String lastUser, checkResult;
     UserDB userdataBase = new UserDB();
     public User user;
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView logintext;
     TextView btn_signup;
     TextView btn_forgot;
+    TextView showpass;
 
 
     @SuppressLint("SetTextI18n")
@@ -57,6 +59,21 @@ public class LoginActivity extends AppCompatActivity {
         logintext = findViewById(R.id.et_login);
         btn_signup = findViewById(R.id.btn_signup);
         btn_forgot = findViewById(R.id.btn_forgotpass);
+        showpass = findViewById(R.id.showpass);
+
+
+        showpass.setOnClickListener(v -> {
+            if (ispassShow){
+                et_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                showpass.setBackgroundResource(R.drawable.icon_showpassw);
+                ispassShow = false;
+            }
+            else{
+                et_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+                showpass.setBackgroundResource(R.drawable.icon_hidepassw);
+                ispassShow = true;
+            }
+        });
 
         btn_login.setOnClickListener(v -> {
 

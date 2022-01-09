@@ -26,10 +26,7 @@
             android:id="@+id/menu_favorites"
             android:title="@string/favorites"
             android:icon="@drawable/icon_favorites"/>
-        <item
-            android:id="@+id/menu_account"
-            android:title="@string/account"
-            android:icon="@drawable/icon_account"/>
+
         <item
             android:id="@+id/menu_share"
             android:title="@string/share"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
+    android:background="@color/primaryblue"
     tools:context=".LoginActivity"
     android:orientation="vertical"
     android:layout_centerHorizontal="true"
@@ -26,10 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_below="@+id/icon"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="35dp"
-        app:cardBackgroundColor="#48000000"
+        app:cardBackgroundColor="#0DFFFFFF"
         app:cardCornerRadius="15dp"
         app:cardElevation="200dp"
         tools:ignore="InvalidId">
@@ -39,8 +38,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="15dp"
             android:backgroundTint="#48ffffff"
             android:ems="12"
@@ -50,42 +49,33 @@
             android:textColor="@color/white"
             android:textColorHint="#48FFFFFF"
             android:textSize="22sp"
+            app:drawableStartCompat="@drawable/user"
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
-            tools:targetApi="lollipop"
-            app:drawableStartCompat="@drawable/user" />
+            tools:targetApi="lollipop" />
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/accardpass"
-        android:layout_width="wrap_content"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/accarduname"
-        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@+id/accarduname"
         android:layout_marginTop="10dp"
-        app:cardBackgroundColor="#48000000"
+        app:cardBackgroundColor="#0DFFFFFF"
         app:cardCornerRadius="15dp"
         app:cardElevation="200dp"
         tools:ignore="InvalidId">
-        <TextView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="240dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/icon_showpassw"
-            android:layout_marginTop="8dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/showpass"/>
+
         <EditText
             android:id="@+id/et_acpass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:ems="11"
             android:backgroundTint="#48ffffff"
             android:drawableStart="@drawable/pass"
+            android:ems="12"
             android:fontFamily="@font/advent_pro_semibold"
             android:hint="@string/password"
             android:importantForAutofill="no"
@@ -97,8 +87,19 @@
             tools:targetApi="lollipop" />
 
 
-
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/showpass"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/accardpass"
+        android:layout_toEndOf="@+id/accardpass"
+        android:background="@drawable/icon_showpassw"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="10dp"
+        android:clickable="true"
+        android:focusable="true" />
 
     <!--    Sign Up Options     -->
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -114,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            app:cardBackgroundColor="#48000000"
+            app:cardBackgroundColor="#0DFFFFFF"
             app:cardCornerRadius="15dp"
             app:cardElevation="200dp"
             tools:ignore="InvalidId">
@@ -145,7 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            app:cardBackgroundColor="#48000000"
+            app:cardBackgroundColor="#0DFFFFFF"
             app:cardCornerRadius="15dp"
             app:cardElevation="200dp"
             tools:ignore="InvalidId">
@@ -175,7 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            app:cardBackgroundColor="#48000000"
+            app:cardBackgroundColor="#0DFFFFFF"
             app:cardCornerRadius="15dp"
             app:cardElevation="200dp"
             tools:ignore="InvalidId">
