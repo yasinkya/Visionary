@@ -25,7 +25,7 @@ public class InTheatersActivity extends AppCompatActivity {
     MovieDB moviedatabase;
 
     Theater theater;
-    String city;
+    String city, user;
     List<String> movieNames = new ArrayList<>();
     List<Movie> movies = new ArrayList<>();
 
@@ -45,6 +45,7 @@ public class InTheatersActivity extends AppCompatActivity {
 
         moviedatabase = new MovieDB();
 
+        user = getIntent().getStringExtra("user");
         city = getIntent().getStringExtra("city");
         theater = (Theater) getIntent().getSerializableExtra("theater");
 
@@ -124,7 +125,7 @@ public class InTheatersActivity extends AppCompatActivity {
         moviedatabase.getMoviesList(movieNames, getMoviesList -> {
             movies = moviedatabase.movieList;
 
-            recyclerAdapter = new InTheatersRecyclerAdapter(this, movies);
+            recyclerAdapter = new InTheatersRecyclerAdapter(this, movies, user);
             recyclerView.setAdapter(recyclerAdapter);
         });
 

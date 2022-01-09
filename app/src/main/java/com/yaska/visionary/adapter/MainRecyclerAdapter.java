@@ -22,12 +22,13 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
 
     Context context ;
-//    List<AllCategories> allCategoriesList;
     List<AllCategories> allCategoriesList;
+    String user;
 
-    public MainRecyclerAdapter(Context context, List<AllCategories> allCategoriesList) {
+    public MainRecyclerAdapter(Context context, List<AllCategories> allCategoriesList, String user) {
         this.context = context;
         this.allCategoriesList = allCategoriesList;
+        this.user = user;
     }
 
     @NonNull
@@ -64,7 +65,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     private void setItemRecycler(RecyclerView recyclerView, List<Movie> categoryItemList){
 
-        ItemRecyclerAdapter itemRecyclerAdapter= new ItemRecyclerAdapter(context,categoryItemList);
+        ItemRecyclerAdapter itemRecyclerAdapter= new ItemRecyclerAdapter(context,categoryItemList, user);
         recyclerView.setLayoutManager(new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false));
         recyclerView.setAdapter(itemRecyclerAdapter);
 

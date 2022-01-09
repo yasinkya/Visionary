@@ -28,7 +28,7 @@ public class CityTheaterActivity extends AppCompatActivity {
 
     TheaterDB database;
 
-    String currentCity, currentTheater;
+    String currentCity, currentTheater, user;
     List<String> cities;
     ArrayAdapter<String> adapter;
     public Map<String, Map<String, Theater>> allTheatersMap = new HashMap<>();
@@ -42,6 +42,8 @@ public class CityTheaterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_city_theater);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        user = getIntent().getStringExtra("user");
 
         database = new TheaterDB();
         upButton = findViewById(R.id.btnUpcity);
@@ -86,6 +88,7 @@ public class CityTheaterActivity extends AppCompatActivity {
 
     public void changeIntentTo(String currentCity, Theater currentTheater){
         Intent intent = new Intent(CityTheaterActivity.this, InTheatersActivity.class);
+        intent.putExtra("user", user);
         intent.putExtra("city", currentCity);
         intent.putExtra("theater", currentTheater);
         startActivity(intent);

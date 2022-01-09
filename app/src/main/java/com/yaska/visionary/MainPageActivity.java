@@ -155,6 +155,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.menu_theaters:
                 Intent intent = new Intent(MainPageActivity.this, CityTheaterActivity.class);
+                intent.putExtra("user", user.UserName);
                 this.startActivity(intent);
                 break;
             case R.id.menu_account:
@@ -232,7 +233,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         recyclerView = findViewById(R.id.main_recycle);
         RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        mainRecyclerAdapter = new MainRecyclerAdapter(this,allCategoriesList);
+        mainRecyclerAdapter = new MainRecyclerAdapter(this,allCategoriesList, user.UserName);
         recyclerView.setAdapter(mainRecyclerAdapter);
     }
 

@@ -154,7 +154,7 @@ public class UserDB extends DatabaseService {
 
             }
         };
-        usersref.child(username).child("favorites").addListenerForSingleValueEvent(valueEventListener);
+        usersref.child(username).child("favorites").addValueEventListener(valueEventListener);
     }
 }
 

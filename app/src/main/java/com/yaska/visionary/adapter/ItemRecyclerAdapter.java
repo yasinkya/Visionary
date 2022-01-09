@@ -12,10 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.yaska.visionary.LoginActivity;
 import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.CategoryItem;
 import com.yaska.visionary.model.Movie;
+import com.yaska.visionary.model.User;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,10 +27,12 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
     Context context;
     List<Movie> categoryItemList;
+    public String user;
 
-    public ItemRecyclerAdapter(Context context, List<Movie> categoryItemList) {
+    public ItemRecyclerAdapter(Context context, List<Movie> categoryItemList, String user) {
         this.context = context;
         this.categoryItemList = categoryItemList;
+        this.user = user;
     }
 
     public static final class ItemViewHolder extends RecyclerView.ViewHolder{
@@ -53,13 +57,9 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
         Glide.with(context).load(categoryItemList.get(position).BannerImageUrl).into(holder.itemImage);
 
         holder.itemImage.setOnClickListener(view -> {
-            //Toast.makeText(context,categoryItemList.get(position).getMovieName(),Toast.LENGTH_LONG).show();
             Intent i =new Intent(context, MovieDetailsActivity.class);
+            i.putExtra("user", user);
             i.putExtra("movie", (Serializable) categoryItemList.get(position));
-//            i.putExtra("movieId",categoryItemList.get(position).getMovieId().toString());
-//            i.putExtra("movieName",categoryItemList.get(position).getMovieName());
-//            i.putExtra("movieImageUrl",categoryItemList.get(position).getMovieImgUrl());
-//            i.putExtra("movieFileUrl",categoryItemList.get(position).getMovieFileUrl());
             context.startActivity(i);
 
         });

@@ -30,10 +30,12 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
 
     Context context ;
     List<Movie> movieList;
+    String user;
 
-    public InTheatersRecyclerAdapter(Context context, List<Movie> movieList) {
+    public InTheatersRecyclerAdapter(Context context, List<Movie> movieList, String user) {
         this.context = context;
         this.movieList = movieList;
+        this.user = user;
     }
 
     @NonNull
@@ -60,7 +62,7 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
         holder.movieLayout.setOnClickListener(v -> {
             Intent intent = new Intent(context, MovieDetailsActivity.class);
             intent.putExtra("movie", (Serializable) movieList.get(position));
-//            intent.putExtra("movie", "mov");
+            intent.putExtra("user", user);
             context.startActivity(intent);
 
         });

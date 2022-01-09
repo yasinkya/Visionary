@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     boolean signupclicked;
     String lastUser, checkResult;
     UserDB userdataBase = new UserDB();
-    User user;
+    public User user;
 
     EditText et_username;
     EditText et_password;
@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(LoginActivity.this, mes, Toast.LENGTH_SHORT).show();
     }
 
-    void showResetPassDialog(){
+    private void showResetPassDialog(){
         final Dialog dialog = new Dialog(LoginActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
@@ -170,20 +170,16 @@ public class LoginActivity extends AppCompatActivity {
                     makeToast("User Not Found!");
                 else{
                     userdataBase.update_user(username, "Password", newpas);
-                    makeToast("Password Updated");
-                    dialog.dismiss();
                     userdataBase.getUser(username, getUser -> {
                         user = userdataBase.returnUser;
-                        makeToast("Welcome "+user.UserName);
+                        makeToast("Password Updated"+user.UserName);
+                        dialog.dismiss();
                         changeIntent(user);
 
                     });
 
                 }
             });
-
-
-
 
         });
         dialog.show();
