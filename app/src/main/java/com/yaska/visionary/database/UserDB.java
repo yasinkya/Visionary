@@ -43,6 +43,10 @@ public class UserDB extends DatabaseService {
         usersref.child(username).child("Account").child(key).setValue(value);
     }
 
+    public void changeLastLogin(String username){
+        usersref.child("LastLogin").setValue(username);
+    }
+
     public void check_user(String userName, final UserCallback userCallback){
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override

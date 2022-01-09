@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.yaska.visionary.database.UserDB;
+
 public class SettingsActivity extends AppCompatActivity {
     LinearLayout account, application, help, signout;
     Intent intent;
@@ -38,7 +40,11 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         signout.setOnClickListener(v -> {
-
+            UserDB userDB = new UserDB();
+            userDB.changeLastLogin("");
+            intent = new Intent(SettingsActivity.this, LoginActivity.class);
+            this.finishAffinity();
+            this.startActivity(intent);
 
         });
 

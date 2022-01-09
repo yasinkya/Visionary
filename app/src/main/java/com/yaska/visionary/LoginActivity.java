@@ -209,8 +209,8 @@ public class LoginActivity extends AppCompatActivity {
     private void changeIntent(User user){
         Intent intent = new Intent(LoginActivity.this, MainPageActivity.class);
         intent.putExtra("user", user);
+        userdataBase.changeLastLogin(user.UserName);
         finishAffinity();
-
         this.startActivity(intent);
     }
 
