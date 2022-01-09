@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Visionary"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".AccountActivity"
+            android:exported="true" />
+        <activity
             android:name=".InTheatersActivity"
             android:exported="true">
 
@@ -24,8 +27,8 @@
         <activity
             android:name=".CityTheaterActivity"
             android:exported="true">
-            <!--  -->
 
+            <!--  -->
 
         </activity>
         <activity
@@ -35,16 +38,15 @@
         <activity
             android:name=".MovieDetailsActivity"
             android:exported="true">
-            <!-- -->
+
+            <!--  -->
 
         </activity>
         <activity
             android:name=".MainPageActivity"
             android:exported="true">
 
-            <!--main page-->
-
-
+            <!-- main page -->
 
         </activity>
         <activity
@@ -57,8 +59,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
 
         <meta-data

@@ -2,7 +2,6 @@ package com.yaska.visionary;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,16 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.yaska.visionary.database.UserDB;
 import com.yaska.visionary.model.User;
 
@@ -51,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
         checkLastLogin();
 
-        LinearLayoutCompat laysignup = findViewById(R.id.lay_signup);
+        LinearLayoutCompat laysignup = findViewById(R.id.lay_acsignup);
         laysignup.setVisibility(View.GONE);
 
         et_username = findViewById(R.id.et_username);

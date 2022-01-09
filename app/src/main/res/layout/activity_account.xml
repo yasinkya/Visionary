@@ -24,34 +24,35 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/accarduname"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@+id/icon"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_marginTop="35dp"
         app:cardBackgroundColor="#48000000"
         app:cardCornerRadius="15dp"
         app:cardElevation="200dp"
         tools:ignore="InvalidId">
 
-        <EditText
-            android:id="@+id/et_username"
+        <TextView
+            android:id="@+id/et_acusername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:backgroundTint="#48ffffff"
-            android:drawableStart="@drawable/user"
             android:ems="12"
             android:fontFamily="@font/advent_pro_semibold"
             android:hint="@string/username"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="#48FFFFFF"
             android:textSize="22sp"
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
-            tools:targetApi="lollipop" />
+            tools:targetApi="lollipop"
+            app:drawableStartCompat="@drawable/user" />
 
     </androidx.cardview.widget.CardView>
 
@@ -66,16 +67,25 @@
         app:cardCornerRadius="15dp"
         app:cardElevation="200dp"
         tools:ignore="InvalidId">
-
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="240dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/icon_showpassw"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/showpass"/>
         <EditText
-            android:id="@+id/et_pass"
+            android:id="@+id/et_acpass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:ems="11"
             android:backgroundTint="#48ffffff"
             android:drawableStart="@drawable/pass"
-            android:ems="12"
             android:fontFamily="@font/advent_pro_semibold"
             android:hint="@string/password"
             android:importantForAutofill="no"
@@ -85,6 +95,8 @@
             android:textSize="22sp"
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
             tools:targetApi="lollipop" />
+
+
 
     </androidx.cardview.widget.CardView>
 
@@ -100,7 +112,6 @@
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/accarduname"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             app:cardBackgroundColor="#48000000"
@@ -109,7 +120,7 @@
             tools:ignore="InvalidId">
 
             <EditText
-                android:id="@+id/et_name"
+                android:id="@+id/et_acname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -140,7 +151,7 @@
             tools:ignore="InvalidId">
 
             <EditText
-                android:id="@+id/et_surname"
+                android:id="@+id/et_acsurname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -170,7 +181,7 @@
             tools:ignore="InvalidId">
 
             <EditText
-                android:id="@+id/et_mail"
+                android:id="@+id/et_acmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -192,19 +203,17 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <!--     buttons     -->
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/lay_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lay_acsignup"
         android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/btn_login"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:id="@+id/btn_update"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:clickable="true"
@@ -215,59 +224,42 @@
             tools:ignore="InvalidId">
 
             <TextView
-                android:id="@+id/et_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/advent_pro_semibold"
-                android:text="@string/log_in"
+                android:text="@string/update"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="21sp" />
 
         </androidx.cardview.widget.CardView>
 
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/btn_signup"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginEnd="15dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="@font/advent_pro_semibold"
-                android:text="@string/sign_up"
-                android:textColor="#fffff0"
-
-                tools:ignore="TouchTargetSizeCheck" />
-
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_delete"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="#EF3232"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="200dp"
+            tools:ignore="InvalidId">
 
             <TextView
-                android:id="@+id/btn_forgotpass"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_below="@+id/btnlogin"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="15dp"
-                android:clickable="true"
-                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/advent_pro_semibold"
-                android:text="@string/forgot_password"
-                android:textColor="#fffff0"
+                android:text="@string/delete"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
 
-                tools:ignore="TouchTargetSizeCheck" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
+        </androidx.cardview.widget.CardView>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

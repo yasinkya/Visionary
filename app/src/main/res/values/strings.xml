@@ -38,4 +38,6 @@
     <string name="screen_writer">Screen Writer</string>
     <string name="reset_password">Reset Password</string>
     <string name="new_password">New Password</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
 </resources>

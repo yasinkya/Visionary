@@ -139,7 +139,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // todo conf here
+        Intent intent;
         switch (item.getItemId()){
             case R.id.menu_home:
 
@@ -154,20 +154,20 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_theaters:
-                Intent intent = new Intent(MainPageActivity.this, CityTheaterActivity.class);
+                intent = new Intent(MainPageActivity.this, CityTheaterActivity.class);
                 intent.putExtra("user", user.UserName);
                 this.startActivity(intent);
                 break;
             case R.id.menu_account:
-                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
-
+                intent = new Intent(MainPageActivity.this, AccountActivity.class);
+                intent.putExtra("user", user);
+                this.startActivity(intent);
                 break;
             case R.id.menu_share:
-                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
-                Intent intent_share = new Intent(Intent.ACTION_SEND);
-                intent_share.setType("text/plain");
-                intent_share.putExtra(Intent.EXTRA_TEXT, "https://github.com/yasinkya/Visionary.git");
-                startActivity(Intent.createChooser(intent_share, "Thanks For Sharing Our App :')"));;
+                intent= new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, "https://github.com/yasinkya/Visionary.git");
+                startActivity(Intent.createChooser(intent, "Thanks For Sharing Our App :')"));;
                 break;
             case R.id.menu_settings:
                 Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
@@ -223,7 +223,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         allCategoriesList.add(new AllCategories(0, "Family", FamilyCat));
         allCategoriesList.add(new AllCategories(0, "Horror", HorrorCat));
         allCategoriesList.add(new AllCategories(0, "Action", ActionCat));
-        allCategoriesList.add(new AllCategories(0, "Comedi", ComediCat));
+        allCategoriesList.add(new AllCategories(0, "Comedy", ComediCat));
         setCategoriesMainRecycler(allCategoriesList);
 
     }
