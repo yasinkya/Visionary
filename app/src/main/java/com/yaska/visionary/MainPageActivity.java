@@ -44,12 +44,9 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     TextView menu_username;
 
     MovieDB moviedatabase = new MovieDB();
+
     List<Movie> allMovies = new ArrayList<>();
-
-
-    List<Banners> bannersList;
     List<Movie> mbannersList;
-    List<CategoryItem> categoryItemList;
     List<AllCategories> allCategoriesList = new ArrayList<>();
 
     BannerPageAdapter bannerPageAdapter;
@@ -93,8 +90,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.menu_home);
 
-//        user = (User) getIntent().getSerializableExtra("user");
-        user = new User("yasin", "kaya", "yaska.com", "yaska", "1");
+        user = (User) getIntent().getSerializableExtra("user");
+//        user = new User("yasin", "kaya", "yaska.com", "yaska", "1");
 
         menu = navigationView.getMenu();
 

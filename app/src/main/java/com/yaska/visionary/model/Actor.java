@@ -10,10 +10,7 @@ public class Actor implements Serializable {
         this.Name = name;
         this.ImageUrl = imageUrl;
     }
-    public Actor(String name){
-        this.Name = name;
-    }
-    public Actor(){
 
+    public Actor() {
     }
 }
