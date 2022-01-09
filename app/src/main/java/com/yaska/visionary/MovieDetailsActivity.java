@@ -20,6 +20,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
+import com.yaska.visionary.database.UserDB;
 import com.yaska.visionary.model.Movie;
 
 
@@ -32,8 +33,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
     ImageView im_actor1, im_actor2, im_actor3, im_actor4, im_actor5, im_actor6, im_actor7, im_actor8;
     CardView layim1, layim2, layim3, layim4, layim5, layim6, layim7, layim8;
     AppCompatButton btn_play, btn_addfav;
-//    String movieName, movieImage, movieId, movieVideoId;
     Movie currentMovie;
+    String username, videoId;
+    UserDB userDB = new UserDB();
     boolean added_fav;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -44,16 +46,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        username = getIntent().getStringExtra("user");
         currentMovie = (Movie) getIntent().getSerializableExtra("movie");
 
-        layim1 = findViewById(R.id.lay_actor_image1);
-        layim2 = findViewById(R.id.lay_actor_image2);
-        layim3 = findViewById(R.id.lay_actor_image3);
-        layim4 = findViewById(R.id.lay_actor_image4);
-        layim5 = findViewById(R.id.lay_actor_image5);
-        layim6 = findViewById(R.id.lay_actor_image6);
-        layim7 = findViewById(R.id.lay_actor_image7);
-        layim8 = findViewById(R.id.lay_actor_image8);
 
         player = findViewById(R.id.mini_player);
         et_movieName = findViewById(R.id.et_movieName);
@@ -65,6 +60,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
         et_movieScWrter = findViewById(R.id.movie_screenwriter_value);
         et_movieActors = findViewById(R.id.movie_actors_value);
         et_movieRsDate = findViewById(R.id.movie_releasedate_value);
+
+        layim1 = findViewById(R.id.lay_actor_image1);
+        layim2 = findViewById(R.id.lay_actor_image2);
+        layim3 = findViewById(R.id.lay_actor_image3);
+        layim4 = findViewById(R.id.lay_actor_image4);
+        layim5 = findViewById(R.id.lay_actor_image5);
+        layim6 = findViewById(R.id.lay_actor_image6);
+        layim7 = findViewById(R.id.lay_actor_image7);
+        layim8 = findViewById(R.id.lay_actor_image8);
 
         et_actor1 = findViewById(R.id.actor_name1);
         et_actor2 = findViewById(R.id.actor_name2);
@@ -84,15 +88,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
         im_actor7 = findViewById(R.id.actor_image7);
         im_actor8 = findViewById(R.id.actor_image8);
 
-        hideAllActorViews();
-
         btn_play = findViewById(R.id.button_play);
         btn_addfav = findViewById(R.id.button_addfav);
 
-//        movieName = getIntent().getStringExtra("movieName");
-//        movieImage = getIntent().getStringExtra("movieImageUrl");
-//        movieId= getIntent().getStringExtra("movieId");
-//        movieVideoId = getIntent().getStringExtra("movieFileUrl");
+        hideAllActorViews();
+        checkMovieIsFav();
 
         et_movieName.setText(currentMovie.Name);
         et_movieGenre.setText(currentMovie.Genre);
@@ -101,11 +101,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         et_movieDirec.setText(currentMovie.Director);
         et_movieScWrter.setText(currentMovie.ScreenWriter);
         et_movieRsDate.setText(currentMovie.ReleaseDate);
-//        List<String> actors = new ArrayList<>();
-//        for (Actor actor : currentMovie.Actors){
-//            actors.add(actor.Name);
-//        }
-//        et_movieActors.setText(String.join(", ", actors));
+        et_description.setText(currentMovie.Description);
         for (int i = 0; i < currentMovie.Actors.size(); i++){
             switch (i){
                 case 0:
@@ -168,46 +164,40 @@ public class MovieDetailsActivity extends AppCompatActivity {
             }
         }
 
-
-        et_description.setText(currentMovie.Description);
-
-        // glide internetten resim çekip image viewe aktar
-//        Glide.with(this).load(movieImage).into()
+        if (currentMovie.VideId != null)
+            videoId = currentMovie.VideId;
+        else
+            videoId = "";
 
         btn_play.setOnClickListener(v ->{
             Intent intent = new Intent(MovieDetailsActivity.this, PlayerActivity.class);
-//            intent.putExtra("videoId", currentMovie.VideId);
-            intent.putExtra("videoId", "utFoRNkjELo");
+            intent.putExtra("videoId", currentMovie.VideId);
             startActivity(intent);
 
         });
 
         btn_addfav.setOnClickListener(v ->{
-            //todo add to users favorites database
-            // ref.child("favorites").child(moviename).setvalue(movieclass)
-//            btn_addfav.setBackground(R.drawable.icon_addedfav);
             if (!added_fav){
+                userDB.addFavMovie(username, currentMovie);
                 btn_addfav.setBackgroundResource(R.drawable.icon_addedfav);
                 added_fav = true;
             }
             else{
+                userDB.removeFavMovie(username, currentMovie.Name);
                 btn_addfav.setBackgroundResource(R.drawable.icon_addfav);
                 added_fav = false;
             }
-
-
         });
 
         player.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                youTubePlayer.cueVideo("utFoRNkjELo", 0);
-//                todo video id
+                youTubePlayer.cueVideo(currentMovie.VideId, 0);
             }
 
             @Override
             public void onVideoId(@NonNull YouTubePlayer youTubePlayer, @NonNull String videoId) {
-                if (!videoId.equals("utFoRNkjELo"))
+                if (!videoId.equals(currentMovie.VideId))
                     onReady(youTubePlayer);
                 else
                     youTubePlayer.play();
@@ -250,6 +240,18 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         et_actor1.setVisibility(View.GONE);
         im_actor1.setVisibility(View.GONE);
+
+    }
+
+    public void checkMovieIsFav(){
+        userDB.checkFavMovies(username, getFavMovies -> {
+            for (Movie mov : userDB.favMovies){
+                if(currentMovie.Name.equals(mov.Name)){
+                    btn_addfav.setBackgroundResource(R.drawable.icon_addedfav);
+                    added_fav = true;
+                }
+            }
+        });
 
     }
 }

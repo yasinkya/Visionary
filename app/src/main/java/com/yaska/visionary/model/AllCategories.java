@@ -6,18 +6,19 @@ public class AllCategories {
 
     Integer categoryId;
     String categoryTitle;
-    private List<CategoryItem> categoryItemList=null;
+//    private List<CategoryItem> categoryItemList=null;
+    private List<Movie> categoryItemList=null;
 
-    public AllCategories(Integer categoryId, String categoryTitle, List<CategoryItem> categoryItemList) {
+    public AllCategories(Integer categoryId, String categoryTitle, List<Movie> categoryItemList) {
         this.categoryId = categoryId;
         this.categoryTitle = categoryTitle;
         this.categoryItemList = categoryItemList;
     }
 
-    public List<CategoryItem> getCategoryItemList() {
+    public List<Movie> getCategoryItemList() {
         return categoryItemList;
     }
-    public void setCategoryItemList(List<CategoryItem> categoryItemList) {
+    public void setCategoryItemList(List<Movie> categoryItemList) {
         this.categoryItemList = categoryItemList;
     }
     public String getCategoryTitle() {

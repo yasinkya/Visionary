@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.AllCategories;
 import com.yaska.visionary.model.CategoryItem;
+import com.yaska.visionary.model.Movie;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
 
     Context context ;
+//    List<AllCategories> allCategoriesList;
     List<AllCategories> allCategoriesList;
 
     public MainRecyclerAdapter(Context context, List<AllCategories> allCategoriesList) {
@@ -60,7 +62,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         }
     }
 
-    private void setItemRecycler(RecyclerView recyclerView, List<CategoryItem> categoryItemList){
+    private void setItemRecycler(RecyclerView recyclerView, List<Movie> categoryItemList){
 
         ItemRecyclerAdapter itemRecyclerAdapter= new ItemRecyclerAdapter(context,categoryItemList);
         recyclerView.setLayoutManager(new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false));

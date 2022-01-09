@@ -15,16 +15,18 @@ import com.bumptech.glide.Glide;
 import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.CategoryItem;
+import com.yaska.visionary.model.Movie;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.ItemViewHolder>{
 
 
     Context context;
-    List<CategoryItem> categoryItemList;
+    List<Movie> categoryItemList;
 
-    public ItemRecyclerAdapter(Context context, List<CategoryItem> categoryItemList) {
+    public ItemRecyclerAdapter(Context context, List<Movie> categoryItemList) {
         this.context = context;
         this.categoryItemList = categoryItemList;
     }
@@ -48,15 +50,16 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Glide.with(context).load(categoryItemList.get(position).getMovieImgUrl()).into(holder.itemImage);
+        Glide.with(context).load(categoryItemList.get(position).BannerImageUrl).into(holder.itemImage);
 
         holder.itemImage.setOnClickListener(view -> {
             //Toast.makeText(context,categoryItemList.get(position).getMovieName(),Toast.LENGTH_LONG).show();
             Intent i =new Intent(context, MovieDetailsActivity.class);
-            i.putExtra("movieId",categoryItemList.get(position).getMovieId().toString());
-            i.putExtra("movieName",categoryItemList.get(position).getMovieName());
-            i.putExtra("movieImageUrl",categoryItemList.get(position).getMovieImgUrl());
-            i.putExtra("movieFileUrl",categoryItemList.get(position).getMovieFileUrl());
+            i.putExtra("movie", (Serializable) categoryItemList.get(position));
+//            i.putExtra("movieId",categoryItemList.get(position).getMovieId().toString());
+//            i.putExtra("movieName",categoryItemList.get(position).getMovieName());
+//            i.putExtra("movieImageUrl",categoryItemList.get(position).getMovieImgUrl());
+//            i.putExtra("movieFileUrl",categoryItemList.get(position).getMovieFileUrl());
             context.startActivity(i);
 
         });

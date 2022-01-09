@@ -29,4 +29,17 @@ public class Movie implements Serializable {
         this.Actors = actors;
     }
 
+    public Movie(String name, String genre, String bannerImageUrl, String description, String time, String videId, String releaseDate, String producer, String director, String screenWriter, List<Actor> actors) {
+        this.Name = name;
+        this.Genre = genre;
+        this.BannerImageUrl = bannerImageUrl;
+        this.Description = description;
+        this.Time = time;
+        this.VideId = videId;
+        this.ReleaseDate = releaseDate;
+        this.Producer = producer;
+        this.Director = director;
+        this.ScreenWriter = screenWriter;
+        this.Actors = actors;
+    }
 }

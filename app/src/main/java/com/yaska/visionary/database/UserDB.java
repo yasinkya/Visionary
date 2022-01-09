@@ -6,9 +6,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.yaska.visionary.model.Actor;
+import com.yaska.visionary.model.Movie;
 import com.yaska.visionary.model.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserDB extends DatabaseService {
@@ -17,6 +21,7 @@ public class UserDB extends DatabaseService {
     DatabaseReference usersref;
     public User returnUser;
     public String checkResult, lastUser;
+    public List<Movie> favMovies;
 
     public UserDB(){
         usersref = ref.child("Users");
@@ -121,6 +126,31 @@ public class UserDB extends DatabaseService {
             }
         };
         usersref.addListenerForSingleValueEvent(valueEventListener);
+    }
+
+    public void addFavMovie(String username, Movie movie){
+        usersref.child(username).child("favorites").child(movie.Name).setValue(movie);
+    }
+    public void removeFavMovie(String username, String movieName){
+        usersref.child(username).child("favorites").child(movieName).removeValue();
+    }
+    public void checkFavMovies(String username, GetFavMoviesCallback getFavMoviesCallback){
+        favMovies = new ArrayList<>();
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot mov : snapshot.getChildren()){
+                    favMovies.add(mov.getValue(Movie.class));
+                }
+                getFavMoviesCallback.onCallback(favMovies);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        usersref.child(username).child("favorites").addListenerForSingleValueEvent(valueEventListener);
     }
 }
 

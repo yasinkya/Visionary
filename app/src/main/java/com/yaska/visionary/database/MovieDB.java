@@ -22,7 +22,7 @@ public class MovieDB extends DatabaseService{
         databaseRef = ref.child("Movies");
     }
 
-    public void getMoviesList(List<String> movieNames, final getMoviesListCallback getMoviesListCallback){
+    public void getMoviesList(List<String> movieNames, final GetMoviesListCallback getMoviesListCallback){
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -83,7 +83,7 @@ public class MovieDB extends DatabaseService{
         databaseRef.addListenerForSingleValueEvent(valueEventListener);
     }
 
-    public void retMoviesList(final getMoviesListCallback getMoviesListCallback){
+    public void retMoviesList(final GetMoviesListCallback getMoviesListCallback){
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -121,6 +121,10 @@ public class MovieDB extends DatabaseService{
                                 break;
                             case "Tür":
                                 movie.Genre = (String) attr.getValue();
+                                break;
+                            case "Tür:":
+                                movie.Genre = (String) attr.getValue();
+                                break;
                             case "Actors":
                                 for(DataSnapshot act: attr.getChildren()){
                                     actors.add(new Actor((String) act.child("Name").getValue(), (String) act.child("Image").getValue()));

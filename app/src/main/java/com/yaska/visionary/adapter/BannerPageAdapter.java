@@ -16,6 +16,7 @@ import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.Banners;
 import com.yaska.visionary.model.Movie;
+import com.yaska.visionary.model.User;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,14 +28,16 @@ public class BannerPageAdapter extends PagerAdapter {
     public Context context;
     public List<Banners> bannerList;
     public List<Movie> mbannerList;
+    public String user;
 
 //    public BannerPageAdapter(Context context, List<Banners> bannerList) {
 //        this.context = context;
 //        this.bannerList = bannerList;
 //    }
-    public BannerPageAdapter(Context context, List<Movie> bannerList) {
+    public BannerPageAdapter(Context context, List<Movie> bannerList, String user) {
         this.context = context;
         this.mbannerList = bannerList;
+        this.user = user;
     }
 
 
@@ -72,6 +75,7 @@ public class BannerPageAdapter extends PagerAdapter {
             // movieDetails classına film özelliklerini gönder
 
             Intent i =new Intent(context, MovieDetailsActivity.class);
+            i.putExtra("user", user);
             i.putExtra("movie", (Serializable) mbannerList.get(position));
 
 //            i.putExtra("movieId",bannerList.get(position).getMovieId());

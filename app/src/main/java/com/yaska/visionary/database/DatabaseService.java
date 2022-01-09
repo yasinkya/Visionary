@@ -34,8 +34,12 @@ public class DatabaseService {
         void onCallback(Map<String, Map<String, Theater>> getCityTheaters);
     }
 
-    public interface getMoviesListCallback{
+    public interface GetMoviesListCallback {
         void onCallback(List<Movie> getMoviesList);
+    }
+
+    public interface GetFavMoviesCallback {
+        void onCallback(List<Movie> getFavMovies);
     }
 
 }
