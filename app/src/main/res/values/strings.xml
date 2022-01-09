@@ -33,4 +33,7 @@
     <string name="time">Time:</string>
     <string name="producer">Producer:</string>
     <string name="actors">Actors:</string>
+    <string name="release_date">Release Date</string>
+    <string name="director">Director</string>
+    <string name="screen_writer">Screen Writer</string>
 </resources>

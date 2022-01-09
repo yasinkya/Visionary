@@ -98,14 +98,195 @@
                 android:layout_height="wrap_content"
 
                 >
-                <ImageView
-                    android:layout_width="300dp"
-                    android:layout_height="500dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/movie_genre"
+                    android:textColor="#A1A1A1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/movie_genre"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/deneme"
-                    android:src="@drawable/image_background"
+                     />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#838383"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:text="@string/value"
+                    android:id="@+id/movie_genre_value"
+                    app:layout_constraintStart_toEndOf="@id/movie_genre"
+                    app:layout_constraintTop_toTopOf="@id/movie_genre"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#A1A1A1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/movie_time"
+                    android:text="@string/time"
+                    app:layout_constraintStart_toStartOf="@id/movie_genre"
+                    app:layout_constraintTop_toBottomOf="@id/movie_genre"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#838383"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:text="@string/value"
+                    android:id="@+id/movie_time_value"
+                    app:layout_constraintStart_toEndOf="@id/movie_time"
+                    app:layout_constraintTop_toTopOf="@id/movie_time"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#A1A1A1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/movie_genre"
+                    app:layout_constraintTop_toBottomOf="@id/movie_time"
+                    android:text="@string/producer"
+                    android:id="@+id/movie_producer"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#838383"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:text="@string/value"
+                    android:id="@+id/movie_producer_value"
+                    app:layout_constraintTop_toTopOf="@id/movie_producer"
+                    app:layout_constraintStart_toEndOf="@id/movie_producer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#A1A1A1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/movie_genre"
+                    app:layout_constraintTop_toBottomOf="@id/movie_producer_value"
+                    android:text="@string/director"
+                    android:id="@+id/movie_director"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#838383"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:text="@string/value"
+                    android:id="@+id/movie_director_value"
+                    app:layout_constraintTop_toTopOf="@id/movie_director"
+                    app:layout_constraintStart_toEndOf="@id/movie_director"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#A1A1A1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/movie_genre"
+                    app:layout_constraintTop_toBottomOf="@id/movie_director_value"
+                    android:text="@string/screen_writer"
+                    android:id="@+id/movie_screenwriter"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#838383"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:text="@string/value"
+                    android:id="@+id/movie_screenwriter_value"
+                    app:layout_constraintTop_toTopOf="@id/movie_screenwriter"
+                    app:layout_constraintStart_toEndOf="@id/movie_screenwriter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#A1A1A1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="@string/actors"
+                    android:id="@+id/movie_actors"
+                    app:layout_constraintStart_toStartOf="@id/movie_genre"
+                    app:layout_constraintTop_toBottomOf="@id/movie_screenwriter_value"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#838383"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:text="@string/value"
+                    android:id="@+id/movie_actors_value"
+                    app:layout_constraintTop_toTopOf="@+id/movie_actors"
+                    app:layout_constraintStart_toEndOf="@id/movie_actors"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#A1A1A1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="@string/release_date"
+                    android:id="@+id/movie_releasedate"
+                    app:layout_constraintStart_toStartOf="@id/movie_genre"
+                    app:layout_constraintTop_toBottomOf="@id/movie_actors_value"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#838383"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:text="@string/value"
+                    android:id="@+id/movie_releasedate_value"
+                    app:layout_constraintTop_toTopOf="@+id/movie_releasedate"
+                    app:layout_constraintStart_toEndOf="@id/movie_releasedate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"/>
+
                 <TextView
                     android:id="@+id/dsc"
                     android:layout_width="wrap_content"
@@ -117,7 +298,7 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/deneme"
+                    app:layout_constraintTop_toBottomOf="@id/movie_releasedate_value"
                     />
 
                 <TextView

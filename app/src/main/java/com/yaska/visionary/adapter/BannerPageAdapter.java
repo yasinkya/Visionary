@@ -15,7 +15,9 @@ import com.bumptech.glide.Glide;
 import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
 import com.yaska.visionary.model.Banners;
+import com.yaska.visionary.model.Movie;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -24,17 +26,22 @@ public class BannerPageAdapter extends PagerAdapter {
 
     public Context context;
     public List<Banners> bannerList;
+    public List<Movie> mbannerList;
 
-    public BannerPageAdapter(Context context, List<Banners> bannerList) {
+//    public BannerPageAdapter(Context context, List<Banners> bannerList) {
+//        this.context = context;
+//        this.bannerList = bannerList;
+//    }
+    public BannerPageAdapter(Context context, List<Movie> bannerList) {
         this.context = context;
-        this.bannerList = bannerList;
+        this.mbannerList = bannerList;
     }
 
 
 
     @Override
     public int getCount() {
-        return bannerList.size();
+        return mbannerList.size();
     }
 
     @Override
@@ -54,7 +61,8 @@ public class BannerPageAdapter extends PagerAdapter {
         @SuppressLint("InflateParams") View view = LayoutInflater.from(context).inflate(R.layout.banner_layout,null);  // banner layoutunu izle
         ImageView bannerImage = view.findViewById(R.id.banner_image);   // banner layoutundaki banner_image i bul
 
-        Glide.with(context).load(bannerList.get(position).getMovieImgUrl()).into(bannerImage);  // internetten çekilen resmi banner image'e aktar
+//        Glide.with(context).load(bannerList.get(position).getMovieImgUrl()).into(bannerImage);  // internetten çekilen resmi banner image'e aktar
+        Glide.with(context).load(mbannerList.get(position).BannerImageUrl).into(bannerImage);  // internetten çekilen resmi banner image'e aktar
         container.addView(view);
 
         //film resmine tıkladığında
@@ -64,10 +72,12 @@ public class BannerPageAdapter extends PagerAdapter {
             // movieDetails classına film özelliklerini gönder
 
             Intent i =new Intent(context, MovieDetailsActivity.class);
-            i.putExtra("movieId",bannerList.get(position).getMovieId());
-            i.putExtra("movieName",bannerList.get(position).getMovieName());
-            i.putExtra("movieImageUrl",bannerList.get(position).getMovieImgUrl());
-            i.putExtra("movieFileUrl",bannerList.get(position).getMovieFileUrl());
+            i.putExtra("movie", (Serializable) mbannerList.get(position));
+
+//            i.putExtra("movieId",bannerList.get(position).getMovieId());
+//            i.putExtra("movieName",bannerList.get(position).getMovieName());
+//            i.putExtra("movieImageUrl",bannerList.get(position).getMovieImgUrl());
+//            i.putExtra("movieFileUrl",bannerList.get(position).getMovieFileUrl());
             context.startActivity(i);
 
         });
