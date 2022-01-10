@@ -52,4 +52,6 @@
     <string name="yes">yes</string>
     <string name="cancel">cancel</string>
     <string name="update_account">Update Account</string>
+    <string name="title_activity_settings2">SettingsActivity2</string>
+
 </resources>

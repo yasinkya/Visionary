@@ -151,18 +151,14 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_favorites:
-                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainPageActivity.this, FavoritesActivity.class);
+                this.startActivity(intent);
                 break;
             case R.id.menu_theaters:
                 intent = new Intent(MainPageActivity.this, CityTheaterActivity.class);
                 intent.putExtra("user", user.UserName);
                 this.startActivity(intent);
                 break;
-//            case R.id.menu_account:
-//                intent = new Intent(MainPageActivity.this, AccountActivity.class);
-//                intent.putExtra("user", user);
-//                this.startActivity(intent);
-//                break;
             case R.id.menu_share:
                 intent= new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
