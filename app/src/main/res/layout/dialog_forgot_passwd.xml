@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/secondaryblue"
+    android:layout_width="400dp"
+    android:layout_height="270dp"
+    android:background="@color/thirtyblue"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reset_password"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_margin="20dp"
-        android:textColor="@color/softwhite"/>
+        android:textColor="@color/softwhite"
+        android:id="@+id/resetpass"/>
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:id="@+id/carduname"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/resetpass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="25dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         app:cardCornerRadius="7dp"
         android:backgroundTint="#12FFFFFF"
         >
 
         <EditText
             android:id="@+id/et_resusername"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:backgroundTint="#B2FFFFFF"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/visionaryred"
             android:drawableStart="@drawable/user"
-            android:drawableTint="@color/altwhite"
+            android:drawableTint="@color/visionaryred"
             android:textColor="@color/softwhite"
-            android:textColorHint="@color/altwhite"
+            android:textColorHint="@color/botwhite"
             android:ems="12"
             android:fontFamily="@font/advent_pro_semibold"
             android:hint="@string/username"
@@ -52,62 +57,49 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/carduname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/cardpass"
         android:layout_marginTop="10dp"
         android:backgroundTint="#12FFFFFF"
+        app:cardCornerRadius="7dp"
         >
 
         <EditText
             android:id="@+id/et_respass"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:backgroundTint="#B2FFFFFF"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/visionaryred"
             android:drawableStart="@drawable/pass"
-            android:drawableTint="@color/altwhite"
+            android:drawableTint="@color/visionaryred"
             android:textColor="@color/softwhite"
-            android:textColorHint="@color/altwhite"
-            android:ems="12"
+            android:textColorHint="@color/botwhite"
             android:fontFamily="@font/advent_pro_semibold"
             android:hint="@string/new_password"
             android:importantForAutofill="no"
-            android:inputType="textPassword"
             android:textSize="22sp"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     </androidx.cardview.widget.CardView>
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btn_reset"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="25dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardBackgroundColor="@color/visionaryred"
-        app:cardCornerRadius="10dp"
-        tools:ignore="DuplicateSpeakableTextCheck">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/advent_pro_semibold"
-            android:text="@string/reset_password"
-            android:textAlignment="center"
-            android:textColor="@color/softwhite"
-            android:textSize="21sp" />
-
-    </androidx.cardview.widget.CardView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/reset_password"
+        android:textColor="@color/softwhite"
+        android:backgroundTint="@color/visionaryred"
+        app:layout_constraintTop_toBottomOf="@id/cardpass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        android:id="@+id/btn_reset"/>
 
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

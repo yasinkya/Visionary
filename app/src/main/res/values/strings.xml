@@ -46,4 +46,10 @@
     <string name="about_application">About Application</string>
     <string name="about_app">\t\tVisionary uygulamamızı sinemalardaki güncel filmleri takip etmek, filmler hakkında detaylı bilgi almak, filmlere ait fragmanları izleyebilmek ve hoşunuza gidenleri favorilerinize eklemek, bu fragmanları arkadaşlarınızla paylaşmak için ve yaşadığınız şehirde veya merak ettiiğiniz herhangi bir şehirde bulunan sinema salonlarını görebilir, bunlar hakkında bilgiler alabilir ve o salona ait güncel vizyondaki filmlerini rahatlıkla görebilmek için kullanabilrsiniz. :)</string>
     <string name="info_help">\t\t-Uygulama ana ekranında appbar üzerinden, vizyondakiler, yakında gelecekler, popüler 5 seçeneklerini seçerek hemen altında bulunan slider menü içeriği değiştirilebilir.\n\t\t-Ana ekranda kategorize edilmiş filmleri görebilirsiniz.\n\t\t-Herhangi bir filç içeriğine tıkladığınızda ilgili filmin sayfasına gider ve o filmin detaylı bilgilerine erişebilirsiniz.\n\t\t-Film sayfasında üstteki playerdan filmin fragmanını izleyebilir ve paylaşabilirsiniz.\n\t\t-Dilerseniz yine film fragmanını tam ekran izlemek için player altındaki butona tıklayabilirsiniz.\n\t\t-Hoşunuza giden filmi favorinize ekleyebilir, bunlara daha sonra erişebilirsiniz. Ayrıca ilgili filmin sayfasındaki buton siz favorilerinizden çıkarmadığınız sürece favorilerinize eklenmiş anlamındaki iconda sabit kalacaktır.\n\n\t\t-! Daha fazla bilgi için uygulama github sayfamıza göz atabilirsiniz. :)</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="sure_delete">Are you sure want to delete your account?</string>
+    <string name="sure_update">Are you sure want to update your account?</string>
+    <string name="yes">yes</string>
+    <string name="cancel">cancel</string>
+    <string name="update_account">Update Account</string>
 </resources>

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.cardview.widget.CardView;
 
@@ -164,16 +165,16 @@ public class LoginActivity extends AppCompatActivity {
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.dialog_forgot_passwd);
 
-        final EditText et_username, et_respas, et_newpas;
+        final EditText et_username, et_newpas;
         et_username = dialog.findViewById(R.id.et_resusername);
-        et_respas = dialog.findViewById(R.id.et_respass);
+        et_newpas = dialog.findViewById(R.id.et_respass);
 
-        final CardView btnreset = dialog.findViewById(R.id.btn_reset);
+        final AppCompatButton btnreset = dialog.findViewById(R.id.btn_reset);
 
         btnreset.setOnClickListener(v -> {
             String username, newpas;
             username = et_username.getText().toString();
-            newpas = et_respas.getText().toString();
+            newpas = et_newpas.getText().toString();
 
             userdataBase.check_user(username, returnUser -> {
                 if(userdataBase.returnUser == null)

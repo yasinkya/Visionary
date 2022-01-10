@@ -47,7 +47,6 @@ public class SettingsActivity extends AppCompatActivity {
             intent = new Intent(SettingsActivity.this, LoginActivity.class);
             this.finishAffinity();
             this.startActivity(intent);
-
         });
 
     }

@@ -1,13 +1,18 @@
 package com.yaska.visionary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yaska.visionary.database.UserDB;
 import com.yaska.visionary.model.User;
@@ -62,11 +67,61 @@ public class AccountActivity extends AppCompatActivity {
         });
 
         btn_update.setOnClickListener(v -> {
-            userDB.update_user(new User(et_name.getText().toString(), et_surname.getText().toString(),
-                    et_mail.getText().toString(), user.UserName, et_password.getText().toString()));
+            showDialog("update");
+        });
+        btn_delete.setOnClickListener(v -> {
+            showDialog("delete");
         });
 
 
+
+
+    }
+    void showDialog(String opt){
+        final Dialog dialog = new Dialog(AccountActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+
+        final AppCompatButton btn_cancel, btn_yes;
+
+        switch (opt){
+            case "delete":
+                dialog.setContentView(R.layout.dialog_delete);
+
+                break;
+            case "update":
+                dialog.setContentView(R.layout.dialog_update);
+                break;
+        }
+
+        btn_cancel = dialog.findViewById(R.id.btn_cancel);
+        btn_yes = dialog.findViewById(R.id.btn_yes);
+
+        btn_cancel.setOnClickListener(v -> {
+            dialog.dismiss();
+        });
+
+        btn_yes.setOnClickListener(v -> {
+            switch (opt){
+                case "delete":
+                    userDB.delete_user(user.UserName);
+                    userDB.changeLastLogin("");
+                    Intent intent = new Intent(AccountActivity.this, LoginActivity.class);
+                    dialog.dismiss();
+                    this.finishAffinity();
+                    this.startActivity(intent);
+
+                    break;
+                case "update":
+                    userDB.update_user(new User(et_name.getText().toString(), et_surname.getText().toString(),
+                            et_mail.getText().toString(), user.UserName, et_password.getText().toString()));
+                    dialog.dismiss();
+                    Toast.makeText(AccountActivity.this, "Account Updated", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        });
+
+        dialog.show();
 
     }
 }
