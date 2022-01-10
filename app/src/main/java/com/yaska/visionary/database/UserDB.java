@@ -2,10 +2,12 @@ package com.yaska.visionary.database;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.common.UserRecoverableException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.platforminfo.UserAgentPublisher;
 import com.yaska.visionary.model.Actor;
 import com.yaska.visionary.model.Movie;
 import com.yaska.visionary.model.User;
@@ -39,8 +41,12 @@ public class UserDB extends DatabaseService {
         usersref.child(userName).removeValue();
     }
 
-    public void update_user(String username, String key, String value){
-        usersref.child(username).child("Account").child(key).setValue(value);
+    public void reset_password(String username, String newpass){
+        usersref.child(username).child("Account").child("Password").setValue(newpass);
+    }
+
+    public void update_user(User user){
+        usersref.child(user.UserName).child("Account").setValue(user);
     }
 
     public void changeLastLogin(String username){

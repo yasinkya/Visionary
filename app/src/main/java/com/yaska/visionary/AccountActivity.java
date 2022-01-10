@@ -9,13 +9,13 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.yaska.visionary.database.UserDB;
 import com.yaska.visionary.model.User;
-
-import org.w3c.dom.Text;
 
 public class AccountActivity extends AppCompatActivity {
 
     User user;
+    UserDB userDB;
     TextView tv_username, showpass;
     EditText et_password, et_name, et_surname, et_mail;
     CardView btn_update, btn_delete;
@@ -30,6 +30,7 @@ public class AccountActivity extends AppCompatActivity {
 
 
         user = (User) getIntent().getSerializableExtra("user");
+        userDB = new UserDB();
 
         tv_username = findViewById(R.id.et_acusername);
         et_password = findViewById(R.id.et_acpass);
@@ -37,6 +38,9 @@ public class AccountActivity extends AppCompatActivity {
         et_surname = findViewById(R.id.et_acsurname);
         et_mail = findViewById(R.id.et_acmail);
         showpass = findViewById(R.id.showpass);
+
+        btn_update = findViewById(R.id.btn_update);
+        btn_delete = findViewById(R.id.btn_delete);
 
         tv_username.setText(user.UserName);
         et_password.setText(user.Password);
@@ -57,7 +61,11 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-//        todo buttons
+        btn_update.setOnClickListener(v -> {
+            userDB.update_user(new User(et_name.getText().toString(), et_surname.getText().toString(),
+                    et_mail.getText().toString(), user.UserName, et_password.getText().toString()));
+        });
+
 
 
     }

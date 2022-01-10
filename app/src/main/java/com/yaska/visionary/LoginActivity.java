@@ -179,7 +179,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(userdataBase.returnUser == null)
                     makeToast("User Not Found!");
                 else{
-                    userdataBase.update_user(username, "Password", newpas);
+                    userdataBase.reset_password(username, newpas);
                     userdataBase.getUser(username, getUser -> {
                         user = userdataBase.returnUser;
                         makeToast("Password Updated"+user.UserName);

@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.yaska.visionary.database.UserDB;
+import com.yaska.visionary.model.User;
 
 public class SettingsActivity extends AppCompatActivity {
     LinearLayout account, application, help, signout;
@@ -25,8 +26,9 @@ public class SettingsActivity extends AppCompatActivity {
         signout = findViewById(R.id.settings_signout);
 
         account.setOnClickListener(v -> {
+            User user = (User) getIntent().getSerializableExtra("user");
             intent = new Intent(SettingsActivity.this, AccountActivity.class);
-            intent.putExtra("user", getIntent().getSerializableExtra("user"));
+            intent.putExtra("user", user);
             this.startActivity(intent);
         });
 
