@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
 import com.yaska.visionary.database.MovieDB;
-import com.yaska.visionary.model.Actor;
 import com.yaska.visionary.model.InTheater;
 import com.yaska.visionary.model.Movie;
 import com.yaska.visionary.model.Theater;
@@ -32,8 +31,8 @@ public class InTheatersActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     InTheatersRecyclerAdapter recyclerAdapter;
 
-    TextView cityName, theaterName, theaterAddress, theaterNumber;
-    ImageView threeD, dolby, phoneSale, parking, airCond, cafe;
+    TextView tv_cityName, tv_theaterName, tv_theaterAddress, tv_theaterNumber;
+    ImageView iv_threeD, iv_dolby, iv_phoneSale, iv_parking, iv_airCond, iv_cafe;
 
 
     @Override
@@ -50,24 +49,24 @@ public class InTheatersActivity extends AppCompatActivity {
         theater = (Theater) getIntent().getSerializableExtra("theater");
 
 
-        cityName = findViewById(R.id.cityname);
-        theaterName = findViewById(R.id.theatername);
-        theaterAddress = findViewById(R.id.theateraddress);
-        theaterNumber = findViewById(R.id.theaternumber);
+        tv_cityName = findViewById(R.id.cityname);
+        tv_theaterName = findViewById(R.id.theatername);
+        tv_theaterAddress = findViewById(R.id.theateraddress);
+        tv_theaterNumber = findViewById(R.id.theaternumber);
 
-        threeD = findViewById(R.id.icon3d);
-        dolby = findViewById(R.id.icondolby);
-        phoneSale = findViewById(R.id.iconphonesale);
-        parking = findViewById(R.id.iconparking);
-        airCond = findViewById(R.id.iconaircon);
-        cafe = findViewById(R.id.iconcafe);
+        iv_threeD = findViewById(R.id.icon3d);
+        iv_dolby = findViewById(R.id.icondolby);
+        iv_phoneSale = findViewById(R.id.iconphonesale);
+        iv_parking = findViewById(R.id.iconparking);
+        iv_airCond = findViewById(R.id.iconaircon);
+        iv_cafe = findViewById(R.id.iconcafe);
 
         setIconsVisibility();
 
-        cityName.setText(city);
-        theaterName.setText(theater.Name);
-        theaterAddress.setText(theater.Address);
-        theaterNumber.setText(theater.Number);
+        tv_cityName.setText(city);
+        tv_theaterName.setText(theater.Name);
+        tv_theaterAddress.setText(theater.Address);
+        tv_theaterNumber.setText(theater.Number);
 
 
         if (theater.InTheaters != null){
@@ -85,34 +84,34 @@ public class InTheatersActivity extends AppCompatActivity {
     void setIconsVisibility() {
 
         if (theater.ThreeD)
-            threeD.setVisibility(View.VISIBLE);
+            iv_threeD.setVisibility(View.VISIBLE);
         else
-            threeD.setVisibility(View.GONE);
+            iv_threeD.setVisibility(View.GONE);
 
         if (theater.Dolby)
-            dolby.setVisibility(View.VISIBLE);
+            iv_dolby.setVisibility(View.VISIBLE);
         else
-            dolby.setVisibility(View.GONE);
+            iv_dolby.setVisibility(View.GONE);
 
         if (theater.PhoneSale)
-            phoneSale.setVisibility(View.VISIBLE);
+            iv_phoneSale.setVisibility(View.VISIBLE);
         else
-            phoneSale.setVisibility(View.GONE);
+            iv_phoneSale.setVisibility(View.GONE);
 
         if (theater.Parking)
-            parking.setVisibility(View.VISIBLE);
+            iv_parking.setVisibility(View.VISIBLE);
         else
-            parking.setVisibility(View.GONE);
+            iv_parking.setVisibility(View.GONE);
 
         if (theater.AirCond)
-            airCond.setVisibility(View.VISIBLE);
+            iv_airCond.setVisibility(View.VISIBLE);
         else
-            airCond.setVisibility(View.GONE);
+            iv_airCond.setVisibility(View.GONE);
 
         if (theater.Cafe)
-            cafe.setVisibility(View.VISIBLE);
+            iv_cafe.setVisibility(View.VISIBLE);
         else
-            cafe.setVisibility(View.GONE);
+            iv_cafe.setVisibility(View.GONE);
 
     }
 

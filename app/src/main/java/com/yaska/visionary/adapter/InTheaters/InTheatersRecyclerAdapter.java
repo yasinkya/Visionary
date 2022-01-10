@@ -30,12 +30,12 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
 
     Context context ;
     List<Movie> movieList;
-    String user;
+    String username;
 
-    public InTheatersRecyclerAdapter(Context context, List<Movie> movieList, String user) {
+    public InTheatersRecyclerAdapter(Context context, List<Movie> movieList, String username) {
         this.context = context;
         this.movieList = movieList;
-        this.user = user;
+        this.username = username;
     }
 
     @NonNull
@@ -52,17 +52,22 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
         holder.movieProducer.setText(movieList.get(position).Producer);
         holder.movieGenre.setText(movieList.get(position).Genre);
         holder.movieTime.setText(movieList.get(position).Time);
-        List<String> actors = new ArrayList<>();
-        for (Actor actname :movieList.get(position).Actors){
-            actors.add(actname.Name);
+        
+        if(movieList.get(position).Actors != null){
+            List<String> actors = new ArrayList<>();
+
+            for (Actor actname :movieList.get(position).Actors){
+                actors.add(actname.Name);
+            }
+            holder.movieActors.setText(String.join(", ", actors));
         }
-        holder.movieActors.setText(String.join(", ", actors));
+
         Glide.with(context).load(movieList.get(position).BannerImageUrl).into(holder.movieImage);
 
         holder.movieLayout.setOnClickListener(v -> {
             Intent intent = new Intent(context, MovieDetailsActivity.class);
             intent.putExtra("movie", (Serializable) movieList.get(position));
-            intent.putExtra("user", user);
+            intent.putExtra("user", username);
             context.startActivity(intent);
 
         });

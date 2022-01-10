@@ -102,68 +102,69 @@ public class MovieDetailsActivity extends AppCompatActivity {
         et_movieScWrter.setText(currentMovie.ScreenWriter);
         et_movieRsDate.setText(currentMovie.ReleaseDate);
         et_description.setText(currentMovie.Description);
-        for (int i = 0; i < currentMovie.Actors.size(); i++){
-            switch (i){
-                case 0:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor1);
-                    et_actor1.setText(currentMovie.Actors.get(i).Name);
-                    et_actor1.setVisibility(View.VISIBLE);
-                    im_actor1.setVisibility(View.VISIBLE);
-                    layim1.setVisibility(View.VISIBLE);
-                    break;
-                case 1:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor2);
-                    et_actor2.setText(currentMovie.Actors.get(i).Name);
-                    et_actor2.setVisibility(View.VISIBLE);
-                    im_actor2.setVisibility(View.VISIBLE);
-                    layim2.setVisibility(View.VISIBLE);
-                    break;
-                case 2:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor3);
-                    et_actor3.setText(currentMovie.Actors.get(i).Name);
-                    et_actor3.setVisibility(View.VISIBLE);
-                    im_actor3.setVisibility(View.VISIBLE);
-                    layim3.setVisibility(View.VISIBLE);
-                    break;
-                case 3:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor4);
-                    et_actor4.setText(currentMovie.Actors.get(i).Name);
-                    et_actor4.setVisibility(View.VISIBLE);
-                    im_actor4.setVisibility(View.VISIBLE);
-                    layim4.setVisibility(View.VISIBLE);
-                    break;
-                case 4:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor5);
-                    et_actor5.setText(currentMovie.Actors.get(i).Name);
-                    et_actor5.setVisibility(View.VISIBLE);
-                    im_actor5.setVisibility(View.VISIBLE);
-                    layim5.setVisibility(View.VISIBLE);
-                    break;
-                case 5:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor6);
-                    et_actor6.setText(currentMovie.Actors.get(i).Name);
-                    et_actor6.setVisibility(View.VISIBLE);
-                    im_actor6.setVisibility(View.VISIBLE);
-                    layim6.setVisibility(View.VISIBLE);
-                    break;
-                case 6:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor7);
-                    et_actor7.setText(currentMovie.Actors.get(i).Name);
-                    et_actor7.setVisibility(View.VISIBLE);
-                    im_actor7.setVisibility(View.VISIBLE);
-                    layim7.setVisibility(View.VISIBLE);
-                    break;
-                case 7:
-                    Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor8);
-                    et_actor8.setText(currentMovie.Actors.get(i).Name);
-                    et_actor8.setVisibility(View.VISIBLE);
-                    im_actor8.setVisibility(View.VISIBLE);
-                    layim8.setVisibility(View.VISIBLE);
-                    break;
+        if (currentMovie.Actors != null){
+            for (int i = 0; i < currentMovie.Actors.size(); i++){
+                switch (i){
+                    case 0:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor1);
+                        et_actor1.setText(currentMovie.Actors.get(i).Name);
+                        et_actor1.setVisibility(View.VISIBLE);
+                        im_actor1.setVisibility(View.VISIBLE);
+                        layim1.setVisibility(View.VISIBLE);
+                        break;
+                    case 1:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor2);
+                        et_actor2.setText(currentMovie.Actors.get(i).Name);
+                        et_actor2.setVisibility(View.VISIBLE);
+                        im_actor2.setVisibility(View.VISIBLE);
+                        layim2.setVisibility(View.VISIBLE);
+                        break;
+                    case 2:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor3);
+                        et_actor3.setText(currentMovie.Actors.get(i).Name);
+                        et_actor3.setVisibility(View.VISIBLE);
+                        im_actor3.setVisibility(View.VISIBLE);
+                        layim3.setVisibility(View.VISIBLE);
+                        break;
+                    case 3:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor4);
+                        et_actor4.setText(currentMovie.Actors.get(i).Name);
+                        et_actor4.setVisibility(View.VISIBLE);
+                        im_actor4.setVisibility(View.VISIBLE);
+                        layim4.setVisibility(View.VISIBLE);
+                        break;
+                    case 4:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor5);
+                        et_actor5.setText(currentMovie.Actors.get(i).Name);
+                        et_actor5.setVisibility(View.VISIBLE);
+                        im_actor5.setVisibility(View.VISIBLE);
+                        layim5.setVisibility(View.VISIBLE);
+                        break;
+                    case 5:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor6);
+                        et_actor6.setText(currentMovie.Actors.get(i).Name);
+                        et_actor6.setVisibility(View.VISIBLE);
+                        im_actor6.setVisibility(View.VISIBLE);
+                        layim6.setVisibility(View.VISIBLE);
+                        break;
+                    case 6:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor7);
+                        et_actor7.setText(currentMovie.Actors.get(i).Name);
+                        et_actor7.setVisibility(View.VISIBLE);
+                        im_actor7.setVisibility(View.VISIBLE);
+                        layim7.setVisibility(View.VISIBLE);
+                        break;
+                    case 7:
+                        Glide.with(this).load(currentMovie.Actors.get(i).ImageUrl).into(im_actor8);
+                        et_actor8.setText(currentMovie.Actors.get(i).Name);
+                        et_actor8.setVisibility(View.VISIBLE);
+                        im_actor8.setVisibility(View.VISIBLE);
+                        layim8.setVisibility(View.VISIBLE);
+                        break;
 
+                }
             }
         }
-
         if (currentMovie.VideId != null)
             videoId = currentMovie.VideId;
         else
@@ -203,8 +204,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                     youTubePlayer.play();
             }
         });
-
-
+        
     }
     public void hideAllActorViews(){
 

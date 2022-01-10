@@ -152,6 +152,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.menu_favorites:
                 intent = new Intent(MainPageActivity.this, FavoritesActivity.class);
+                intent.putExtra("username", user.UserName);
                 this.startActivity(intent);
                 break;
             case R.id.menu_theaters:
