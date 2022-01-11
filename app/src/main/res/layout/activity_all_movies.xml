@@ -16,11 +16,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         >
 
-        <ImageView
-            android:id="@+id/btn_slide"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_finish"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/icon_menuopen"
+            android:background="@drawable/icon_finish"
             tools:ignore="ContentDescription" />
 
         <TextView

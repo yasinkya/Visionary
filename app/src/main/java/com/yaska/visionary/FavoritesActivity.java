@@ -1,6 +1,7 @@
 package com.yaska.visionary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,8 @@ public class FavoritesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     MovieRecyclerAdapter recyclerAdapter;
 
+    AppCompatButton btn_finish;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,9 @@ public class FavoritesActivity extends AppCompatActivity {
 
         userDB = new UserDB();
         username = getIntent().getStringExtra("username");
+
+        btn_finish = findViewById(R.id.btn_finish);
+        btn_finish.setOnClickListener(v -> this.finish());
 
         setRecycler();
 

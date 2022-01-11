@@ -1,6 +1,7 @@
 package com.yaska.visionary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import com.yaska.visionary.database.UserDB;
 import com.yaska.visionary.model.User;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    AppCompatButton btn_finish;
     LinearLayout account, application, help, signout;
     Intent intent;
     @Override
@@ -19,6 +22,9 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        btn_finish = findViewById(R.id.btn_finish);
+        btn_finish.setOnClickListener(v -> this.finish());
 
         account = findViewById(R.id.settings_account);
         application = findViewById(R.id.settings_appsettings);

@@ -1,6 +1,7 @@
 package com.yaska.visionary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ public class AllMoviesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     MovieRecyclerAdapter recyclerAdapter;
     Spinner spinner;
+    AppCompatButton btn_finish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,9 @@ public class AllMoviesActivity extends AppCompatActivity {
 
         allmovies = (List<Movie>) getIntent().getSerializableExtra("allmovies");
         username = getIntent().getStringExtra("username");
+
+        btn_finish = findViewById(R.id.btn_finish);
+        btn_finish.setOnClickListener(v -> this.finish());
 
         spinner = findViewById(R.id.spinner);
         String[] categoriesSpinner = new String[] {

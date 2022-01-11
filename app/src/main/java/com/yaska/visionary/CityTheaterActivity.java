@@ -33,7 +33,7 @@ public class CityTheaterActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     public Map<String, Map<String, Theater>> allTheatersMap = new HashMap<>();
 
-    AppCompatButton upButton;
+    AppCompatButton upButton, btn_finish;
     ListView listViewCities, listViewTheaters;
 
     @Override
@@ -49,6 +49,10 @@ public class CityTheaterActivity extends AppCompatActivity {
         upButton = findViewById(R.id.btnUpcity);
         listViewCities = findViewById(R.id.citiesListView);
         listViewTheaters = findViewById(R.id.theatersListView);
+
+        btn_finish = findViewById(R.id.btn_finish);
+        btn_finish.setOnClickListener(v -> this.finish());
+
 
         /* veri tabanından şehileri ve sinema salınlarını getir ve onları list viewa aktar */
         database.getCityTheaters(getCityTheaters -> {

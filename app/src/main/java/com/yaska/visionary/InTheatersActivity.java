@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,7 @@ public class InTheatersActivity extends AppCompatActivity {
     TextView tv_cityName, tv_theaterName, tv_theaterAddress, tv_theaterNumber;
     ImageView iv_threeD, iv_dolby, iv_phoneSale, iv_parking, iv_airCond, iv_cafe;
 
+    AppCompatButton btn_finish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,9 @@ public class InTheatersActivity extends AppCompatActivity {
         iv_parking = findViewById(R.id.iconparking);
         iv_airCond = findViewById(R.id.iconaircon);
         iv_cafe = findViewById(R.id.iconcafe);
+
+        btn_finish = findViewById(R.id.btn_finish);
+        btn_finish.setOnClickListener(v -> this.finish());
 
         setIconsVisibility();
 

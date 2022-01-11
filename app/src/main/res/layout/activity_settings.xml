@@ -9,12 +9,42 @@
     android:background="@color/primaryblue"
     >
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_finish"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/icon_finish"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/mainpage_appname"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/baloo"
+            android:gravity="center_vertical"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textColor="@color/textprimwhite"
+            tools:ignore="RtlCompat" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:background="@color/secondaryblue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:clickable="true"
         android:focusable="true"
         app:flow_verticalAlign="center"
