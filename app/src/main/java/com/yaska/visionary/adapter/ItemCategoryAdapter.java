@@ -17,26 +17,26 @@ import com.yaska.visionary.R;
 import com.yaska.visionary.model.Movie;
 import java.util.List;
 
-public class MainRecyclerItemAdapter extends RecyclerView.Adapter<MainRecyclerItemAdapter.ItemViewHolder>{
+public class ItemCategoryAdapter extends RecyclerView.Adapter<ItemCategoryAdapter.ItemViewHolder>{
 
 
     Context context;
     List<Movie> categoryItemList;
-    public String user;
+    public String username;
 
-    public MainRecyclerItemAdapter(Context context, List<Movie> categoryItemList, String user) {
+    public ItemCategoryAdapter(Context context, List<Movie> categoryItemList, String username) {
         this.context = context;
         this.categoryItemList = categoryItemList;
-        this.user = user;
+        this.username = username;
     }
 
+    /* Kategoride bulunan filmlerin resimlerini tutmak için imageview'ı yarat */
     public static final class ItemViewHolder extends RecyclerView.ViewHolder{
 
         ImageView itemImage ;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-
             itemImage = itemView.findViewById(R.id.itemImage);
         }
     }
@@ -49,11 +49,14 @@ public class MainRecyclerItemAdapter extends RecyclerView.Adapter<MainRecyclerIt
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        /* Veritabanından çekilen herbir filmin resmini internetten çekip glide ile image view'a aktar */
         Glide.with(context).load(categoryItemList.get(position).BannerImageUrl).into(holder.itemImage);
 
+        /* Tıklanan film için MovieDetails sayfasını aç ve filmin verilerini gönder */
         holder.itemImage.setOnClickListener(view -> {
             Intent i =new Intent(context, MovieDetailsActivity.class);
-            i.putExtra("user", user);
+            i.putExtra("user", username);
             i.putExtra("movie", categoryItemList.get(position));
             context.startActivity(i);
 

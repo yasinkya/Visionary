@@ -23,7 +23,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.yaska.visionary.adapter.SlidingViewAdapter;
-import com.yaska.visionary.adapter.MainRecyclerAdapter;
+import com.yaska.visionary.adapter.CategoryRecyclerAdapter;
 import com.yaska.visionary.database.MovieDB;
 import com.yaska.visionary.model.AllCategories;
 import com.yaska.visionary.model.Movie;
@@ -54,7 +54,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     NestedScrollView nestedScrollView;
     AppBarLayout appBarLayout;
 
-    MainRecyclerAdapter mainRecyclerAdapter;
+    CategoryRecyclerAdapter categoryRecyclerAdapter;
     RecyclerView recyclerView;
 
     // Sliding Menu
@@ -88,17 +88,17 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         navigationView.setCheckedItem(R.id.menu_home);
 
         user = (User) getIntent().getSerializableExtra("user");
-//        user = new User("yasin", "kaya", "yaska.com", "yaska", "1");
 
         menu = navigationView.getMenu();
 
-        menu_username = (TextView)navigationView.getHeaderView(0).findViewById(R.id.header_username);
+        menu_username = navigationView.getHeaderView(0).findViewById(R.id.header_username);
         menu_username.setText(user.UserName);
 
 
         indicatorTab = findViewById(R.id.tab_indicator);
         categoryTab = findViewById(R.id.tablay);
         nestedScrollView = findViewById(R.id.nested_scroll);
+        appBarLayout = findViewById(R.id.appbarLayout);
 
         fetchBannerItems("");
 
@@ -107,16 +107,16 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             public void onTabSelected(TabLayout.Tab tab) {
                 switch(tab.getPosition()){
                     case 0:
-//                        setScrDef();
+                        setScrDef();
                         fetchBannerItems("vizyon");
                         break;
                     case 1:
-//                        setScrDef();
+                        setScrDef();
                         fetchBannerItems("soon");
 
                         break;
                     case 2:
-//                        setScrDef();
+                        setScrDef();
                         fetchBannerItems("top");
                         break;
                 }
@@ -138,8 +138,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()){
-            case R.id.menu_home:
-                break;
             case R.id.menu_allmovies:
                 intent = new Intent(MainPageActivity.this, AllMoviesActivity.class);
                 intent.putExtra("allmovies", (Serializable) allMovies);
@@ -160,7 +158,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 intent= new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, "https://github.com/yasinkya/Visionary.git");
-                startActivity(Intent.createChooser(intent, "Thanks For Sharing Our App :')"));;
+                startActivity(Intent.createChooser(intent, "Thanks For Sharing Our App :')"));
                 break;
             case R.id.menu_settings:
                 intent = new Intent(MainPageActivity.this, SettingsActivity.class);
@@ -227,8 +225,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         recyclerView = findViewById(R.id.main_recycle);
         RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        mainRecyclerAdapter = new MainRecyclerAdapter(this,allCategoriesList, user.UserName);
-        recyclerView.setAdapter(mainRecyclerAdapter);
+        categoryRecyclerAdapter = new CategoryRecyclerAdapter(this,allCategoriesList, user.UserName);
+        recyclerView.setAdapter(categoryRecyclerAdapter);
     }
 
     // category changed trigger
@@ -284,7 +282,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     private void setBannerPageAdapter(List<Movie> listBanners){
 
         timerSlide =new Timer();
-        timerSlide.scheduleAtFixedRate(new AutoSlider(),8000,10000);
+        timerSlide.scheduleAtFixedRate(new AutoSlider(),10000,12000);
         indicatorTab.setupWithViewPager(bannerPageView,true);
 
         bannerPageView = findViewById(R.id.bannerView);
@@ -298,8 +296,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         @Override
         public void run() {
             MainPageActivity.this.runOnUiThread(()->{
-                if(bannerPageView.getCurrentItem() < bannerPageView.getChildCount()-1){
-                    bannerPageView.setCurrentItem(bannerPageView.getCurrentItem()+1);
+                if(bannerPageView.getCurrentItem() < bannerPageView.getChildCount() - 1){
+                    bannerPageView.setCurrentItem(bannerPageView.getCurrentItem() + 1);
                 }
                 else
                     bannerPageView.setCurrentItem(0);

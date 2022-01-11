@@ -16,18 +16,18 @@ import com.yaska.visionary.model.Movie;
 
 import java.util.List;
 
-public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.MainViewHolder> {
+public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecyclerAdapter.MainViewHolder> {
 
 
 
+    String username;
     Context context ;
     List<AllCategories> allCategoriesList;
-    String user;
 
-    public MainRecyclerAdapter(Context context, List<AllCategories> allCategoriesList, String user) {
+    public CategoryRecyclerAdapter(Context context, List<AllCategories> allCategoriesList, String username) {
         this.context = context;
         this.allCategoriesList = allCategoriesList;
-        this.user = user;
+        this.username = username;
     }
 
     @NonNull
@@ -38,9 +38,10 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
+
+        /* Anasayfadaki kategorileri oluştur ve Herbir kategori için kategori içeriklerini ayarla */
         holder.categoryName.setText(allCategoriesList.get(position).getCategoryTitle());
         setItemRecycler(holder.ItemRecycler,allCategoriesList.get(position).getCategoryItemList());
-
        
     }
 
@@ -49,6 +50,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         return allCategoriesList.size();
     }
 
+    /* Ana sayfada gözükecek olan kategori kutcuklarını bul */
     public static final class MainViewHolder extends RecyclerView.ViewHolder{
 
         TextView categoryName;
@@ -62,11 +64,13 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         }
     }
 
+    /* Her bir kategori içerisine verileri aktarmak için adapter kullan */
     private void setItemRecycler(RecyclerView recyclerView, List<Movie> categoryItemList){
 
-        MainRecyclerItemAdapter mainRecyclerItemAdapter = new MainRecyclerItemAdapter(context,categoryItemList, user);
+        /* Yeni bir adapter nesnesi oluştur ve o adapter için verileri ilgili kategoriye akter */
+        ItemCategoryAdapter itemCategoryAdapter = new ItemCategoryAdapter(context,categoryItemList, username);
         recyclerView.setLayoutManager(new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false));
-        recyclerView.setAdapter(mainRecyclerItemAdapter);
+        recyclerView.setAdapter(itemCategoryAdapter);
 
     }
 

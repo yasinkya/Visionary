@@ -17,8 +17,9 @@ import com.yaska.visionary.R;
 import com.yaska.visionary.model.Movie;
 import java.util.List;
 
+/* Bu adapter ana sayfadaki appbarın altında bulunan vizyondakiler, yakında ve top5 seçenekleri bulunan
+kayan pencereye veriler aktarır  */
 
-// Film özelliklerini başka classlara gönderme
 public class SlidingViewAdapter extends PagerAdapter {
 
     public Context context;
@@ -52,17 +53,16 @@ public class SlidingViewAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-        // banner layoutunu izle
         @SuppressLint("InflateParams") View view = LayoutInflater.from(context).inflate(R.layout.banner_layout,null);
 
-        // banner layoutundaki banner_image i bul
+        // Kayan pencerenin içerisinde bulunan image viewı bul
         ImageView bannerImage = view.findViewById(R.id.banner_image);
 
         // internetten çekilen resmi banner image'e aktar
         Glide.with(context).load(movieList.get(position).BannerImageUrl).into(bannerImage);
         container.addView(view);
 
-        //film resmine tıkladığında
+        // kayan pencerede bir item' a tıklandığında o veri için moviedetails' sayfasını aç
         bannerImage.setOnClickListener(v -> {
 
             // movieDetails classına film özelliklerini gönder
