@@ -22,7 +22,7 @@
             android:name=".FavoritesActivity"
             android:exported="true" />
         <activity
-            android:name=".AppSettingsActivity"
+            android:name=".HelpAboutActivity"
             android:exported="true" />
         <activity
             android:name=".SettingsActivity"

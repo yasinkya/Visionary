@@ -17,57 +17,62 @@ import java.util.Map;
 import java.util.Objects;
 
 
-public class TheaterDB extends DatabaseService {
+public class MovieTheatersDB extends DatabaseService {
 
     DatabaseReference databaseRef;
     Theater theater;
     Map<String, Theater> theaterMap;
     public Map<String, Map<String, Theater>> allTheatersMap = new HashMap<>();
 
-
-
-
-    public TheaterDB(){
+    public MovieTheatersDB(){
         databaseRef = ref.child("Movie Theaters");
     }
 
+    /* Veritabanında movietheaters'ın altıdaki verileri getir */
     public void getCityTheaters(final GetCityTheatersCallback getCityTheatersCallback){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                /* Veri tabanında önce şehileri gezer ve bu şehilerin her birinde bulunan sinema
+                * salonlarını allTheatersMap nesnesine aktarır son olarak callback yaparak işlemi  bitirir */
                 for (DataSnapshot city: snapshot.getChildren()){
+
+                    /* gezilen şehirler için yeni bir map yaratılı bu map in içerisine de o salona
+                    * ait bilgileri ve güncel vizyondaki sinemaları aktarır */
+
                     theaterMap = new HashMap<>();
                     for (DataSnapshot theater: city.getChildren()){
-                        TheaterDB.this.theater = new Theater();
+                        MovieTheatersDB.this.theater = new Theater();
                         for (DataSnapshot attrs: theater.getChildren()){
                             switch (Objects.requireNonNull(attrs.getKey())){
                                 case "3-d":
-                                    TheaterDB.this.theater.ThreeD = (boolean) attrs.getValue();
+                                    MovieTheatersDB.this.theater.ThreeD = (boolean) attrs.getValue();
                                     break;
                                 case "air-cond":
-                                    TheaterDB.this.theater.AirCond = (boolean) attrs.getValue();
+                                    MovieTheatersDB.this.theater.AirCond = (boolean) attrs.getValue();
                                     break;
                                 case "cafe":
-                                    TheaterDB.this.theater.Cafe = (boolean) attrs.getValue();
+                                    MovieTheatersDB.this.theater.Cafe = (boolean) attrs.getValue();
                                     break;
                                 case "dolby":
-                                    TheaterDB.this.theater.Dolby = (boolean) attrs.getValue();
+                                    MovieTheatersDB.this.theater.Dolby = (boolean) attrs.getValue();
                                     break;
                                 case "parking":
-                                    TheaterDB.this.theater.Parking = (boolean) attrs.getValue();
+                                    MovieTheatersDB.this.theater.Parking = (boolean) attrs.getValue();
                                     break;
                                 case "phone-sale":
-                                    TheaterDB.this.theater.PhoneSale = (boolean) attrs.getValue();
+                                    MovieTheatersDB.this.theater.PhoneSale = (boolean) attrs.getValue();
                                     break;
                                 case "Address":
-                                    TheaterDB.this.theater.Address = (String) attrs.getValue();
+                                    MovieTheatersDB.this.theater.Address = (String) attrs.getValue();
                                     break;
                                 case "Name":
-                                    TheaterDB.this.theater.Name = (String) attrs.getValue();
+                                    MovieTheatersDB.this.theater.Name = (String) attrs.getValue();
                                     break;
                                 case "Number":
-                                    TheaterDB.this.theater.Number = (String) attrs.getValue();
+                                    MovieTheatersDB.this.theater.Number = (String) attrs.getValue();
                                     break;
                                 case "InTheaters":
                                     List<InTheater> inTheaters = new ArrayList<>();
@@ -79,15 +84,15 @@ public class TheaterDB extends DatabaseService {
                                         }
                                         inTheaters.add(new InTheater(movies.getKey(), tickets));
                                     }
-                                    TheaterDB.this.theater.InTheaters = inTheaters;
+                                    MovieTheatersDB.this.theater.InTheaters = inTheaters;
 
                                     break;
 
                             }
-                            TheaterDB.this.theater.City = city.getKey();
+                            MovieTheatersDB.this.theater.City = city.getKey();
 
                         }
-                        theaterMap.put(theater.getKey(), TheaterDB.this.theater);
+                        theaterMap.put(theater.getKey(), MovieTheatersDB.this.theater);
                     }
                     allTheatersMap.put(city.getKey(), theaterMap);
                 }

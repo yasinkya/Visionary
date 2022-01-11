@@ -37,11 +37,11 @@ public class AllMoviesActivity extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
 
         spinner = findViewById(R.id.spinner);
-        String[] arraySpinner = new String[] {
+        String[] categoriesSpinner = new String[] {
                 "All", "Korku", "Aksiyon", "Macera", "Aile", "Komedi", "Animasyon", "Romantik", "Dram", "Suç", "Bilim Kurgu"
         };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arraySpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, categoriesSpinner);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -59,6 +59,7 @@ public class AllMoviesActivity extends AppCompatActivity {
 
     }
 
+    /* spinnerdan seçilen kategoriye göre filmleri view'a adaptör ile aktar */
     void setRecycler(String category){
         recyclerView = findViewById(R.id.favorites_main_recycle);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);

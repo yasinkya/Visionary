@@ -115,8 +115,10 @@ public class InTheatersActivity extends AppCompatActivity {
 
     }
 
+    /* sinema salonundaki vizyondaki filmler isimleri listesine göre veri tabanından ilgili filmleri
+    çek ve view'a movierecycler adapter ile aktar
+     */
     void setRecycler() {
-
         recyclerView = findViewById(R.id.intheaters_main_recycle);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);

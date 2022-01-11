@@ -100,7 +100,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         nestedScrollView = findViewById(R.id.nested_scroll);
         appBarLayout = findViewById(R.id.appbarLayout);
 
-        fetchBannerItems("");
+        setSlidingWindow("");
 
         categoryTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -108,16 +108,16 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 switch(tab.getPosition()){
                     case 0:
                         setScrDef();
-                        fetchBannerItems("vizyon");
+                        setSlidingWindow("vizyon");
                         break;
                     case 1:
                         setScrDef();
-                        fetchBannerItems("soon");
+                        setSlidingWindow("soon");
 
                         break;
                     case 2:
                         setScrDef();
-                        fetchBannerItems("top");
+                        setSlidingWindow("top");
                         break;
                 }
             }
@@ -132,7 +132,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
     }
 
-
+    /* menüde seçilen iteme göre işlem yap */
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -149,7 +149,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 intent.putExtra("username", user.UserName);
                 this.startActivity(intent);
                 break;
-            case R.id.menu_theaters:
+            case R.id.menu_movie_theaters:
                 intent = new Intent(MainPageActivity.this, CityTheaterActivity.class);
                 intent.putExtra("user", user.UserName);
                 this.startActivity(intent);
@@ -184,10 +184,11 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
 
     //CATEGORY PAGE
-    private void fetchAllCategories() {
+    private void setCategories() {
         List<Movie> HorrorCat = new ArrayList<>();
         List<Movie> ActionCat = new ArrayList<>();
         List<Movie> ComediCat = new ArrayList<>();
+        List<Movie> AnimationCat = new ArrayList<>();
         List<Movie> FamilyCat = new ArrayList<>();
         List<Movie> DramCat = new ArrayList<>();
 
@@ -196,16 +197,19 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                 if(m.Genre.contains("Korku")){
                     HorrorCat.add(m);
                 }
-                else if(m.Genre.contains("Aksiyon")){
+                if(m.Genre.contains("Aksiyon")){
                     ActionCat.add(m);
                 }
-                else if(m.Genre.contains("Komedi")){
+                if(m.Genre.contains("Animasyon")){
+                    AnimationCat.add(m);
+                }
+                if(m.Genre.contains("Komedi")){
                     ComediCat.add(m);
                 }
-                else if(m.Genre.contains("Aile")){
+                if(m.Genre.contains("Aile")){
                     FamilyCat.add(m);
                 }
-                else if(m.Genre.contains("Dram")){
+                if(m.Genre.contains("Dram")){
                     DramCat.add(m);
                 }
             }
@@ -216,11 +220,12 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         allCategoriesList.add(new AllCategories(0, "Horror", HorrorCat));
         allCategoriesList.add(new AllCategories(0, "Action", ActionCat));
         allCategoriesList.add(new AllCategories(0, "Comedy", ComediCat));
+        allCategoriesList.add(new AllCategories(0, "Animation", AnimationCat));
         setCategoriesMainRecycler(allCategoriesList);
 
     }
 
-    // Set recycler
+    // Kategori sayfasının recyclerı
     private void setCategoriesMainRecycler(List<AllCategories> allCategoriesList){
         recyclerView = findViewById(R.id.main_recycle);
         RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
@@ -237,8 +242,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     }
 
 
-    //BANNERS PAGE
-    private void fetchBannerItems(String element) {
+    // kayan pencere itemlerini ayarlama
+    private void setSlidingWindow(String element) {
         mbannersList = new ArrayList<>();
 
         if (allMovies.size() == 0){
@@ -248,38 +253,38 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
                     mbannersList.add(allMovies.get(i));
                 }
 
-                setBannerPageAdapter(mbannersList);
-                fetchAllCategories();
+                setSlidingWindowAdapter(mbannersList);
+                setCategories();
 
             });
         }
 
+        switch (element) {
+            case "soon":
+                for (int i = 25; i < 30; i++) {
+                    mbannersList.add(allMovies.get(i));
+                }
+                setSlidingWindowAdapter(mbannersList);
 
-        if (element.equals("soon")){
-            for (int i =25; i<30; i ++){
-                mbannersList.add(allMovies.get(i));
-            }
-            setBannerPageAdapter(mbannersList);
-
-        }
-        else if(element.equals("top")){
-            for (int i =40; i<45; i ++){
-                mbannersList.add(allMovies.get(i));
-            }
-            setBannerPageAdapter(mbannersList);
-        }
-        else if (element.equals("vizyon")){
-            for (int i =47; i<53; i ++){
-                mbannersList.add(allMovies.get(i));
-            }
-
-            setBannerPageAdapter(mbannersList);
+                break;
+            case "top":
+                for (int i = 40; i < 45; i++) {
+                    mbannersList.add(allMovies.get(i));
+                }
+                setSlidingWindowAdapter(mbannersList);
+                break;
+            case "vizyon":
+                for (int i = 47; i < 53; i++) {
+                    mbannersList.add(allMovies.get(i));
+                }
+                setSlidingWindowAdapter(mbannersList);
+                break;
         }
 
 
     }
 
-    private void setBannerPageAdapter(List<Movie> listBanners){
+    private void setSlidingWindowAdapter(List<Movie> listBanners){
 
         timerSlide =new Timer();
         timerSlide.scheduleAtFixedRate(new AutoSlider(),10000,12000);
@@ -291,7 +296,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         indicatorTab.setupWithViewPager(bannerPageView);
     }
 
-    // BANNER PAGE OUTO SLİDE NEXT
+    // otomatik değiştirme
     class AutoSlider extends TimerTask {
         @Override
         public void run() {

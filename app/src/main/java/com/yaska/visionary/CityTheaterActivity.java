@@ -13,7 +13,7 @@ import android.widget.ArrayAdapter;
 
 import android.widget.ListView;
 
-import com.yaska.visionary.database.TheaterDB;
+import com.yaska.visionary.database.MovieTheatersDB;
 import com.yaska.visionary.model.Theater;
 
 import java.text.Collator;
@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class CityTheaterActivity extends AppCompatActivity {
 
-    TheaterDB database;
+    MovieTheatersDB database;
 
     String currentCity, currentTheater, user;
     List<String> cities;
@@ -45,12 +45,12 @@ public class CityTheaterActivity extends AppCompatActivity {
 
         user = getIntent().getStringExtra("user");
 
-        database = new TheaterDB();
+        database = new MovieTheatersDB();
         upButton = findViewById(R.id.btnUpcity);
         listViewCities = findViewById(R.id.citiesListView);
         listViewTheaters = findViewById(R.id.theatersListView);
 
-
+        /* veri tabanından şehileri ve sinema salınlarını getir ve onları list viewa aktar */
         database.getCityTheaters(getCityTheaters -> {
             allTheatersMap = database.allTheatersMap;
             cities = new ArrayList<>(allTheatersMap.keySet());
@@ -62,6 +62,8 @@ public class CityTheaterActivity extends AppCompatActivity {
             listViewCities.setAdapter(adapter);
         });
 
+        /* şehir seçimi yapıldıktan sonra zaten çekilmiş olan veri map'inden şehirin altında bulunan
+        * sinema salonlarını ikinci listviea'a aktar ve ilk listviewı görünmez yap */
         listViewCities.setOnItemClickListener((parent, view, position, id) -> {
 
             listViewCities.setVisibility(View.GONE);
@@ -75,6 +77,9 @@ public class CityTheaterActivity extends AppCompatActivity {
 
         });
 
+        /* şehir seçimi ve salon seçimi yapıldıktan sonra ilgili salonun bilgilerini görmek için
+        sayfayı intheaters'a değiştir
+         */
         listViewTheaters.setOnItemClickListener((parent, view, pos, id) ->{
             currentTheater = (String) listViewTheaters.getItemAtPosition(pos);
             changeIntentTo(currentCity,
@@ -82,10 +87,12 @@ public class CityTheaterActivity extends AppCompatActivity {
 
         });
 
+        /* ilk listview görünmezse görünür yap */
         upButton.setOnClickListener(v -> listViewCities.setVisibility(View.VISIBLE));
 
     }
 
+    /* salon seçimin yapıldıktan sonra ilgili salonun sayfasına git */
     public void changeIntentTo(String currentCity, Theater currentTheater){
         Intent intent = new Intent(CityTheaterActivity.this, InTheatersActivity.class);
         intent.putExtra("user", user);
@@ -95,7 +102,7 @@ public class CityTheaterActivity extends AppCompatActivity {
 
 
     }
-
+    /* geri tuşuna basıldığında ilk listview görünmezse görünür yap */
     @Override
     public void onBackPressed() {
         if (listViewCities.getVisibility() == View.GONE)

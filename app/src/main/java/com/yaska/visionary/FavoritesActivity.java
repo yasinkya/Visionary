@@ -12,6 +12,8 @@ import com.yaska.visionary.database.UserDB;
 
 public class FavoritesActivity extends AppCompatActivity {
 
+    /* kullanıcının favorilerini görebileceği sayfa */
+
     UserDB userDB;
     String username;
     RecyclerView recyclerView;
@@ -31,6 +33,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     }
 
+    /* favorileirndeki filmleri veri tabanından çekip view'a movierecycler adapterı ile aktar */
     void setRecycler(){
         recyclerView = findViewById(R.id.favorites_main_recycle);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);

@@ -6,7 +6,6 @@ public class AllCategories {
 
     Integer categoryId;
     String categoryTitle;
-//    private List<CategoryItem> categoryItemList=null;
     private List<Movie> categoryItemList=null;
 
     public AllCategories(Integer categoryId, String categoryTitle, List<Movie> categoryItemList) {

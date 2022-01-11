@@ -19,6 +19,8 @@ import java.util.Map;
 
 public class UserDB extends DatabaseService {
 
+    /* Kullanıcı veri tabanı kullanıcını bilgilerini güncellemeye, silmeyei bilgilier getirmeye yarar*/
+
     Map<String, User> usermap;
     DatabaseReference usersref;
     public User returnUser;
@@ -30,29 +32,55 @@ public class UserDB extends DatabaseService {
 
     }
 
-
+    /* login sayfasında yeni bir kullanıcının kaydını veri tabanına aktarır*/
     public void new_user(User user, String username){
         usermap = new HashMap<>();
         usermap.put("Account", user);
         usersref.child(username).setValue(usermap);
     }
 
+    /* tüm hesap bilgilerini siler */
     public void delete_user(String userName){
         usersref.child(userName).removeValue();
     }
 
+    /* kullanıcı şifresini sıfırlar */
     public void reset_password(String username, String newpass){
         usersref.child(username).child("Account").child("Password").setValue(newpass);
     }
 
+    /* kullanıcının tüm bilgilerini günceller */
     public void update_user(User user){
         usersref.child(user.UserName).child("Account").setValue(user);
     }
 
+    /* uygulamaya giriş yapan son kullanıcının kullanıcı adını veri tabanına kaydeder
+    kullanıcı uygulamayı tekrar açtığında giriş yapmış olarak karşılanır
+     */
     public void changeLastLogin(String username){
         usersref.child("LastLogin").setValue(username);
     }
 
+    /* son giriş yapan kullanıcıyı geri dönder */
+    public void getLastUser(final GetLastUserCallback getLastUserCallback){
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lastUser = (String) snapshot.child("LastLogin").getValue();
+                getLastUserCallback.onCallBack(lastUser);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        usersref.addListenerForSingleValueEvent(valueEventListener);
+    }
+
+    /* girilern kullanıcı adı veritabanında ver mı kontrol edilir
+    şifre sıfırlama için
+     */
     public void check_user(String userName, final UserCallback userCallback){
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -80,6 +108,7 @@ public class UserDB extends DatabaseService {
         usersref.addValueEventListener(valueEventListener);
     }
 
+    /* giriş yapmaya çalışan kullanıcın kullancı adı ve şifresi kontrol edilir ve geri dönülür */
     public void checkUserPass(String username, String pass, final CheckPassCallback checkPassCallback){
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -109,6 +138,7 @@ public class UserDB extends DatabaseService {
         usersref.addListenerForSingleValueEvent(valueEventListener);
     }
 
+    /* giriş yapan kullanıcın bilgisi geri dönderilir*/
     public void getUser(String username, final GetUserCallback getUserCallback){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
@@ -125,29 +155,16 @@ public class UserDB extends DatabaseService {
         };
         usersref.addListenerForSingleValueEvent(valueEventListener);
     }
-    
-    public void getLastUser(final GetLastUserCallback getLastUserCallback){
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                lastUser = (String) snapshot.child("LastLogin").getValue();
-                getLastUserCallback.onCallBack(lastUser);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        };
-        usersref.addListenerForSingleValueEvent(valueEventListener);
-    }
-
+    /* kullanıcı filmleri favorilerine ekler*/
     public void addFavMovie(String username, Movie movie){
         usersref.child(username).child("favorites").child(movie.Name).setValue(movie);
     }
+    /* favorilerinden çıkarır*/
     public void removeFavMovie(String username, String movieName){
         usersref.child(username).child("favorites").child(movieName).removeValue();
     }
+    /* favorilerine eklediği filmleir geri dönder*/
     public void checkFavMovies(String username, GetFavMoviesCallback getFavMoviesCallback){
         favMovies = new ArrayList<>();
         ValueEventListener valueEventListener = new ValueEventListener() {

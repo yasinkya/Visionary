@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class DatabaseService {
 
+    /* Genel database bağlantısı, referansı ve verilerin çekilmesiyle ilgili Callback interface'leri */
+
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
 

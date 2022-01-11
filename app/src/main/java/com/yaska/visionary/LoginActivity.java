@@ -81,28 +81,26 @@ public class LoginActivity extends AppCompatActivity {
             String username = et_username.getText().toString();
             String password = et_password.getText().toString();
 
-            // Sing up
+            // Kayıt olma senaryosu
             if (signupclicked){
                 String name = et_name.getText().toString();
                 String surname = et_surname.getText().toString();
                 String mail = et_mail.getText().toString();
 
                 if(username.equals("") || password.equals("") || name.equals("") || surname.equals("") || mail.equals("")){
-                    Toast.makeText(LoginActivity.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
+                    makeToast("Bilgileri Boş Bırakmayınız!");
                 }
                 else{
-                    Toast.makeText(LoginActivity.this, "kayıt olunuyor", Toast.LENGTH_SHORT).show();
                     user = new User(name, surname, mail, username, password);
                     userdataBase.new_user(user, username);
-//                    userdataBase.change_last_login(username);
                     changeIntent(user);
                 }
 
             }
-            // Login
+            // Giriş yapma
             else{
                 if(username.equals("") || password.equals("")){
-                    Toast.makeText(LoginActivity.this, "Bilgileri Boş Bırakmayınız!", Toast.LENGTH_SHORT).show();
+                    makeToast("Bilgileri Boş Bırakmayınız!");
                 }
                 else{
                     userdataBase.checkUserPass(username, password, result -> {
@@ -112,14 +110,12 @@ public class LoginActivity extends AppCompatActivity {
                                 user = userdataBase.returnUser;
                                 makeToast("Welcome "+user.UserName);
                                 changeIntent(user);
-
                             });
                         }
                         else if (checkResult.equals("wp"))
-                            Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                            makeToast("Wrong Password");
                         else
-                            Toast.makeText(LoginActivity.this, "User Not Found", Toast.LENGTH_SHORT).show();
-
+                            makeToast("User Not Found");
 
                     });
 
@@ -146,9 +142,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btn_forgot.setOnClickListener(v -> {
-            showResetPassDialog();
-        });
+        btn_forgot.setOnClickListener(v -> showResetPassDialog());
 
 
 
@@ -215,7 +209,7 @@ public class LoginActivity extends AppCompatActivity {
         this.startActivity(intent);
     }
 
-
+    /* son giriş yapan kullanıcyı kontrol et varsa giriş yap */
     private void checkLastLogin(){
         userdataBase.getLastUser(getLastUser -> {
             lastUser = userdataBase.lastUser;

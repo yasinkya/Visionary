@@ -14,22 +14,33 @@ import java.util.List;
 
 public class MovieDB extends DatabaseService{
 
+    /* Bu databse child'ı veritabanındaki filmleri getimek için kullanılır */
+
     DatabaseReference databaseRef;
-    public List<Movie> movieList = new ArrayList<>();
     public Movie movie;
+    public List<Movie> movieList = new ArrayList<>();
 
     public MovieDB(){
         databaseRef = ref.child("Movies");
     }
 
+    /* Bu fonksiyon sadece isteniler, isimleri bilinen filmleri veritabanından çeker */
     public void getMoviesList(List<String> movieNames, final GetMoviesListCallback getMoviesListCallback){
+
+        /* Listener ayarla */
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                /* bu listener için veritabaındaki filmlerin tamamını gez */
                 for (DataSnapshot mov: snapshot.getChildren()){
+
+                    /* Sırasıyla gezilen filmler için filmin adı, istenilen film listesinde varsa */
                     if (movieNames.contains(mov.getKey())){
+
+                        /* Yeni bir Movie nesnesi yarat ve o nesnenin özelliklerini doldur */
                         movie = new Movie();
+
                         movie.Name = mov.getKey();
                         List<Actor> actors = new ArrayList<>();
                         for (DataSnapshot attr:mov.getChildren()){
@@ -68,10 +79,13 @@ public class MovieDB extends DatabaseService{
                                     break;
                             }
                         }
+
+                        /* Özellikleri ayarlanan nesneyi geri dönderilecek olan listeye aktar */
                         movieList.add(movie);
                     }
                 }
 
+                /* DatabaseService classındaki Callback'i çağır */
                 getMoviesListCallback.onCallback(movieList);
             }
 
@@ -83,13 +97,19 @@ public class MovieDB extends DatabaseService{
         databaseRef.addListenerForSingleValueEvent(valueEventListener);
     }
 
+    /* Bu fonksiyon veritabından tüm filmleri bir liste olarak çeker */
     public void retMoviesList(final GetMoviesListCallback getMoviesListCallback){
+
+        /* Listener ayarla */
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                /* Veritabnındaki her bir filmi gez */
+
                 for (DataSnapshot mov: snapshot.getChildren()){
 
+                    /* yeni bir movie nesnesi oluştur özelliklerini ayarla ve geri dönderilecek listeye aktar */
                     movie = new Movie();
                     movie.Name = mov.getKey();
                     List<Actor> actors = new ArrayList<>();
@@ -136,6 +156,7 @@ public class MovieDB extends DatabaseService{
                     movieList.add(movie);
                 }
 
+                /* Callback'i çağır */
                 getMoviesListCallback.onCallback(movieList);
             }
 

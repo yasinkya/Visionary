@@ -12,11 +12,11 @@
             />
         <item
             android:id="@+id/menu_allmovies"
-            android:title="All Movies"
+            android:title="@string/all_movies"
             android:icon="@drawable/icon_allmovies"/>
         <item
-            android:id="@+id/menu_theaters"
-            android:title="@string/theaters"
+            android:id="@+id/menu_movie_theaters"
+            android:title="@string/movie_theaters"
             android:icon="@drawable/icon_theaters"/>
         <item
             android:id="@+id/menu_favorites"

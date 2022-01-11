@@ -66,17 +66,12 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
-        btn_update.setOnClickListener(v -> {
-            showDialog("update");
-        });
-        btn_delete.setOnClickListener(v -> {
-            showDialog("delete");
-        });
-
-
-
+        btn_update.setOnClickListener(v -> showDialog("update"));
+        btn_delete.setOnClickListener(v -> showDialog("delete"));
 
     }
+
+    /* açılan diyalog kullanıcının seçtiği işleme göre benzer ama farklı görevler yapar */
     void showDialog(String opt){
         final Dialog dialog = new Dialog(AccountActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -97,9 +92,7 @@ public class AccountActivity extends AppCompatActivity {
         btn_cancel = dialog.findViewById(R.id.btn_cancel);
         btn_yes = dialog.findViewById(R.id.btn_yes);
 
-        btn_cancel.setOnClickListener(v -> {
-            dialog.dismiss();
-        });
+        btn_cancel.setOnClickListener(v -> dialog.dismiss());
 
         btn_yes.setOnClickListener(v -> {
             switch (opt){

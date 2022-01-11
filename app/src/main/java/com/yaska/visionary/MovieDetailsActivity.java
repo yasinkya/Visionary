@@ -165,6 +165,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 }
             }
         }
+
         if (currentMovie.VideId != null)
             videoId = currentMovie.VideId;
         else

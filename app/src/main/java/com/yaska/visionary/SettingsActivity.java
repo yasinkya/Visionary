@@ -33,11 +33,11 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         application.setOnClickListener(v -> {
-            intent = new Intent(SettingsActivity.this, AppSettingsActivity.class);
+            intent = new Intent(SettingsActivity.this, HelpAboutActivity.class);
             this.startActivity(intent);
         });
         help.setOnClickListener(v -> {
-            intent = new Intent(SettingsActivity.this, AppSettingsActivity.class);
+            intent = new Intent(SettingsActivity.this, HelpAboutActivity.class);
             this.startActivity(intent);
         });
 
