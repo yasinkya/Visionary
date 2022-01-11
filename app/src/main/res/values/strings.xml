@@ -53,5 +53,6 @@
     <string name="cancel">cancel</string>
     <string name="update_account">Update Account</string>
     <string name="title_activity_settings2">SettingsActivity2</string>
+    <string name="all_movies">All Movies</string>
 
 </resources>

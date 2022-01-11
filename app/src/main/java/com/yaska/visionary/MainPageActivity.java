@@ -23,16 +23,14 @@ import android.widget.Toast;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.core.ThreadInitializer;
 import com.yaska.visionary.adapter.BannerPageAdapter;
 import com.yaska.visionary.adapter.MainRecyclerAdapter;
 import com.yaska.visionary.database.MovieDB;
 import com.yaska.visionary.model.AllCategories;
-import com.yaska.visionary.model.Banners;
-import com.yaska.visionary.model.CategoryItem;
 import com.yaska.visionary.model.Movie;
 import com.yaska.visionary.model.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -147,8 +145,10 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
             case R.id.menu_search:
                 Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.menu_top:
-                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            case R.id.menu_allmovies:
+                intent = new Intent(MainPageActivity.this, AllMoviesActivity.class);
+                intent.putExtra("allmovies", (Serializable) allMovies);
+                this.startActivity(intent);
                 break;
             case R.id.menu_favorites:
                 intent = new Intent(MainPageActivity.this, FavoritesActivity.class);

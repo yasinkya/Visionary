@@ -15,9 +15,9 @@
             android:title="@string/search"
             android:icon="@drawable/icon_search"/>
         <item
-            android:id="@+id/menu_top"
-            android:title="@string/top"
-            android:icon="@drawable/icon_top"/>
+            android:id="@+id/menu_allmovies"
+            android:title="All Movies"
+            android:icon="@drawable/icon_allmovies"/>
         <item
             android:id="@+id/menu_theaters"
             android:title="@string/theaters"

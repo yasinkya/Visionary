@@ -52,7 +52,7 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
         holder.movieProducer.setText(movieList.get(position).Producer);
         holder.movieGenre.setText(movieList.get(position).Genre);
         holder.movieTime.setText(movieList.get(position).Time);
-        
+
         if(movieList.get(position).Actors != null){
             List<String> actors = new ArrayList<>();
 
