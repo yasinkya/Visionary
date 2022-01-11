@@ -3,6 +3,7 @@ package com.yaska.visionary;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.view.GravityCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -38,14 +39,14 @@ import java.util.TimerTask;
 public class MainPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     User user;
-    TextView menu_username;
-
     MovieDB moviedatabase = new MovieDB();
 
     List<Movie> allMovies = new ArrayList<>();
     List<Movie> mbannersList;
     List<AllCategories> allCategoriesList = new ArrayList<>();
 
+    TextView menu_username;
+    AppCompatButton btn_openmenu;
     SlidingViewAdapter slidingViewAdapter;
     TabLayout indicatorTab, categoryTab;
     ViewPager bannerPageView;
@@ -99,6 +100,9 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         categoryTab = findViewById(R.id.tablay);
         nestedScrollView = findViewById(R.id.nested_scroll);
         appBarLayout = findViewById(R.id.appbarLayout);
+
+        btn_openmenu = findViewById(R.id.btn_openmenu);
+        btn_openmenu.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
         setSlidingWindow("");
 
