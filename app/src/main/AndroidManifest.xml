@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Visionary"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".SearchActivity"
+            android:exported="true" />
+        <activity
             android:name=".AllMoviesActivity"
             android:exported="true" />
         <activity

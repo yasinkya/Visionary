@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -143,11 +144,16 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
 
                 break;
             case R.id.menu_search:
-                Toast.makeText(MainPageActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainPageActivity.this, SearchActivity.class);
+                intent.putExtra("username", user.UserName);
+                intent.putExtra("allmovies", (Serializable) allMovies);
+                this.startActivity(intent);
+
                 break;
             case R.id.menu_allmovies:
                 intent = new Intent(MainPageActivity.this, AllMoviesActivity.class);
                 intent.putExtra("allmovies", (Serializable) allMovies);
+                intent.putExtra("username", user.UserName);
                 this.startActivity(intent);
                 break;
             case R.id.menu_favorites:
