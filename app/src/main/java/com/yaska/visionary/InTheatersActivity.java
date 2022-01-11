@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
+import com.yaska.visionary.adapter.MovieRecyclerAdapter;
 import com.yaska.visionary.database.MovieDB;
 import com.yaska.visionary.model.InTheater;
 import com.yaska.visionary.model.Movie;
@@ -29,7 +29,7 @@ public class InTheatersActivity extends AppCompatActivity {
     List<Movie> movies = new ArrayList<>();
 
     RecyclerView recyclerView;
-    InTheatersRecyclerAdapter recyclerAdapter;
+    MovieRecyclerAdapter recyclerAdapter;
 
     TextView tv_cityName, tv_theaterName, tv_theaterAddress, tv_theaterNumber;
     ImageView iv_threeD, iv_dolby, iv_phoneSale, iv_parking, iv_airCond, iv_cafe;
@@ -124,7 +124,7 @@ public class InTheatersActivity extends AppCompatActivity {
         moviedatabase.getMoviesList(movieNames, getMoviesList -> {
             movies = moviedatabase.movieList;
 
-            recyclerAdapter = new InTheatersRecyclerAdapter(this, movies, user);
+            recyclerAdapter = new MovieRecyclerAdapter(this, movies, user);
             recyclerView.setAdapter(recyclerAdapter);
         });
 

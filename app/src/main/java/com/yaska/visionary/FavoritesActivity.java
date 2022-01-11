@@ -7,16 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
+import com.yaska.visionary.adapter.MovieRecyclerAdapter;
 import com.yaska.visionary.database.UserDB;
-import com.yaska.visionary.model.Movie;
 
 public class FavoritesActivity extends AppCompatActivity {
 
     UserDB userDB;
     String username;
     RecyclerView recyclerView;
-    InTheatersRecyclerAdapter recyclerAdapter;
+    MovieRecyclerAdapter recyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class FavoritesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         userDB.checkFavMovies(username, getFavMovies -> {
-            recyclerAdapter = new InTheatersRecyclerAdapter(this, userDB.favMovies, username);
+            recyclerAdapter = new MovieRecyclerAdapter(this, userDB.favMovies, username);
             recyclerView.setAdapter(recyclerAdapter);
         });
     }

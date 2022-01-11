@@ -13,18 +13,16 @@ import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.yaska.visionary.adapter.BannerPageAdapter;
+import com.yaska.visionary.adapter.SlidingViewAdapter;
 import com.yaska.visionary.adapter.MainRecyclerAdapter;
 import com.yaska.visionary.database.MovieDB;
 import com.yaska.visionary.model.AllCategories;
@@ -48,7 +46,7 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
     List<Movie> mbannersList;
     List<AllCategories> allCategoriesList = new ArrayList<>();
 
-    BannerPageAdapter bannerPageAdapter;
+    SlidingViewAdapter slidingViewAdapter;
     TabLayout indicatorTab, categoryTab;
     ViewPager bannerPageView;
 
@@ -141,14 +139,6 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         Intent intent;
         switch (item.getItemId()){
             case R.id.menu_home:
-
-                break;
-            case R.id.menu_search:
-                intent = new Intent(MainPageActivity.this, SearchActivity.class);
-                intent.putExtra("username", user.UserName);
-                intent.putExtra("allmovies", (Serializable) allMovies);
-                this.startActivity(intent);
-
                 break;
             case R.id.menu_allmovies:
                 intent = new Intent(MainPageActivity.this, AllMoviesActivity.class);
@@ -298,8 +288,8 @@ public class MainPageActivity extends AppCompatActivity implements NavigationVie
         indicatorTab.setupWithViewPager(bannerPageView,true);
 
         bannerPageView = findViewById(R.id.bannerView);
-        bannerPageAdapter = new BannerPageAdapter(this, listBanners, user.UserName);
-        bannerPageView.setAdapter(bannerPageAdapter);
+        slidingViewAdapter = new SlidingViewAdapter(this, listBanners, user.UserName);
+        bannerPageView.setAdapter(slidingViewAdapter);
         indicatorTab.setupWithViewPager(bannerPageView);
     }
 

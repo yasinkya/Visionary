@@ -1,4 +1,4 @@
-package com.yaska.visionary.adapter.InTheaters;
+package com.yaska.visionary.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +24,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRecyclerAdapter.MainViewHolder> {
+public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdapter.MainViewHolder> {
 
 
 
@@ -32,7 +32,7 @@ public class InTheatersRecyclerAdapter extends RecyclerView.Adapter<InTheatersRe
     List<Movie> movieList;
     String username;
 
-    public InTheatersRecyclerAdapter(Context context, List<Movie> movieList, String username) {
+    public MovieRecyclerAdapter(Context context, List<Movie> movieList, String username) {
         this.context = context;
         this.movieList = movieList;
         this.username = username;

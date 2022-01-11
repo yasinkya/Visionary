@@ -10,12 +10,10 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.yaska.visionary.adapter.InTheaters.InTheatersRecyclerAdapter;
+import com.yaska.visionary.adapter.MovieRecyclerAdapter;
 import com.yaska.visionary.model.Movie;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class AllMoviesActivity extends AppCompatActivity {
     String username;
     List<Movie> allmovies;
     RecyclerView recyclerView;
-    InTheatersRecyclerAdapter recyclerAdapter;
+    MovieRecyclerAdapter recyclerAdapter;
     Spinner spinner;
 
     @Override
@@ -66,7 +64,7 @@ public class AllMoviesActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         if (category.equals("All"))
-            recyclerAdapter = new InTheatersRecyclerAdapter(this, allmovies, username);
+            recyclerAdapter = new MovieRecyclerAdapter(this, allmovies, username);
         else{
             List<Movie> categoryItems = new ArrayList<>();
             for (Movie m: allmovies) {
@@ -76,7 +74,7 @@ public class AllMoviesActivity extends AppCompatActivity {
                     }
                 }
             }
-            recyclerAdapter = new InTheatersRecyclerAdapter(this, categoryItems, username);
+            recyclerAdapter = new MovieRecyclerAdapter(this, categoryItems, username);
         }
         recyclerView.setAdapter(recyclerAdapter);
 

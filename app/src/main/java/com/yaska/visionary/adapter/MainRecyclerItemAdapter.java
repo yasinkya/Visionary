@@ -12,24 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.yaska.visionary.LoginActivity;
 import com.yaska.visionary.MovieDetailsActivity;
 import com.yaska.visionary.R;
-import com.yaska.visionary.model.CategoryItem;
 import com.yaska.visionary.model.Movie;
-import com.yaska.visionary.model.User;
-
-import java.io.Serializable;
 import java.util.List;
 
-public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapter.ItemViewHolder>{
+public class MainRecyclerItemAdapter extends RecyclerView.Adapter<MainRecyclerItemAdapter.ItemViewHolder>{
 
 
     Context context;
     List<Movie> categoryItemList;
     public String user;
 
-    public ItemRecyclerAdapter(Context context, List<Movie> categoryItemList, String user) {
+    public MainRecyclerItemAdapter(Context context, List<Movie> categoryItemList, String user) {
         this.context = context;
         this.categoryItemList = categoryItemList;
         this.user = user;
@@ -59,7 +54,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
         holder.itemImage.setOnClickListener(view -> {
             Intent i =new Intent(context, MovieDetailsActivity.class);
             i.putExtra("user", user);
-            i.putExtra("movie", (Serializable) categoryItemList.get(position));
+            i.putExtra("movie", categoryItemList.get(position));
             context.startActivity(i);
 
         });
